@@ -1,0 +1,13 @@
+*run
+.bat
+run.bat
+*.pdf
+*.pptx
+*.docx
+*.sketch
+*.xlsx
+*.shp
+*.shx
+.DS_Store
+build/node_modules/
+build/package-lock.json
