@@ -376,34 +376,34 @@ div.header-content nav.main-home {
 /* top nav fx start */
 ul hr {
   height: 2px;
-  width: 10%;
+  width: 50%;
   margin: 0 auto 0 0;
   background: #7EC255;
   border: none;
   transition: .3s ease-in-out;
 }
 
-.onWHOHASACCESSWHERE {
+/* .onSection2Anchor {
   margin-left: 25%;
 }
 
-.onWHOENROLLSWHERE {
+.onSection3Anchor {
   margin-left: 65%;
-}
+} */
 
-@media (max-width:53.125em) {
-  .onWHYALGEBRAI {
+/* @media (max-width:53.125em) {
+  .onSection1Anchor {
     margin-left: 5.4%;
   }
 
-  .onWHOHASACCESSWHERE {
+  .onSection2Anchor {
     margin-left: 31%;
   }
 
-  .onWHOENROLLSWHERE {
+  .onSection3Anchor {
     margin-left: 70%;
   }
-}
+} */
 
 .active-nav a {
   opacity: 1 !important;

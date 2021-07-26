@@ -8,7 +8,9 @@
   var pixelsTag = document.querySelector("div.pixels");
   var bodyTag = document.querySelector("body");
   var progressTag = document.querySelector("div.progress");
-  var sections = Array.prototype.slice.call(document.querySelectorAll("section")); // IE patch
+  var sections = Array.prototype.slice.call(
+    document.querySelectorAll("section")
+  ); // IE patch
   var clientTag = document.querySelector("div.client");
   var pageTag = document.querySelector("div.page");
   var headerTag = document.querySelector("header");
@@ -63,18 +65,21 @@
   // how far should we parallax? well, it's a ratio of the middle distance scrolled to the middle point of the anchor
   window.addEventListener("scroll", function () {
     var topViewport = window.pageYOffset;
-    var midViewport = topViewport + (window.innerHeight / 2);
+    var midViewport = topViewport + window.innerHeight / 2;
 
     sections.forEach(function (section) {
       var topSection = section.offsetTop;
-      var midSection = topSection + (section.offsetHeight / 2);
+      var midSection = topSection + section.offsetHeight / 2;
       var distanceToSection = midViewport - midSection;
-      var parallaxTags = Array.prototype.slice.call(section.querySelectorAll("[data-parallax]")); // IE patch
+      var parallaxTags = Array.prototype.slice.call(
+        section.querySelectorAll("[data-parallax]")
+      ); // IE patch
 
       // loop over each parallaxed tag
       parallaxTags.forEach(function (tag) {
         var speed = parseFloat(tag.getAttribute("data-parallax"));
-        tag.style.transform = "translate(0, " + distanceToSection * speed + "px)";
+        tag.style.transform =
+          "translate(0, " + distanceToSection * speed + "px)";
       });
     });
   });
@@ -86,26 +91,29 @@
   var header = document.querySelector("header");
   var mainHome = document.querySelector(".main-home");
   // get a copy of the default edu title link
-  var eduLinkClone = document.querySelector("div.header-content nav a").cloneNode(true);
+  var eduLinkClone = document
+    .querySelector("div.header-content nav a")
+    .cloneNode(true);
   // create the list of nav items with a ul
   var linkList = document.createElement("ul");
-  var hrLine = document.createElement("hr");
-  var linkText = ["WHY ALGEBRA I", "WHO HAS ACCESS & WHERE", "WHO ENROLLS & WHERE"];
+  var anchorLinks = {
+    "SECTION ONE": "Section1Anchor",
+    "SECTION TWO": "Section2Anchor",
+    "SECTION THREE": "Section3Anchor",
+  };
 
-  linkList.appendChild(hrLine);
-
-  linkText.forEach(function (text, index) {
+  Object.keys(anchorLinks).forEach(function (text, index) {
     var listItem = document.createElement("li");
     var listLink = document.createElement("a");
     var textNode = document.createTextNode(text);
 
     if (index === 0) {
-      listItem.setAttribute('class', 'active-nav');
+      listItem.setAttribute("class", "active-nav");
     } else {
-      listItem.setAttribute('class', 'not-active-nav');
+      listItem.setAttribute("class", "not-active-nav");
     }
     listLink.style.lineHeight = "0px";
-    listLink.setAttribute('href', "#" + text.replace(/\s/g, '').replace(/&/g, ""));
+    listLink.setAttribute("href", "#" + anchorLinks[text]);
     listLink.appendChild(textNode);
     listItem.appendChild(listLink);
     linkList.appendChild(listItem);
@@ -113,7 +121,7 @@
 
   // IE polifill
   // Create Element.remove() function if not exist
-  if (!('remove' in Element.prototype)) {
+  if (!("remove" in Element.prototype)) {
     Element.prototype.remove = function () {
       if (this.parentNode) {
         this.parentNode.removeChild(this);
@@ -123,13 +131,18 @@
 
   function changeHeader() {
     // three social icons
-    var socialLinks = Array.prototype.slice.call(document.querySelectorAll(".header-content .social-links")); // IE patch
+    var socialLinks = Array.prototype.slice.call(
+      document.querySelectorAll(".header-content .social-links")
+    ); // IE patch
     // the default edu title link
     var eduLink = document.querySelector(".main-home .edu-link");
     // appended list of nav items
     var linkListElem = document.querySelector(".main-home ul");
 
-    if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
+    if (
+      document.body.scrollTop > 150 ||
+      document.documentElement.scrollTop > 150
+    ) {
       socialLinks.forEach(function (elm) {
         // shrink the header (dictated by social links height)
         elm.style.lineHeight = "65px";
@@ -154,8 +167,7 @@
     }
   }
 
-  window.addEventListener('scroll', changeHeader);
-
+  window.addEventListener("scroll", changeHeader);
 
   // ---
   // scroll spy
@@ -173,43 +185,40 @@
     var yPosition = 0;
 
     while (element) {
-      yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
+      yPosition += element.offsetTop - element.scrollTop + element.clientTop;
       element = element.offsetParent;
     }
 
     return yPosition;
   }
 
-  function spyOnScroll() {
-    var scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+  var hrLine = document.createElement("hr");
 
-    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+  function spyOnScroll() {
+    var scrollPosition =
+      document.documentElement.scrollTop || document.body.scrollTop;
+
+    if (
+      document.body.scrollTop > 200 ||
+      document.documentElement.scrollTop > 200
+    ) {
       for (i in sectionTopHeights) {
         if (sectionTopHeights[i] <= scrollPosition) {
-
-          if (document.querySelector('.active-nav')) {
-            document.querySelector('.active-nav').setAttribute('class', 'not-active-nav');
+          if (document.querySelector(".active-nav")) {
+            document
+              .querySelector(".active-nav")
+              .setAttribute("class", "not-active-nav");
           }
           if (document.querySelector("a[href='#" + i + "']")) {
-            document.querySelector("a[href='#" + i + "']").parentElement.setAttribute('class', 'active-nav');
-          }
+            var activeAnchor = document.querySelector("a[href='#" + i + "']");
 
-          // might improve on this to make it more scalable
-          switch (i) {
-            case "WHOHASACCESSWHERE":
-              hrLine.setAttribute('class', 'onWHOHASACCESSWHERE')
-              break;
-            case "WHOENROLLSWHERE":
-              hrLine.setAttribute('class', 'onWHOENROLLSWHERE');
-              break;
-            default:
-              hrLine.setAttribute('class', 'onWHYALGEBRAI');
+            activeAnchor.parentElement.setAttribute("class", "active-nav");
+            activeAnchor.parentElement.prepend(hrLine);
           }
         }
       }
     }
   }
 
-  window.addEventListener('scroll', spyOnScroll);
-
+  window.addEventListener("scroll", spyOnScroll);
 })();
