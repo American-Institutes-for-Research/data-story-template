@@ -1,1377 +1,1137 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- favicon -->
-    <link rel="shortcut icon" type="image/png" href="web/favicon.png" />
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-    <!-- minified production stylesheet -->
-    <link rel="stylesheet" href="build/prod/uglified.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Algebra is a milestone for students' success in science, technology, engineering, and math. Using federal data, the U.S. Department of Education examines 8th graders' access to and enrollment in Algebra I.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <!-- for development, you could uncomment the following and comment out minified stylesheets -->
-    <!-- CSS libs and custom stylesheets -->
-    <!-- <link rel="stylesheet" href="web/css/all.min.css">
-    <link rel="stylesheet" href="web/css/Glyphter.css">
-    <link rel="stylesheet" href="web/css/bootstrap.min.css">
-    <link rel="stylesheet" href="web/css/style.css">
-    <link rel="stylesheet" href="web/css/responsive.css"> -->
+  <title>A Leak in the STEM Pipeline: Taking Algebra Early</title>
 
-    <title>STEM Data Story</title>
+  <!-- SOCIAL
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="A Leak in the STEM Pipeline: Taking Algebra Early">
+  <meta name="twitter:creator" content="@usedgov">
+  <meta name="twitter:description" content="Algebra is a milestone for students' success in science, technology, engineering, and math. Using federal data, we examine 8th graders' access to and enrollment in Algebra I.">
+  <meta name="twitter:image" content="full http(s) image url here">
+
+  <meta property="og:title" content="A Leak in the STEM Pipeline: Taking Algebra Early">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www2.ed.gov/datastory/stem/algebra/index.html">
+  <meta property="og:image" content="full http(s) image url here">
+  <meta property="og:description" content="Algebra is a milestone for students' success in science, technology, engineering, and math. Using federal data, we examine 8th graders' access to and enrollment in Algebra I.">
+
+  <link rel="shortcut icon" type="image/png" href="">
+
+  <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/grids-responsive.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/component.css">
+  <link rel="stylesheet" href="assets/css/Glyphter-font.css">
+  <link rel="stylesheet" href="assets/css/viz-style.css">
+  <link rel="stylesheet" href="assets/css/animate.css">
+
+  <!-- FONT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,500" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+    crossorigin="anonymous">
+
+  <!-- JAVASCRIPT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+  <script src="assets/js/loader.js"></script>
+
+  <!-- Favicon
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <link rel="icon" type="assets/image/ico" href="assets/img/favicon.ico">
+
 </head>
 
 <body>
 
-    <!-- <div class="social-row-spacing"></div> -->
 
-    <!-- hero row -->
-    <div class="container-fluid hero">
-        <div id="hero-bg"></div>
-        <div class="row hero-row">
-            <div class="col-md-6 hero-left">
-                <div class="hero-text">
-                    <h3>DATA STORY</h3>
-                    <h1>Access to Algebra I, the Gateway to STEM</h1>
-                </div>
-            </div>
-            <div class="col-md-6 hero-right">
-                <div class="hero-text">
-                    <h1>U.S. Department of Education</h1>
-                    <h3>Our data, your story</h3>
-                </div>
-            </div>
-        </div>
+  <!-- page loader animation -->
+  <div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section"></div>
+  </div>
+
+  <header style="box-shadow: rgba(34, 34, 42, 0) 0px 1px 1px;" class="changeOpacity">
+    <div class="wrap">
+      <div class="header-content">
+
+        <nav class="main-home">
+          <a class="edu-link" href="">U.S. Department of Education</a>
+        </nav>
+        <nav>
+          <a id="share-facebook" href="" target="_blank" class="social-links"><i class="fab fa-facebook-f"></i></a>
+          <a id="share-twitter" href="" target="_blank" class="social-links"><i class="fab fa-twitter"></i></a>
+          <a href="mailto:?subject=A%20Leak%20in%20the%20STEM%20Pipeline:%20Taking%20Algebra%20Early&amp;body=http%3A%2F%2Fwww2.ed.gov%2Fdatastory%2Fstem%2Falgebra%2Findex.html" target="_blank" class="social-links"><i class="fas fa-envelope"></i></a>
+        </nav>
+      </div>
     </div>
 
-    <!-- social row -->
-    <div class="container-fluid social-row">
-        <div class="row">
-            <div class="col-4 pr-0"></div>
-            <div class="col-4 text-center author-line px-0"><span class="date">September 28, 2018</span></div>
-            <div class="col-4 text-right pl-0">
-                <a id="share-facebook" href="" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a id="share-twitter" href="" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="mailto: eduemail@edu.edu"><i class="fas fa-envelope"></i></a>
-            </div>
+  </header>
+  <div class="progress"></div>
+
+  <main class="mod_scale_fluid">
+
+    <section id="hero" class="intro">
+      <div class="wrap">
+
+        <div id="site__bg"></div>
+        <div class="bigger">
+          <div>
+            <p>In America, <strong>only 24%</strong> of public school students take
+              algebra in 8<sup>th</sup> grade.</p>
+            <a href="#data-story-title">
+              <h3 class="animated delay-2s fadeInDown">
+                <span class="pulse-wave"><i class="fas fa-arrow-down"></i></span>EXPLORE THIS DATA
+                STORY</h3>
+            </a>
+          </div>
         </div>
+
+
+        <img class="logo-overlay animated delay-2s fadeInLeft" src="assets/img/logo-white.svg" alt="U.S. Department of Education seal"
+          data-parallax="-0.3">
+
+        <div class="screen" data-parallax="0.2">
+          <div class="screen-holder"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="title-card" id="data-story-title">
+      <div class="wrap">
+        <div></div>
+        <div class="title-card">
+          <h2>A Leak in the STEM Pipeline: Taking Algebra Early</h2>
+          <h3>NOV 2018 | U.S. DEPARTMENT OF EDUCATION</h3>
+          <p>
+            Algebra is the foundation for students' future success in science, technology, engineering, and math. Do they have the opportunity to
+            take it early? Using national data, we look at students' access to and enrollment in Algebra I in the 8<sup>th</sup>
+            grade.
+          </p>
+
+        </div>
+        <div class="screen" data-parallax="0.3">
+          <div class="screen-holder"></div>
+        </div>
+      </div>
+    </section>
+
+    <article class="narrative-wrap">
+
+      <!-- NARRATIVE GRID
+  ––––––––––––––––––––––––––––––––––––––––––––––––––
+
+  <div class="narrative pure-g">
+
+    <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"></div>
+
+    <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-10-24 pure-u-xl-8-24">
     </div>
 
-    <!-- story body -->
-    <div class="container">
-        <div class="row">
-            <div class="col-12 narrow-div-col">
-                <div class="narrow-div">
-                    In today’s era of technological innovation, students need to gain knowledge and skills in order to
-                    solve difficult problems, gather and evaluate evidence, and make sense of information they receive.
-                    Students can develop and strengthen these skills by studying science, technology, engineering, and
-                    mathematics, or STEM, subjects.<sup>1</sup>
-                </div>
-            </div>
-            <div class="col-12 narrow-div-col">
-                <div class="narrow-div">
-                    STEM education is embedded in the U.S. Department of Education’s (the Department's) mission. The
-                    Secretary of
-                    Education has outlined a <a href="https://www.federalregister.gov/documents/2018/03/02/2018-04291/secretarys-final-supplemental-priorities-and-definitions-for-discretionary-grant-programs"
-                        target="_blank">comprehensive education agenda</a> that includes a
-                    focus on supporting projects
-                    that are designed to improve student achievement or other educational outcomes in one or more of
-                    the
-                    STEM areas, including expanding access to STEM and computer science courses for all students.
-                    Additionally, in September 2017, the President signed a <a href="https://www.whitehouse.gov/presidential-actions/presidential-memorandum-secretary-education/"
-                        target="_blank">Presidential
-                        Memorandum</a> designed to increase
-                    access to high-quality STEM education.
-                </div>
-            </div>
-            <div class="col-12 narrow-div-col">
-                <div class="narrow-div">
-                    While a number of different subjects fall under the STEM umbrella, Algebra I is the focus of
-                    this data story because it is seen as a gatekeeper course. A student must generally complete
-                    Algebra I
-                    in order to take higher level STEM courses.
-                </div>
-            </div>
-            <div class="col-12 narrow-div-col">
-                <div class="narrow-div">
-                    This data story explores both access to and enrollment in Algebra I in public schools using the
-                    2015–2016 Civil Rights Data Collection (CRDC).<sup>2</sup> The data story looks at the types of
-                    schools
-                    that offer Algebra I classes and further drills down to explore the students who actually enroll in
-                    these classes. While the Department is working to increase both access to and enrollment in STEM
-                    courses, as we will see through the story, students who have access to Algebra I classes do not
-                    necessarily enroll in them.
-                </div>
-            </div>
-            <div class="col-12 narrow-div-col">
-                <div class="narrow-div">
-                    <h2>
-                        When students take Algebra I matters&mdash;many students do not have early access.
-                    </h2>
-                </div>
-            </div>
-            <div class="col-12 narrow-div-col">
-                <div class="narrow-div">
-                    Taking Algebra I in 8th grade enables students to take a greater number and range of STEM courses
-                    than
-                    if they complete Algebra I in 9th grade or later because it is typically a prerequisite for more
-                    advanced courses.<sup>3</sup>
-                </div>
-            </div>
-            <div class="col-12 normal-div-col">
-                <div class="normal-div">
-                    <h3>
-                        Only 59 percent of schools offer Algebra I in 8th grade. Access to Algebra I in high school is
-                        more
-                        common, but still not universal.
-                    </h3>
-                </div>
-            </div>
-            <!-- insert chart1 -->
-            <div class="col-12 normal-div-col">
-                <div class="normal-div">
-                    <div class="tab-content">
-                        <div class="tab-pane fade show active" id="pills-chart1" role="tabpanel" aria-labelledby="pills-chart-tab">
-                            <iframe src="visualizations/GradeBar/index.html" class="lazyload" id="chart1-iframe"
-                                scrolling='no' frameborder='0'></iframe>
-                        </div>
-                        <div class="tab-pane fade" id="pills-chart1-table" role="tabpanel" aria-labelledby="pills-table-tab">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div>
-                                        <p class="table-title">
-                                            Number and percentage of schools offering Algebra I classes and with at
-                                            least
-                                            one student enrolled in the class, by grade level: 2015–16
-                                        </p>
-                                    </div>
-                                    <table class="table table-striped table-responsive">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Grade level</th>
-                                                <th scope="col">Total number of schools with grade level</th>
-                                                <th scope="col">Number of schools offering Algebra I</th>
-                                                <th scope="col">Percentage of schools offering Algebra I</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">8th grade</th>
-                                                <td>29,385</td>
-                                                <td>17,323</td>
-                                                <td>59.0</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">9th or 10th grade</th>
-                                                <td>25,773</td>
-                                                <td>21,733</td>
-                                                <td>84.3</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">11th or 12th grade</th>
-                                                <td>25,773</td>
-                                                <td>15,397</td>
-                                                <td>59.7</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <div class="notes-section table-footnote">
-                                        <p class="mb-1">
-                                            Notes: This table is based on data submitted by 50 states and the District
-                                            of
-                                            Columbia
-                                        </p>
-                                        <p>
-                                            Source: U.S. Department of Education, Office for Civil Rights, 2015–16
-                                            Civil
-                                            Rights Data Collection
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <a class="data-links" href="web/data-download/chart-1_access-by-grade-level.csv.zip"
-                                            target="_blank">Download the spreadsheet</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="pills-chart1-info" role="tabpanel" aria-labelledby="pills-info-tab">
-                            <div class="card">
-                                <div class="card-body narrow-div pb-3 notes-section">
-                                    <p class="mb-0">This chart is based on data submitted by 50 states
-                                        and
-                                        the
-                                        District of Columbia. Schools reporting inconsistent data for Algebra I
-                                        enrollment
-                                        for the same grade level were excluded from this analysis.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <ul class="nav nav-pills mb-3" role="tablist">
-                        <li class="data-source">
-                            <p>
-                                Source: Civil Rights Data Collection
-                            </p>
-                        </li>
-                        <li class="nav-item chart-tab">
-                            <a class="nav-link active" id="pills-chart-tab" data-toggle="pill" href="#pills-chart1"
-                                role="tab" aria-controls="pills-chart" aria-selected="true">
-                                <i class="icon-chart-button"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-table-tab" data-toggle="pill" href="#pills-chart1-table" role="tab"
-                                aria-controls="pills-table" aria-selected="false">
-                                <i class="icon-table-button"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-info-tab" data-toggle="pill" href="#pills-chart1-info" role="tab"
-                                aria-controls="pills-info" aria-selected="false">
-                                <i class="icon-outline-button"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!-- chart1 end -->
-            <div class="col-12 narrow-div-col">
-                <div class="narrow-div">
-                    A typical math course sequence would start with Algebra I and continue with Geometry, Algebra II,
-                    Pre-Calculus, and Calculus. Students who do not have access to Algebra I until high school will
-                    likely
-                    not have the opportunity to take any Calculus before they graduate. Research shows that the
-                    percentage
-                    of students entering STEM fields was higher among students who took Trigonometry, Pre-Calculus, or
-                    Calculus in high school.<sup>4</sup>
-                </div>
-            </div>
-            <div class="col-12 narrow-div-col">
-                <div class="narrow-div">
-                    Despite the importance of access to Algebra I in 8th grade, we see that not all students have early
-                    access, reducing the amount of STEM courses they can take before graduation.
-                </div>
-            </div>
-            <div class="col-12 narrow-div-col">
-                <div class="narrow-div">
-                    <h2>
-                        Access to Algebra I in 8th grade is uneven across the country.
-                    </h2>
-                </div>
-            </div>
-            <div class="col-12 narrow-div-col">
-                <div class="narrow-div">
-                    Schools that offer Algebra I in 8th grade provide their students with an opportunity to reach more
-                    advanced math and science courses in high school. However, there is a wide variation in students’
-                    access to Algebra I in 8th grade based on the type of school they attend and where it is located.
-                </div>
-            </div>
-            <div class="col-12 normal-div-col">
-                <div class="normal-div">
-                    <h3>
-                        In general, students enrolled in magnet or traditional public schools were more likely to have
-                        access to Algebra I in 8th grade.
-                    </h3>
-                </div>
-            </div>
-            <!-- insert chart2 -->
-            <div class="col-12 normal-div-col">
-                <div class="normal-div div-w-765">
-                    <div class="tab-content">
-                        <div class="tab-pane fade show active" id="pills-chart2" role="tabpanel" aria-labelledby="pills-chart-tab">
-                            <iframe src="visualizations/SchoolTypeBar/index.html" class="lazyload" id="chart2-iframe"
-                                scrolling='no' frameborder='0'></iframe>
-                        </div>
-                        <div class="tab-pane fade" id="pills-chart2-table" role="tabpanel" aria-labelledby="pills-table-tab">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div>
-                                        <p class="table-title">
-                                            Number and percentage of 8th-graders with access to 8th-grade Algebra I, by
-                                            school type: 2015–16
-                                        </p>
-                                    </div>
-                                    <table class="table table-striped table-responsive">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col"></th>
-                                                <th scope="col">Total number of 8th-graders</th>
-                                                <th scope="col">Number of 8th-graders enrolled in a school that offers
-                                                    8th-grade Algebra I</th>
-                                                <th scope="col">Percentage of 8th-graders enrolled in a school that
-                                                    offers
-                                                    8th-grade Algebra I</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">Total</th>
-                                                <td>3,642,908</td>
-                                                <td>2,899,306</td>
-                                                <td>79.6</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">
-                                                    <p></p>
-                                                </th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row"><b>By school type</b><sup>1</sup></th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Magnet</th>
-                                                <td>202,632</td>
-                                                <td>177,458</td>
-                                                <td>87.6</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Traditional</th>
-                                                <td>3,217,594</td>
-                                                <td>2,594,042</td>
-                                                <td>80.6</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Charter</th>
-                                                <td>204,690</td>
-                                                <td>123,568</td>
-                                                <td>60.4</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Alternative/other</th>
-                                                <td>20,772</td>
-                                                <td>9,160</td>
-                                                <td>44.1</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Vocational</th>
-                                                <td>509</td>
-                                                <td>221</td>
-                                                <td>43.4</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Special education</th>
-                                                <td>7,679</td>
-                                                <td>1,358</td>
-                                                <td>17.7</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <div class="notes-section table-footnote">
-                                        <p class="mb-1">
-                                            <sup>1</sup> School type categories are not mutually exclusive. For
-                                            example, a
-                                            school can
-                                            be both a charter school and a special education school. Traditional
-                                            schools
-                                            are defined in this analysis as regular schools that are not charter,
-                                            magnet,
-                                            special education, vocational, or alternative/other schools. Separate data
-                                            on
-                                            alternative schools and other unspecified schools were not available.
-                                        </p>
-                                        <p class="mb-1">
-                                            Notes: This table is based on data submitted by 50 states and the District
-                                            of
-                                            Columbia. Total number of 8th-graders was from the Common Core of Data
-                                            (CCD);
-                                            therefore, schools that were not found in CCD or whose 8th-grade Algebra I
-                                            enrollment (as reported in CRDC) was lower than their 8th-grade total
-                                            enrollment (as reported in CCD) were excluded from this analysis.
-                                        </p>
-                                        <p>
-                                            Source: U.S. Department of Education, Office for Civil Rights, 2015–16
-                                            Civil
-                                            Rights Data Collection and National Center for Education Statistics, Common
-                                            Core of Data (CCD), "Public Elementary/Secondary School Universe Survey,"
-                                            2015–16.
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <a class="data-links" href="web/data-download/chart-2_access-by-school-type.csv.zip"
-                                            target="_blank">Download the spreadsheet</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="pills-chart2-info" role="tabpanel" aria-labelledby="pills-info-tab">
-                            <div class="card">
-                                <div class="card-body narrow-div pb-3 notes-section">
-                                    <p>This chart is based on data submitted by 50 states and
-                                        the District of Columbia. Schools were excluded from this analysis for the
-                                        following reasons:
-                                    </p>
-                                    <ol>
-                                        <li>The school reported inconsistent data for Algebra I enrollment.</li>
-                                        <li>Missing 8th-grade enrollment data or the 8th-grade Algebra I enrollment
-                                            count was larger than the 8th-grade overall enrollment. </li>
-                                    </ol>
-                                    <p class="mb-0">
-                                        School type categories in this analysis are not mutually exclusive. For
-                                        example, a
-                                        school can be both a charter school and a special education school. Traditional
-                                        schools are defined in this analysis as regular schools that are not charter,
-                                        magnet, special education, vocational, or alternative/other schools. Separate
-                                        data
-                                        on alternative schools and other unspecified schools were not available.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <ul class="nav nav-pills mb-3" role="tablist">
-                        <li class="data-source">
-                            <p>
-                                Source: Civil Rights Data Collection
-                            </p>
-                        </li>
-                        <li class="nav-item chart-tab">
-                            <a class="nav-link active" id="pills-chart-tab" data-toggle="pill" href="#pills-chart2"
-                                role="tab" aria-controls="pills-chart" aria-selected="true">
-                                <i class="icon-chart-button"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-table-tab" data-toggle="pill" href="#pills-chart2-table" role="tab"
-                                aria-controls="pills-table" aria-selected="false">
-                                <i class="icon-table-button"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-info-tab" data-toggle="pill" href="#pills-chart2-info" role="tab"
-                                aria-controls="pills-info" aria-selected="false">
-                                <i class="icon-outline-button"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!-- chart2 end -->
-            <div class="col-12 narrow-div-col">
-                <div class="narrow-div">
-                    Nearly 90 percent of students enrolled in magnet schools had access to Algebra I in 8th grade,
-                    compared
-                    to less than 20 percent of students enrolled in special education schools. This wide variation
-                    shows
-                    that students’ access to STEM education can be greatly impacted by the type of school they attend.
-                </div>
-            </div>
-            <div class="col-12 narrow-div-col">
-                <div class="narrow-div">
-                    In addition to the benefits of taking high-level math courses, research also shows that students
-                    who
-                    completed Algebra I earlier completed a range of science courses by the end of high school.<sup>5</sup>
-                    Since
-                    high-level mathematics and high-level science courses are frequently taken together, students who
-                    have
-                    the opportunity to take more advanced math courses are also more likely to take advanced science
-                    courses. However, some research shows a negative impact of universal 8th-grade Algebra policies on
-                    students’ math achievement in high school.<sup>6</sup>
-                </div>
-            </div>
-            <div class="col-12 normal-div-col">
-                <div class="normal-div">
-                    <h3>
-                        Although differences by urbanicity were small, 8th-graders attending suburban schools were more
-                        likely to have access to Algebra I.
-                    </h3>
-                </div>
-            </div>
-            <!-- insert chart3 -->
-            <div class="col-12 normal-div-col">
-                <div class="normal-div">
-                    <div class="tab-content">
-                        <div class="tab-pane fade show active" id="pills-chart3" role="tabpanel" aria-labelledby="pills-chart-tab">
-                            <iframe src="visualizations/PieChart/index.html" class="lazyload" id="chart3-iframe"
-                                scrolling='no' frameborder='0'></iframe>
-                        </div>
-                        <div class="tab-pane fade" id="pills-chart3-table" role="tabpanel" aria-labelledby="pills-table-tab">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div>
-                                        <p class="table-title">
-                                            Number and percentage of 8th-graders with access to 8th-grade Algebra I, by
-                                            urbanicity: 2015–16
-                                        </p>
-                                    </div>
-                                    <table class="table table-striped table-responsive">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col"></th>
-                                                <th scope="col">Total number of 8th-graders</th>
-                                                <th scope="col">Number of students enrolled in a school that offers
-                                                    8th-grade Algebra I</th>
-                                                <th scope="col">Percentage of students enrolled in a school that offers
-                                                    8th-grade Algebra I</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">Total</th>
-                                                <td>3,642,908</td>
-                                                <td>2,899,306</td>
-                                                <td>79.6</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">
-                                                    <p></p>
-                                                </th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">
-                                                    <b>By urbanicity</b><sup>1</sup>
-                                                </th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Suburban</th>
-                                                <td>1,472,495</td>
-                                                <td>1,264,999</td>
-                                                <td>85.9</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Urban</th>
-                                                <td>1,062,712</td>
-                                                <td>798,217</td>
-                                                <td>75.1</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Rural</th>
-                                                <td>696,631</td>
-                                                <td>522,363</td>
-                                                <td>75.0</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Town</th>
-                                                <td>411,045</td>
-                                                <td>313,727</td>
-                                                <td>76.3</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <div class="notes-section table-footnote">
-                                        <p class="mb-1">
-                                            <sup>1</sup> “Urban” refers to territory inside an Urbanized Area and
-                                            inside a
-                                            Principal City. “Suburban” refers to territory outside a Principal City and
-                                            inside an Urbanized Area. “Town” refers to territory inside an Urban
-                                            Cluster.
-                                            “Rural” refers to Census-defined rural territory. For more information,
-                                            please
-                                            see <a href="https://nces.ed.gov/programs/edge/docs/LOCALE_CLASSIFICATIONS.pdf"
-                                                target="_blank">https://nces.ed.gov/programs/edge/docs/LOCALE_CLASSIFICATIONS.pdf</a>.
-                                        </p>
-                                        <p class="mb-1">
-                                            Notes: This table is based on data submitted by 50 states and the District
-                                            of
-                                            Columbia. Total number of 8th-graders was from the Common Core of Data
-                                            (CCD);
-                                            therefore, schools that were not found in CCD or whose 8th-grade Algebra I
-                                            enrollment (as reported in CRDC) was lower than their 8th-grade total
-                                            enrollment (as reported in CCD) were excluded from this analysis.
-                                        </p>
-                                        <p>
-                                            Source: U.S. Department of Education, Office for Civil Rights, 2015–16
-                                            Civil
-                                            Rights Data Collection and National Center for Education Statistics, Common
-                                            Core of Data (CCD), "Public Elementary/Secondary School Universe Survey,"
-                                            2015–16.
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <a class="data-links" href="web/data-download/chart-3_access-by-urbanicity.csv.zip"
-                                            target="_blank">Download the spreadsheet</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="pills-chart3-info" role="tabpanel" aria-labelledby="pills-info-tab">
-                            <div class="card">
-                                <div class="card-body narrow-div pb-3 notes-section">
-                                    <p>This chart is based on data submitted by 50 states and the District of Columbia.
-                                        Schools were excluded from this analysis for the following reasons:
-                                    </p>
-                                    <ol>
-                                        <li>The school reported inconsistent data for Algebra I enrollment.</li>
-                                        <li>Missing 8th-grade enrollment data or the 8th-grade Algebra I enrollment
-                                            count
-                                            was larger than the 8th-grade overall enrollment. </li>
-                                        <li>Missing urbanicity data.</li>
-                                    </ol>
-                                    <p class="mb-0">
-                                        “Urban” refers to territory inside an Urbanized Area and inside a Principal
-                                        City.
-                                        “Suburban” refers to territory outside a Principal City and inside an Urbanized
-                                        Area. “Town” refers to territory inside an Urban Cluster. “Rural” refers to
-                                        Census-defined rural territory. For more information, please see <a href="https://nces.ed.gov/programs/edge/docs/LOCALE_CLASSIFICATIONS.pdf"
-                                            target="_blank">https://nces.ed.gov/programs/edge/docs/LOCALE_CLASSIFICATIONS.pdf</a>.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <ul class="nav nav-pills mb-3" role="tablist">
-                        <li class="data-source">
-                            <p>
-                                Source: Civil Rights Data Collection
-                            </p>
-                        </li>
-                        <li class="nav-item chart-tab">
-                            <a class="nav-link active" id="pills-chart-tab" data-toggle="pill" href="#pills-chart3"
-                                role="tab" aria-controls="pills-chart" aria-selected="true">
-                                <i class="icon-chart-button"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-table-tab" data-toggle="pill" href="#pills-chart3-table" role="tab"
-                                aria-controls="pills-table" aria-selected="false">
-                                <i class="icon-table-button"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-info-tab" data-toggle="pill" href="#pills-chart3-info" role="tab"
-                                aria-controls="pills-info" aria-selected="false">
-                                <i class="icon-outline-button"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!-- chart3 end -->
-            <div class="col-12 narrow-div-col">
-                <div class="narrow-div">
-                    About 85 percent of students in suburban areas (where the largest percentage of students are
-                    enrolled)
-                    had access to Algebra I in 8th grade, compared to about 75 percent of students in all other areas.
-                </div>
-            </div>
-            <div class="col-12 narrow-div-col">
-                <div class="narrow-div">
-                    While there may not be large differences by urbanicity, when we look at districts across the
-                    nation, we
-                    see interesting patterns in students’ access to Algebra I in 8th grade.
-                </div>
-            </div>
-            <div class="col-12 normal-div-col">
-                <div class="normal-div">
-                    <h3>
-                        About 30 percent of school districts across the nation did not have a single school that
-                        offered
-                        Algebra I in 8th grade.
-                    </h3>
-                </div>
-            </div>
-            <!-- insert chart4 -->
-            <div class="col-12 normal-div-col">
-                <div class="normal-div map-div">
-                    <div class="tab-content">
-                        <div class="tab-pane fade show active" id="pills-chart4" role="tabpanel" aria-labelledby="pills-chart-tab">
-                            <iframe class="lazyload" id="chart4-iframe" scrolling='no' frameborder='0'></iframe>
-                        </div>
-                        <div class="tab-pane fade" id="pills-chart4-table" role="tabpanel" aria-labelledby="pills-table-tab">
-                            <div class="card">
-                                <div class="card-body narrow-div notes-section">
-                                    <div>
-                                        <p>Table spreadsheet view not available due to length. Please use the link below to download the complete table.</p>
-                                        <a class="data-links" href="web/data-download/chart-4_access-map.csv.zip"
-                                            target="_blank">Download
-                                            the spreadsheet</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="pills-chart4-info" role="tabpanel" aria-labelledby="pills-info-tab">
-                            <div class="card">
-                                <div class="card-body narrow-div pb-3 notes-section">
-                                    <p>
-                                        This chart is based on data submitted by 50 states and the District of
-                                        Columbia.
-                                        Schools reporting inconsistent data for Algebra I enrollment were excluded from
-                                        this analysis.
-                                    </p>
-                                    <p>
-                                        This map includes only regular local school districts and local school
-                                        districts
-                                        that are a component of a supervisory union. Data might be missing from the map
-                                        if:
-                                    </p>
-                                    <ol>
-                                        <li>A district did not have schools serving 8th-grade students.</li>
-                                        <li>A district that reported data did not match with the NCES district boundary
-                                            file.</li>
-                                    </ol>
-                                    <p class="mb-0">
-                                        District data displayed on the map may not be based on all schools in the
-                                        district.
-                                        All districts with data have complete and consistent data for at least one
-                                        school
-                                        in the district.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <ul class="nav nav-pills mb-3" role="tablist">
-                        <li class="data-source">
-                            <p>
-                                Source: Civil Rights Data Collection
-                            </p>
-                        </li>
-                        <li class="nav-item chart-tab">
-                            <a class="nav-link active" id="pills-chart-tab" data-toggle="pill" href="#pills-chart4"
-                                role="tab" aria-controls="pills-chart" aria-selected="true">
-                                <i class="icon-chart-button"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-table-tab" data-toggle="pill" href="#pills-chart4-table" role="tab"
-                                aria-controls="pills-table" aria-selected="false">
-                                <i class="icon-table-button"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-info-tab" data-toggle="pill" href="#pills-chart4-info" role="tab"
-                                aria-controls="pills-info" aria-selected="false">
-                                <i class="icon-outline-button"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!-- chart4 end -->
-            <div class="col-12 narrow-div-col">
-                <div class="narrow-div">
-                    This map allows us to dig deeper to see the percentage of schools offering Algebra I in 8th grade
-                    in
-                    each district. Despite wide variations across the country, there are many states across the
-                    Northeast
-                    and along the Atlantic coast where a high percentage of students had access.
-                </div>
-            </div>
-            <div class="col-12 narrow-div-col">
-                <div class="narrow-div">
-                    Next we will explore how access to Algebra I differs from enrollment in Algebra I in 8th grade.
-                </div>
-            </div>
-            <div class="col-12 narrow-div-col">
-                <div class="narrow-div">
-                    <h2>
-                        Enrollment lags behind access&mdash;even when they have access to Algebra I, many 8th-graders
-                        are not
-                        enrolled.
-                    </h2>
-                </div>
-            </div>
-            <div class="col-12 narrow-div-col">
-                <div class="narrow-div">
-                    While access to Algebra I is important, access alone is not enough. Students will not reap the
-                    benefits
-                    of <i>access</i> to more STEM courses if they are not actually <i>enrolled</i> in the courses.
-                    Additionally,
-                    many
-                    states cite taking Algebra I classes (or passing Algebra I exams) as an outcome measure in their
-                    consolidated state plan, which describes how the Every Student Succeeds Act (ESSA) will be
-                    implemented
-                    in their state.
-                </div>
-            </div>
-            <div class="col-12 narrow-div-col">
-                <div class="narrow-div">
-                    There are many factors within a school that may impact how many, and which, students are ultimately
-                    actually enrolled in Algebra I in 8th grade.
-                </div>
-            </div>
-            <div class="col-12 normal-div-col">
-                <div class="normal-div">
-                    <h3>
-                        Overall, only a quarter of all 8th-graders were enrolled in Algebra I. Drilling down suggests a
-                        complicated story of opportunity for different types of students.
-                    </h3>
-                </div>
-            </div>
-            <!-- insert chart5 -->
-            <div class="col-12 normal-div-col">
-                <div class="normal-div div-w-900">
-                    <div class="tab-content">
-                        <div class="tab-pane fade show active" id="pills-chart5" role="tabpanel" aria-labelledby="pills-chart-tab">
-                            <iframe src="visualizations/BarChart/index.html" class="lazyload" id="chart5-iframe"
-                                scrolling='no' frameborder='0'></iframe>
-                        </div>
-                        <div class="tab-pane fade" id="pills-chart5-table" role="tabpanel" aria-labelledby="pills-table-tab">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div>
-                                        <p class="table-title">
-                                            Number and percentage of 8th-graders enrolled in Algebra I, overall and by
-                                            student characteristics: 2015–16
-                                        </p>
-                                    </div>
-                                    <table class="table table-striped table-responsive">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Student characteristics</th>
-                                                <th scope="col">Total number of 8th-graders</th>
-                                                <th scope="col">Number of 8th-graders enrolled in Algebra I</th>
-                                                <th scope="col">Percentage of 8th-graders enrolled in Algebra I </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">Total</th>
-                                                <td>3,642,908</td>
-                                                <td>870,628</td>
-                                                <td>23.9</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">
-                                                    <p></p>
-                                                </th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">
-                                                    <b>By race/ethnicity</b>
-                                                </th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Asian</th>
-                                                <td>147,155</td>
-                                                <td>49,421</td>
-                                                <td>33.6</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">White</th>
-                                                <td>1,427,211</td>
-                                                <td>335,849</td>
-                                                <td>23.5</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Two or more races</th>
-                                                <td>87,925</td>
-                                                <td>19,921</td>
-                                                <td>22.7</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Pacific Islander</th>
-                                                <td>11,262</td>
-                                                <td>1,568</td>
-                                                <td>13.9</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Hispanic</th>
-                                                <td>743,570</td>
-                                                <td>97,139</td>
-                                                <td>13.1</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">American Indian/Alaska Native</th>
-                                                <td>30,773</td>
-                                                <td>3,938</td>
-                                                <td>12.8</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Black</th>
-                                                <td>452,367</td>
-                                                <td>55,457</td>
-                                                <td>12.3</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">
-                                                    <p></p>
-                                                </th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">
-                                                    <b>By gender</b>
-                                                </th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Female</th>
-                                                <td>1,767,756</td>
-                                                <td>441,790</td>
-                                                <td>25.0</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Male</th>
-                                                <td>1,855,158</td>
-                                                <td>409,795</td>
-                                                <td>22.1</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <div class="notes-section table-footnote">
-                                        <p class="mb-1">
-                                            Notes: This table is based on data submitted by 50 states and the District
-                                            of
-                                            Columbia. Total number of 8th-graders was from the Common Core of Data
-                                            (CCD);
-                                            therefore, schools that were not found in CCD or whose subgroup 8th-grade
-                                            Algebra I enrollment (as reported in the Civil Rights Data Collection) was
-                                            lower than their 8th-grade total enrollment for that subgroup (as reported
-                                            in
-                                            CCD) were excluded from the relevant analysis.
-                                        </p>
-                                        <p>
-                                            Source: U.S. Department of Education, Office for Civil Rights, 2015–16
-                                            Civil
-                                            Rights Data Collection and National Center for Education Statistics, Common
-                                            Core of Data (CCD), "Public Elementary/Secondary School Universe Survey,"
-                                            2015–16.
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <a class="data-links" href="web/data-download/chart-5_enrollment-by-race-ethnicity-gender.csv.zip"
-                                            target="_blank">Download
-                                            the spreadsheet</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="pills-chart5-info" role="tabpanel" aria-labelledby="pills-info-tab">
-                            <div class="card">
-                                <div class="card-body narrow-div pb-3 notes-section">
-                                    <p>
-                                        This chart is based on data submitted by 50 states and the District of
-                                        Columbia.
-                                        Schools were excluded from this analysis for the following reasons:
-                                    </p>
-                                    <ol class="mb-0">
-                                        <li>The school reported inconsistent data for Algebra I enrollment.</li>
-                                        <li>Missing 8th-grade enrollment data.</li>
-                                        <li>For gender, the 8th-grade Algebra I enrollment count was larger than the
-                                            8th-grade overall enrollment for either the male or female subgroup.</li>
-                                        <li class="mb-0">For race/ethnicity, the 8th-grade Algebra I enrollment count was larger
-                                            than
-                                            the 8th-grade overall enrollment for at least one race/ethnicity subgroup.</li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <ul class="nav nav-pills mb-3" role="tablist">
-                        <li class="data-source">
-                            <p>
-                                Source: Civil Rights Data Collection
-                            </p>
-                        </li>
-                        <li class="nav-item chart-tab">
-                            <a class="nav-link active" id="pills-chart-tab" data-toggle="pill" href="#pills-chart5"
-                                role="tab" aria-controls="pills-chart" aria-selected="true">
-                                <i class="icon-chart-button"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-table-tab" data-toggle="pill" href="#pills-chart5-table" role="tab"
-                                aria-controls="pills-table" aria-selected="false">
-                                <i class="icon-table-button"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-info-tab" data-toggle="pill" href="#pills-chart5-info" role="tab"
-                                aria-controls="pills-info" aria-selected="false">
-                                <i class="icon-outline-button"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!-- chart5 end -->
-            <div class="col-12 narrow-div-col">
-                <div class="narrow-div">
-                    Previously, we saw that 80 percent of 8th-grade students had access to Algebra I in 8th grade;
-                    however,
-                    only 24 percent of 8th-grade students across the country were actually enrolled in the course.
-                    Furthermore, not all students were enrolled at the same rate. Asian students were the most likely
-                    to be
-                    enrolled (34 percent), compared to only 12 percent of black students. In addition, a slightly
-                    higher
-                    percentage of female students (25 percent) than male students (22 percent) were enrolled in Algebra
-                    I
-                    in 8th grade.
-                </div>
-            </div>
-            <div class="col-12 narrow-div-col">
-                <div class="narrow-div">
-                    Research shows that students who enrolled in Algebra I in 8th grade had higher scores on math
-                    assessments at the end of the school year than 8th-graders who did not enroll in Algebra I. This
-                    was
-                    true for all students, regardless of student characteristics such as sex, race/ethnicity, poverty
-                    status, or mother’s education.<sup>7</sup>
-                </div>
-            </div>
-            <div class="col-12 narrow-div-col">
-                <div class="narrow-div">
-                    We also see geographic trends in where 8th-graders are enrolled in Algebra I across the country.
-                </div>
-            </div>
-            <div class="col-12 normal-div-col">
-                <div class="normal-div">
-                    <h3>
-                        Across the country, there were only 75 districts in which all 8th-graders were enrolled in
-                        Algebra
-                        I.
-                    </h3>
-                </div>
-            </div>
-            <!-- insert chart6 -->
-            <div class="col-12 normal-div-col">
-                <div class="normal-div map-div">
-                    <div class="tab-content">
-                        <div class="tab-pane fade show active" id="pills-chart6" role="tabpanel" aria-labelledby="pills-chart-tab">
-                            <iframe class="lazyload" id="chart6-iframe" scrolling='no' frameborder='0'></iframe>
-                        </div>
-                        <div class="tab-pane fade" id="pills-chart6-table" role="tabpanel" aria-labelledby="pills-table-tab">
-                            <div class="card">
-                                <div class="card-body narrow-div notes-section">
-                                    <div>
-                                        <p>Table spreadsheet view not available due to length. Please use the link below to download the complete table.</p>
-                                        <a class="data-links" href="web/data-download/chart-6_enrollment-map.csv.zip"
-                                            target="_blank">Download
-                                            the spreadsheet</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="pills-chart6-info" role="tabpanel" aria-labelledby="pills-info-tab">
-                            <div class="card">
-                                <div class="card-body narrow-div pb-3 notes-section">
-                                    <p>
-                                        This chart is based on data submitted by 50 states and the District of
-                                        Columbia.
-                                        Schools reporting inconsistent data for Algebra I enrollment were excluded from
-                                        this analysis.
-                                    </p>
-                                    <p>
-                                        This map only includes regular local school districts and local school
-                                        districts
-                                        that are a component of a supervisory union. Data might be missing from the map
-                                        if:
-                                    </p>
-                                    <ol>
-                                        <li>A district did not have schools serving 8th-grade students.</li>
-                                        <li>A district did not have schools reporting complete and consistent Algebra I
-                                            enrollment and overall enrollment data.</li>
-                                        <li>A district that reported data did not match with the NCES district boundary
-                                            file. </li>
-                                    </ol>
-                                    <p class="mb-0">
-                                        District data displayed on the map may not be based on all schools in the
-                                        district.
-                                        All districts with data have complete and consistent data for at least one
-                                        school
-                                        in the district.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <ul class="nav nav-pills mb-3" role="tablist">
-                        <li class="data-source">
-                            <p>
-                                Source: Civil Rights Data Collection
-                            </p>
-                        </li>
-                        <li class="nav-item chart-tab">
-                            <a class="nav-link active" id="pills-chart-tab" data-toggle="pill" href="#pills-chart6"
-                                role="tab" aria-controls="pills-chart" aria-selected="true">
-                                <i class="icon-chart-button"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-table-tab" data-toggle="pill" href="#pills-chart6-table" role="tab"
-                                aria-controls="pills-table" aria-selected="false">
-                                <i class="icon-table-button"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-info-tab" data-toggle="pill" href="#pills-chart6-info" role="tab"
-                                aria-controls="pills-info" aria-selected="false">
-                                <i class="icon-outline-button"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!-- chart6 end -->
-            <div class="col-12 narrow-div-col">
-                <div class="narrow-div">
-                    Although over 8,000 districts offered access to Algebra I, in almost 90 percent of districts, less
-                    than
-                    half of all 8th-graders were enrolled in the course. We also see differences in enrollment by
-                    state,
-                    with Minnesota and Pennsylvania, for example, standing out as states with broad enrollment.
-                </div>
-            </div>
-            <div class="col-12 narrow-div-col">
-                <div class="narrow-div">
-                    We know that a strong STEM education is increasingly being recognized as a path to employment and
-                    that
-                    the need for STEM knowledge and skills will continue to grow in the future.<sup>8</sup> Taking
-                    Algebra
-                    I in 8th
-                    grade can set students up for a strong foundation of STEM education and open the door for various
-                    college and career options in STEM. The data explored in this story highlight both successes and
-                    areas
-                    for improvement, as the Department, and districts across the country, work to ensure equal access
-                    to a
-                    strong STEM education for all students. The disparities found in both access and enrollment warrant
-                    closer examination and potential action by all STEM stakeholders.
-                </div>
-            </div>
-            <div class="col-12 narrow-div-col">
-                <div class="narrow-div title-with-dash">
-                    <img src="web/img/acorn-art.svg" alt="acorn icon">
-                </div>
-            </div>
-            <div class="col-12 narrow-div-col mb-0">
-                <div class="narrow-div">
-                    <h2 class="notes mt-0">
-                        Civil Rights Data Collection
-                    </h2>
-                </div>
-            </div>
-            <div class="col-12 narrow-div-col notes-section">
-                <div class="narrow-div">
-                    The data we have explored in this story come from the <a href="https://ocrdata.ed.gov/" target="_blank">Civil
-                        Rights Data Collection (CRDC)</a>. The CRDC
-                    collects a variety of information, including student enrollment and educational programs and
-                    services,
-                    from our nation’s public schools. It has been conducted by the Office for Civil Rights (OCR) under
-                    the
-                    Department of Education since 1968. Most of the data collected in the CRDC are disaggregated by
-                    race/ethnicity, sex, limited English proficiency, and disability.
-                </div>
-            </div>
-            <div class="col-12 narrow-div-col mb-0">
-                <div class="narrow-div">
-                    <h2 class="notes">
-                        Data Exclusion Rules
-                    </h2>
-                </div>
-            </div>
-            <div class="col-12 narrow-div-col notes-section">
-                <div class="narrow-div">
-                    Data included in this story may differ slightly from other published reports due to certain data
-                    decisions. For the purposes of these analyses, schools with incomplete or inconsistent data values
-                    were
-                    excluded as follows:
-                </div>
-            </div>
-            <div class="col-12 narrow-div-col notes-section">
-                <div class="narrow-div">
-                    <ol>
-                        <li style="margin-top: 1em;">
-                            <span>
-                                Less than 1% of schools were excluded from all analyses because the school reported
-                                inconsistent
-                                data for Algebra I enrollment for the same grade level.
-                            </span>
+    <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"></div>
 
-                        </li>
-                        <li>
-                            <span>
-                                An additional 6% of schools serving 8th-grade students were excluded from all
-                                enrollment
-                                analyses due to missing 8th-grade enrollment data or the 8th-grade Algebra I enrollment
-                                count
-                                being
-                                larger than the 8th-grade overall enrollment.
-                            </span>
+  </div>
 
-                        </li>
-                        <li>
-                            <span>
-                                Less than 10 schools were excluded from the enrollment by urbanicity analysis due to
-                                missing
-                                data.
-                            </span>
+    -->
 
-                        </li>
-                        <li>
-                            <span>
-                                Schools with an 8th-grade Algebra I enrollment count larger than the 8th-grade
-                                enrollment
-                                for
-                                either the male or female subgroup (1% of schools serving 8th-grade students) were
-                                excluded
-                                from
-                                the enrollment by gender analysis.
-                            </span>
+      <!-- CHART AREA GRID
+  ––––––––––––––––––––––––––––––––––––––––––––––––––
 
-                        </li>
-                        <li style="margin-bottom: 0;">
-                            <span>
-                                Schools with an 8th-grade Algebra I enrollment count larger than the 8th-grade
-                                enrollment
-                                for
-                                at
-                                least one race/ethnicity subgroup (16% of schools serving 8th-grade students) were
-                                excluded
-                                from
-                                the enrollment by race/ethnicity analysis.
-                            </span>
-                        </li>
-                    </ol>
-                </div>
-            </div>
-            <div class="col-12 narrow-div-col mb-0">
-                <div class="narrow-div">
-                    <h2 class="notes">
-                        References
-                    </h2>
-                </div>
-            </div>
-            <div class="col-12 narrow-div-col notes-section">
-                <div class="narrow-div">
-                    <ul>
-                        <li>
-                            <sup>1</sup> Hadani, H. S., & Rood, E. (2018). <i>The roots of STEM success: Changing early
-                                learning experiences to build lifelong thinking skills.</i> Sausalito, CA: Center for
-                            Childhood
-                            Creativity at the Bay Area Discovery Museum. Retrieved from <a href="https://centerforchildhoodcreativity.org/wp-content/uploads/sites/2/2018/02/CCC_The_Roots_of_STEM_Early_Learning.pdf"
-                                target="_blank">https://centerforchildhoodcreativity.org/wp-content/uploads/sites/2/2018/02/CCC_The_Roots_of_STEM_Early_Learning.pdf</a>
-                        </li>
-                        <li>
-                            <sup>2</sup> The <a href="https://ocrdata.ed.gov/" target="_blank">Civil Rights Data
-                                Collection (CRDC)</a>, conducted by the Office for Civil Rights
-                            (OCR) under the U.S. Department of Education, gathers information from our nation’s public
-                            schools.
-                        </li>
-                        <li>
-                            <sup>3</sup> Loveless, T. (2013). <i>The 2013 Brown Center report on American education:
-                                How
-                                well
-                                are American students learning?</i> Washington, DC: The Brown Center on Education
-                            Policy,
-                            Brookings
-                            Institution. Retrieved from <a href="https://www.brookings.edu/wp-content/uploads/2016/06/2013-brown-center-report-web.pdf"
-                                target="_blank">https://www.brookings.edu/wp-content/uploads/2016/06/2013-brown-center-report-web.pdf</a>
-                        </li>
-                        <li>
-                            <sup>4</sup> Chen, X. (2009). <i>Students who study science, technology, engineering, and
-                                mathematics (STEM) in postsecondary education</i> (NCES 2009-161). Washington, DC:
-                            National
-                            Center
-                            for Education Statistics, U.S. Department of Education. Retrieved from <a href="https://nces.ed.gov/pubs2009/2009161.pdf"
-                                target="_blank">https://nces.ed.gov/pubs2009/2009161.pdf</a>
-                        </li>
-                        <li>
-                            <sup>5</sup> Brown, J., Dalton, B., Laird, J., & Ifill, N. (2018). <i>Paths Through
-                                Mathematics
-                                and Science: Patterns and Relationships in High School Coursetaking</i> (NCES
-                            2018-118).
-                            Washington, DC: National Center for Education Statistics, U.S. Department of Education.
-                            Retrieved from <a href="https://nces.ed.gov/pubs2018/2018118.pdf" target="_blank">https://nces.ed.gov/pubs2018/2018118.pdf</a>
-                        </li>
-                        <li>
-                            <sup>6</sup> Domina, T., McEachin, A., Penner, A., & Penner, E. (2015). Aiming high and
-                            falling
-                            short: California’s eighth-grade Algebra-for-All effort. <i>Education Evaluation and Policy
-                                Analysis</i> , 37(3), 275–295. Retrieved from <a href="http://journals.sagepub.com/doi/abs/10.3102/0162373714543685"
-                                target="_blank">http://journals.sagepub.com/doi/abs/10.3102/0162373714543685</a>
-                        </li>
-                        <li>
-                            <sup>7</sup> Walston, J., & McCarroll, J. C. (2010). <i>Eighth-grade Algebra: Findings from
-                                the
-                                eighth-grade round of the Early Childhood Longitudinal Study, Kindergarten Class of
-                                1998–99
-                                (ECLS-K)</i> (NCES 2010-016). Washington, DC: National Center for Education Statistics,
-                            U.S.
-                            Department of Education. Retrieved from <a href="https://nces.ed.gov/pubs2010/2010016.pdf"
-                                target="_blank">https://nces.ed.gov/pubs2010/2010016.pdf</a>
-                        </li>
-                        <li>
-                            <sup>8</sup> Noonan, R. (2017). <i>STEM jobs: 2017 Update.</i> Washington, DC: Office of
-                            the
-                            Chief
-                            Economist, Economics and Statistics Administration, U.S. Department of Commerce. Retrieved
-                            from
-                            <a href="http://www.esa.doc.gov/sites/default/files/stem-jobs-2017-update.pdf" target="_blank">http://www.esa.doc.gov/sites/default/files/stem-jobs-2017-update.pdf</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+  <div class="chart-area pure-g">
+
+    <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+
+    <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-12-24 pure-u-xl-10-24">
+
     </div>
 
-    <!-- footer -->
-    <div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3 col-md-2 mb-4">
-                    <img src="web/img/edLogo.svg" alt="department of education logo" class="img-fluid">
-                </div>
-                <div class="col-sm-5 col-md-6">
-                    <p class="foot-large">
-                        Built by InformED
-                    </p>
-                    <p class="foot-small">
-                        InformED is an agency-wide initiative at the U.S. Department of Education to make data
-                        discoverable, accessible, and useful—and sometimes beautiful.
-                    </p>
-                    <p class="foot-small">
-                        This data story is powered by open data and source code. We welcome comments and contributions
-                        on Github.
-                    </p>
-                    <p class="foot-link">
-                        <a href="https://www.ed.gov/" target="_blank">Department of Education</a>
-                        | <a href="https://www2.ed.gov/notices/privacy/" target="_blank">Privacy Policy</a>
-                        | <a href="https://www.usa.gov/" target="_blank">USA.gov</a>
-                    </p>
-                </div>
-                <div class="col-sm-4 col-md-4">
-                    <a class="foot-mid" href="web/data-download/STEM-data-story_complete-dateset.zip" target="_blank">
-                        Download data <span class="foot-icon"><i class="fas fa-cloud-download-alt"></i></span>
-                    </a>
-                    <hr>
-                    <p class="address">
-                        U.S. Department of Education<br>
-                        400 Maryland Ave, SW<br>
-                        Washington, DC 20202<br>
-                        1-800-USA-LEARN
-                    </p>
-                </div>
-            </div>
+    <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+
+  </div>
+
+  -->
+
+      <div class="narrative pure-g section" id="WHYALGEBRAI">
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24">
         </div>
+        <div class="opener pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-10-24 pure-u-xl-8-24">
+
+          <p>
+            In today’s era of technological innovation, students need to gain knowledge and skills in order to solve
+            difficult problems, gather and evaluate evidence, make sense of information they study, and be prepared
+            for the careers and challenges of the
+            21<sup>st</sup> century and beyond. Students can develop and strengthen these skills by studying science,
+            technology,
+            engineering, and mathematics (STEM) subjects, including computer science (CS).<sup><a href="#_ftn1" name="_ftnref1"
+                title="">
+                [1]
+              </a></sup> STEM education is embedded in the U.S. Department of Education’s (the Department) mission. <a
+              class="md-trigger more-info" data-modal="modal-1">Learn more about the focus on STEM education.<img alt="more detail"
+                aria-hidden="true" src="assets/img/modal-icon.svg"></a>
+          </p>
+          <p>
+            Mathematics has been called the “language” of STEM because students need a strong mathematics foundation
+            to succeed in STEM fields and to make sense of STEM-related topics in their daily lives.<sup><a href="#_ftn2"
+                name="_ftnref2" title="">
+                [2]
+              </a></sup> This story focuses
+            on Algebra I within K-12 education because it is seen
+            as a gatekeeper course: Students normally need to complete Algebra I in order to take higher level
+            mathematics and science courses.<sup><a href="#_ftn3" name="_ftnref3" title="">[3]</a></sup> Taking the course earlier in their academic careers allows students sufficient time to take
+            the more advanced courses that are often prerequisites for postsecondary STEM majors. However, we see in
+            this data story that
+            only 24 percent of all 8<sup>th</sup> graders are enrolled in Algebra I. <a class="md-trigger more-info"
+              data-modal="modal-2">See what the research says about why this matters.<img alt="more detail" aria-hidden="true"
+                src="assets/img/modal-icon.svg"></a>
+          </p>
+          <p>
+            This data story explores both access to and enrollment in Algebra I in K-12 public schools using the
+            2015–16 Civil Rights Data Collection (CRDC).
+            <sup><a href="#_ftn4" name="_ftnref4" title="">
+                [4]
+              </a></sup> The data story looks at the types of schools that offer Algebra I classes and further explores
+            the students who actually enroll in these classes, particularly in 8<sup>th</sup> grade. The Department is
+            encouraging
+            both access to and enrollment in STEM courses. Both aspects are important because, as we will see through
+            the story, even where access to Algebra I classes are available students do not necessarily enroll in them.
+          </p>
+          <div class="acorn"><img src="assets/img/acorn.svg" alt="Acorn motif"></div>
+          <h3>
+            When students take Algebra I matters, but many students do not have early
+            access.
+          </h3>
+          <p>
+            Despite the benefits of early access to Algebra I, we see that only 59 percent of schools that serve 8<sup>th</sup>
+            graders offer Algebra I. A typical math course sequence would start with Algebra I and continue with
+            Geometry, Algebra II,
+            Pre-Calculus, and Calculus. Students who do not have access to Algebra I until high school are unlikely to
+            have the opportunity to take any Calculus courses before they graduate.
+          </p>
+        </div>
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24">
+        </div>
+      </div>
+      <div class="chart-area pure-g">
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-12-24 pure-u-xl-10-24">
+          <h4>
+            Only 59 percent of schools offer Algebra I in 8<sup>th</sup> grade. Access to Algebra I in high school
+            grades is
+            more common, but still not universal.
+          </h4>
+
+          <div id="chart1_content_1" class="chart1_tabcontent more-padding">
+            <div id="grade_bar"></div>
+          </div>
+          <div id="chart1_content_2" class="chart1_tabcontent" style="display:none;">
+            <div>
+              <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS0x-DDq2HEGPidiqqmLSsVC2JI6w7tPaPJ_FgBJTQBv-jdpIFzf88o_-x0pUsSuZnCTSaIkgUe4yEs/pubhtml?gid=2036872239&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+              <a class="data-links" href="data-download\chart-1_access-by-grade-level.csv" target="_blank">Download the spreadsheet</a>
+            </div>
+          </div>
+          <div id="chart1_content_3" class="chart1_tabcontent" style="display:none;">
+            <div>
+              <div class="notes-section">
+                <p>
+                  This chart is based on data submitted by 50 states and the District of Columbia. Schools reporting
+                  inconsistent data for Algebra I enrollment for the same grade level were excluded from this analysis.
+                </p>
+                <p>
+                  Some schools may offer Algebra I in either 9th/10th grade OR 11th/12th grade, but
+                  not both. Nonetheless, it is important that students have access to Algebra I sometime in their high
+                  school
+                  career.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="tab-menu">
+            <ul>
+              <li>Source: Civil Rights Data Collection 2015–16</li>
+              <li><a href="javascript:TabSwitcher('chart1_tb_1', 'chart1_content_1', 'chart1_tabcontent', 'chart1_tabmenu');"
+                  id="chart1_tb_1" class="chart1_tabmenu active"><i class="icon-chart-button"></i></a></li>
+              <li><a href="javascript:TabSwitcher('chart1_tb_2', 'chart1_content_2', 'chart1_tabcontent', 'chart1_tabmenu');"
+                  id="chart1_tb_2" class="chart1_tabmenu"><i class="icon-table-button"></i></a></li>
+              <li><a href="javascript:TabSwitcher('chart1_tb_3', 'chart1_content_3', 'chart1_tabcontent', 'chart1_tabmenu');"
+                  id="chart1_tb_3" class="chart1_tabmenu"><i class="icon-outline-button"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+      </div>
+
+      <div class="narrative pure-g">
+
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"></div>
+
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-10-24 pure-u-xl-8-24">
+          <p>
+            Since high-level mathematics and high-level science courses are frequently taken together, students who
+            have the opportunity to take more advanced math courses are also more likely to take advanced science
+            courses. When schools don’t offer Algebra I to
+            8<sup>th</sup> graders, it can reduce the amount of all STEM courses - not just math courses - they can
+            take
+            before graduation.
+          </p>
+          <div class="acorn"><img src="assets/img/acorn.svg" alt="Acorn motif"></div>
+          <h3>
+            Access to Algebra I in 8<sup>th</sup> grade is uneven across the country.
+          </h3>
+          <p>
+            Schools that offer Algebra I in 8<sup>th</sup> grade provide their students with an opportunity to reach
+            more advanced math and science courses in high school. However, there is a wide variation in students’
+            access to Algebra I in 8<sup>th</sup> grade based on where the school is located and the type of school
+            that a student attends. Given the importance of early access to Algebra I, the remainder of this story
+            focuses only on
+            8<sup>th</sup> grade students and the schools that serve them.
+          </p>
+        </div>
+
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"></div>
+
+      </div>
+
+
+      <div class="chart-area pure-g">
+
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-12-24 pure-u-xl-10-24 section" id="WHOHASACCESSWHERE">
+          <h4 style="margin-bottom: 0;">
+            About 30 percent of school districts across the nation did not offer Algebra I in 8<sup>th</sup> grade.
+          </h4>
+        </div>
+
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+
+      </div>
+
+
+
+    </article>
+
+    <div class="map-transition wrap">
+      <div id="chart4_content_1" class="chart4_tabcontent">
+        <div id="map1" class="map_containers">
+          <!-- Title above map -->
+          <p class="title">% of schools offering Algebra I in 8<sup>th</sup> grade<br>by school district</p>
+        </div>
+      </div>
+      <div id="chart4_content_2" class="chart4_tabcontent" style="display:none;">
+        <div class="white-info-text">
+          <div>
+            <p>Table spreadsheet view not available due to length. Please use the link below to download the complete
+              table.
+            </p>
+            <a class="data-links" href="data-download\chart-4_access-by-urbanicity.csv" target="_blank">Download
+              the spreadsheet</a>
+          </div>
+        </div>
+      </div>
+      <div id="chart4_content_3" class="chart4_tabcontent" style="display:none;">
+        <div class="white-info-text">
+          <div class="notes-section">
+            <p>
+              This chart is based on data submitted by 50 states and the District of Columbia. Schools reporting
+              inconsistent data for Algebra I enrollment were excluded from this analysis.
+            </p>
+            <p>
+              This map includes only regular local school districts and local school districts that are a component of
+              a supervisory union. Data might be missing from the map if:
+            </p>
+            <ol>
+              <li>A district did not have schools serving 8<sup>th</sup>-grade students.</li>
+              <li>A district that reported data did not match with the NCES district boundary file.
+              </li>
+            </ol>
+            <p>
+              District data displayed on the map may not be based on all schools in the district. All districts with
+              data have complete and consistent data for at least one school in the district.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-menu">
+        <ul>
+          <li>Source: Civil Rights Data Collection 2015–16</li>
+          <li><a href="javascript:TabSwitcher('chart4_tb_1', 'chart4_content_1', 'chart4_tabcontent', 'chart4_tabmenu');"
+              id="chart4_tb_1" class="chart4_tabmenu active"><i class="icon-chart-button"></i></a></li>
+          <li><a href="javascript:TabSwitcher('chart4_tb_2', 'chart4_content_2', 'chart4_tabcontent', 'chart4_tabmenu');"
+              id="chart4_tb_2" class="chart4_tabmenu"><i class="icon-table-button"></i></a></li>
+          <li><a href="javascript:TabSwitcher('chart4_tb_3', 'chart4_content_3', 'chart4_tabcontent', 'chart4_tabmenu');"
+              id="chart4_tb_3" class="chart4_tabmenu"><i class="icon-outline-button"></i></a></li>
+        </ul>
+      </div>
     </div>
 
-    <!-- JavaScript libs -->
-    <!-- minified production script -->
-    <script src="build/prod/uglified.js"></script>
-    <script src="build/prod/site.min.js" async></script>
+    <article class="narrative-wrap">
 
-    <!-- for development, you could uncomment the following and comment out minified script -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS, then custom script -->
-    <!-- <script src="web/js/jquery.slim.min.js"></script>
-    <script src="web/js/popper.min.js"></script>
-    <script src="web/js/bootstrap.min.js"></script>
-    <script src="web/js/particles.min.js"></script>
-    <script src="web/js/site.js"></script> -->
 
+      <div class="narrative pure-g">
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24">
+        </div>
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-10-24 pure-u-xl-8-24">
+          <p>
+            For districts that serve 8<sup>th</sup> grade students, this map allows us to dig deeper to see the
+            percentage of
+            schools offering Algebra I in 8<sup>th</sup> grade in each district. Despite wide variations across the
+            country, there
+            are many states across the Northeast and
+            along the Atlantic coast where a high percentage of students had access.
+          </p>
+
+        </div>
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24">
+        </div>
+      </div>
+
+      <div class="chart-area pure-g">
+
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-12-24 pure-u-xl-10-24">
+          <h4>
+            Overall, 80 percent of 8<sup>th</sup> grade students had access to Algebra I, however access varied widely
+            by the type of school the student attended. Students enrolled in magnet or traditional public schools were
+            more likely to have access to Algebra I in 8<sup>th</sup> grade.
+          </h4>
+          <div id="chart2_content_1" class="chart2_tabcontent">
+            <div id="school_type_bar"></div>
+          </div>
+          <div id="chart2_content_2" class="chart2_tabcontent" style="display:none;">
+            <div>
+              <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR7C_nl_42t9Byipcq3vATa4IsaROjit4AvsNXgWmnvt2-jnGCzibyBQPZSXWpvVSQzh_ExocCqTQl5/pubhtml?widget=true&amp;headers=false"></iframe>
+              <a class="data-links" href="data-download\chart-3_access-by-school-type.csv" target="_blank">Download the spreadsheet</a>
+            </div>
+          </div>
+          <div id="chart2_content_3" class="chart2_tabcontent" style="display:none;">
+            <div>
+              <div class="notes-section">
+                <p>This chart is based on data submitted by 50 states and the District of Columbia. Schools were
+                  excluded from this analysis for the following reasons:
+                </p>
+                <ol>
+                  <li>The school reported inconsistent data for Algebra I enrollment.</li>
+                  <li>
+                    <!-- Missing 8<sup>th</sup>-grade enrollment data or the 8<sup>th</sup>-grade Algebra I enrollment
+                    count was larger than the 8<sup>th</sup>-grade overall enrollment.  -->
+                    An additional 6% of schools serving 8<sup>th</sup> grade students were excluded from all enrollment analyses due to the school missing its 8<sup>th</sup> grade enrollment data or its 8<sup>th</sup> grade Algebra I enrollment count being larger than the 8<sup>th</sup> gradegit  overall enrollment.
+                  </li>
+                </ol>
+                <p>
+                  School type categories in this analysis are not mutually exclusive. For example, a school can be both
+                  a charter school and a special education school. Traditional schools are defined in this analysis as
+                  regular schools that are not charter, magnet, special
+                  education, vocational, or alternative/other schools. Separate data on alternative schools and other
+                  unspecified schools were not available.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="tab-menu">
+            <ul>
+              <li>Source: Civil Rights Data Collection 2015–16 and Common Core of Data 2015–16</li>
+              <li><a href="javascript:TabSwitcher('chart2_tb_1', 'chart2_content_1', 'chart2_tabcontent', 'chart2_tabmenu');"
+                  id="chart2_tb_1" class="chart2_tabmenu active"><i class="icon-chart-button"></i></a></li>
+              <li><a href="javascript:TabSwitcher('chart2_tb_2', 'chart2_content_2', 'chart2_tabcontent', 'chart2_tabmenu');"
+                  id="chart2_tb_2" class="chart2_tabmenu"><i class="icon-table-button"></i></a></li>
+              <li><a href="javascript:TabSwitcher('chart2_tb_3', 'chart2_content_3', 'chart2_tabcontent', 'chart2_tabmenu');"
+                  id="chart2_tb_3" class="chart2_tabmenu"><i class="icon-outline-button"></i></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+
+      </div>
+
+      <div class="narrative pure-g">
+
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"></div>
+
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-10-24 pure-u-xl-8-24">
+          <p>
+            While 59 percent of schools offered Algebra I in 8<sup>th</sup> grade, these schools served 80 percent of
+            8<sup>th</sup> grade students overall, meaning that four-fifths of all 8<sup>th</sup> graders attended a
+            school that
+            offered Algebra I. The percentage
+            of 8<sup>th</sup> graders who had access to Algebra I was largest for students attending magnet schools,
+            with nearly 90 percent of students having access to Algebra I in 8<sup>th</sup> grade, and lowest for
+            students attending a special education
+            school with nearly 20 percent of students having access to Algebra I in 8<sup>th</sup> grade. This wide variation
+            shows that students’ access to STEM education can be greatly affected by the type of school they attend.
+          </p>
+        </div>
+
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"></div>
+
+      </div>
+
+      <div class="chart-area pure-g">
+
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-12-24 pure-u-xl-10-24">
+          <h4>
+            Differences in early access to algebra by urbanicity were small. Even in rural schools, 75% of 8<sup>th</sup> graders could take Algebra I.
+          </h4>
+          <div id="chart3_content_1" class="chart3_tabcontent">
+            <div id="pie_chart"></div>
+          </div>
+          <div id="chart3_content_2" class="chart3_tabcontent iframe-table" style="display:none;">
+            <div>
+              <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRu_wMqsU27h6_INaX9DDPeH16tuJtS8OBkFI-RUOsNRg1lzKWt1wP9WVxX_h02kSpq_83ESpAybT1Q/pubhtml?widget=true&amp;headers=false"></iframe>
+              <a class="data-links" href="data-download\chart-4_access-by-urbanicity.csv" target="_blank">Download the spreadsheet</a>
+            </div>
+          </div>
+          <div id="chart3_content_3" class="chart3_tabcontent" style="display:none;">
+            <div>
+              <div class="notes-section">
+                <p>This chart is based on data submitted by 50 states and the District of Columbia. Schools were
+                  excluded from this analysis for the following reasons:
+                </p>
+                <ol>
+                  <li>The school reported inconsistent data for Algebra I enrollment.</li>
+                  <li>
+                    <!-- Missing 8<sup>th</sup>-grade enrollment data or the 8<sup>th</sup>-grade Algebra I enrollment
+                    count was larger than the 8<sup>th</sup>-grade overall enrollment.  -->
+                    An additional 6% of schools serving 8<sup>th</sup> grade students were excluded from all enrollment analyses due to the school missing its 8<sup>th</sup> grade enrollment data or its 8<sup>th</sup> grade Algebra I enrollment count being larger than the 8<sup>th</sup> grade overall enrollment.
+                  </li>
+                  <li>Missing urbanicity data.</li>
+                </ol>
+                <p>
+                  “Urban” refers to territory inside an Urbanized Area and inside a Principal City. “Suburban” refers
+                  to territory outside a Principal City and inside an Urbanized Area. “Town” refers to territory inside
+                  an Urban Cluster. “Rural” refers to Census-defined
+                  rural territory. For more information, please see <a href="https://nces.ed.gov/programs/edge/docs/LOCALE_CLASSIFICATIONS.pdf"
+                    target="_blank">https://nces.ed.gov/programs/edge/docs/LOCALE_CLASSIFICATIONS.pdf</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="tab-menu">
+            <ul>
+              <li>Source: Civil Rights Data Collection 2015–16 and Common Core of Data 2015–16</li>
+              <li><a href="javascript:TabSwitcher('chart3_tb_1', 'chart3_content_1', 'chart3_tabcontent', 'chart3_tabmenu');"
+                  id="chart3_tb_1" class="chart3_tabmenu active"><i class="icon-chart-button"></i></a></li>
+              <li><a href="javascript:TabSwitcher('chart3_tb_2', 'chart3_content_2', 'chart3_tabcontent', 'chart3_tabmenu');"
+                  id="chart3_tb_2" class="chart3_tabmenu"><i class="icon-table-button"></i></a></li>
+              <li><a href="javascript:TabSwitcher('chart3_tb_3', 'chart3_content_3', 'chart3_tabcontent', 'chart3_tabmenu');"
+                  id="chart3_tb_3" class="chart3_tabmenu"><i class="icon-outline-button"></i></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+
+      </div>
+
+      <div class="narrative pure-g">
+
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"></div>
+
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-10-24 pure-u-xl-8-24">
+          <p>
+            About 86 percent of students in suburban areas (where the largest percentage of students are enrolled) had
+            access to Algebra I in 8<sup>th</sup> grade, compared to about 75 percent of students in all other areas.
+          </p>
+          <p>
+            Next we will explore how <em>access</em> to Algebra I differs from <em>enrollment</em> in Algebra I in 8<sup>th</sup>
+            grade.
+          </p>
+          <div class="acorn"><img src="assets/img/acorn.svg" alt="Acorn motif"></div>
+          <h3 id="WHOENROLLSWHERE" class="section">
+            Enrollment lags behind access. Even when they can take Algebra I, many 8<sup>th</sup> graders do not.
+          </h3>
+          <p>
+            While access to Algebra I is important, access alone is not enough. Students will not reap the benefits of
+            <em>access</em> to more STEM courses if they are not actually <em>enrolled</em> in the courses.
+          </p>
+          <p>
+            There are many factors within a school that may affect how many, and which, students are
+            enrolled in Algebra I in 8<sup>th</sup> grade. For example, some students have access to Algebra
+            I in 7<sup>th</sup> grade,
+            some students may not be ready to take Algebra I in 8<sup>th</sup> grade, and others may not be interested
+            in accelerated mathematics. <a class="md-trigger more-info" data-modal="modal-3">See what the research says
+              about why this matters.<img alt="more detail" aria-hidden="true" src="assets/img/modal-icon.svg"></a>
+          </p>
+        </div>
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24">
+        </div>
+      </div>
+
+      <div class="chart-area pure-g">
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-12-24 pure-u-xl-10-24">
+          <h4>
+            Overall, only 24 percent of all 8<sup>th</sup> graders were enrolled in Algebra I. Looking further at the
+            data suggests a complicated story of opportunity for different types of students.
+          </h4>
+          <div id="chart5_content_1" class="chart5_tabcontent">
+            <div id="eth_gen_bar"></div>
+          </div>
+          <div id="chart5_content_2" class="chart5_tabcontent" style="display:none;">
+            <div>
+              <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQYK2PwPFXUBxiLL8Sk2J8jFpWlzecjZyykR3n__t8q-uJv0aay1oisMqEwvPHNNZqrhf_UKg7JvvRy/pubhtml?widget=true&amp;headers=false"></iframe>
+              <a class="data-links" href="data-download\chart-5_enrollment-by-subgroup.csv" target="_blank">Download the spreadsheet</a>
+            </div>
+          </div>
+          <div id="chart5_content_3" class="chart5_tabcontent" style="display:none;">
+            <div>
+              <div class="notes-section">
+                <p>
+                  This chart is based on data submitted by 50 states and the District of Columbia. Schools were
+                  excluded from this analysis for the following reasons:
+                </p>
+                <ol>
+                  <li>The school reported inconsistent data for Algebra I enrollment.</li>
+                  <li>Missing 8<sup>th</sup>-grade enrollment data.</li>
+                  <li>For gender, the 8<sup>th</sup>-grade Algebra I enrollment count was larger than the 8
+                    <sup>th</sup>-grade overall enrollment for either the male or female subgroup.</li>
+                  <li>For race/ethnicity, the 8<sup>th</sup>-grade Algebra I enrollment count was larger than the 8<sup>th</sup>-grade
+                    overall enrollment for at least one race/ethnicity subgroup.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+          <div class="tab-menu">
+            <ul>
+              <li>Source: Civil Rights Data Collection 2015–16 and Common Core of Data 2015–16</li>
+              <li><a href="javascript:TabSwitcher('chart5_tb_1', 'chart5_content_1', 'chart5_tabcontent', 'chart5_tabmenu');"
+                  id="chart5_tb_1" class="chart5_tabmenu active"><i class="icon-chart-button"></i></a></li>
+              <li><a href="javascript:TabSwitcher('chart5_tb_2', 'chart5_content_2', 'chart5_tabcontent', 'chart5_tabmenu');"
+                  id="chart5_tb_2" class="chart5_tabmenu"><i class="icon-table-button"></i></a></li>
+              <li><a href="javascript:TabSwitcher('chart5_tb_3', 'chart5_content_3', 'chart5_tabcontent', 'chart5_tabmenu');"
+                  id="chart5_tb_3" class="chart5_tabmenu"><i class="icon-outline-button"></i></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+      </div>
+
+      <div class="narrative pure-g">
+
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"></div>
+
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-10-24 pure-u-xl-8-24">
+          <p>
+            Previously, we saw that 80 percent of 8<sup>th</sup> grade students had access to Algebra I in 8<sup>th</sup>
+            grade; however, only 24 percent of 8<sup>th</sup> grade students across the country were actually enrolled
+            in the
+            course. Furthermore, not
+            all students were enrolled at the same rate. Students who are Asian were the most likely to be enrolled in
+            Algebra I in 8<sup>th</sup> grade with 34 percent
+            of all 8<sup>th</sup> graders who are Asian enrolled in the course. Comparatively, only 12 percent of 8<sup>th</sup>
+            graders who are
+            black enrolled in Algebra I in 8<sup>th</sup> grade. In addition, a slightly higher percentage of female
+            students (25 percent)
+            than male students (22 percent) were enrolled in Algebra I in 8<sup>th</sup> grade. <a class="md-trigger more-info"
+              data-modal="modal-4">See what the research says about why this matters.<img alt="more detail" aria-hidden="true"
+                src="assets/img/modal-icon.svg"></a>
+          </p>
+          <p>
+            We also see geographic trends in where 8<sup>th</sup> graders are enrolled in Algebra I across the country.
+          </p>
+        </div>
+
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"></div>
+
+      </div>
+
+      <div class="chart-area pure-g">
+
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-12-24 pure-u-xl-10-24">
+
+          <h4 style="margin-bottom: 0;">
+            Across the country, there were 75 districts that had all 8<sup>th</sup> graders enrolled in Algebra I.
+          </h4>
+
+        </div>
+
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+
+      </div>
+
+    </article>
+
+    <div class="map-area wrap">
+      <div id="chart6_content_1" class="chart6_tabcontent">
+        <div id="map2" class="map_containers">
+          <!-- Title and Legend above map -->
+          <p class="title">% of 8<sup>th</sup> graders who took Algebra I in 8<sup>th</sup> grade<br>by school district</p>
+        </div>
+      </div>
+      <div id="chart6_content_2" class="chart6_tabcontent" style="display:none;">
+        <div class="white-info-text">
+          <div>
+            <p>Table spreadsheet view not available due to length. Please use the link below to download the complete
+              table.
+            </p>
+            <a class="data-links" href="data-download/non-machine-readable/chart-6_enrollment-map.csv.zip" target="_blank">Download
+              the spreadsheet</a>
+          </div>
+        </div>
+      </div>
+      <div id="chart6_content_3" class="chart6_tabcontent" style="display:none;">
+        <div class="white-info-text">
+          <div class="notes-section">
+            <p>
+              This chart is based on data submitted by 50 states and the District of Columbia. Schools reporting
+              inconsistent data for Algebra I enrollment were excluded from this analysis.
+            </p>
+            <p>
+              This map only includes regular local school districts and local school districts that are a component of
+              a supervisory union. Data might be missing from the map if:
+            </p>
+            <ol>
+              <li>A district did not have schools serving 8<sup>th</sup>-grade students.</li>
+              <li>A district did not have schools reporting complete and consistent Algebra I enrollment and overall
+                enrollment data.</li>
+              <li>A district that reported data did not match with the NCES district boundary file. </li>
+            </ol>
+            <p>
+              District data displayed on the map may not be based on all schools in the district. All districts with
+              data have complete and consistent data for at least one school in the district.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-menu">
+        <ul>
+          <li>Source: Civil Rights Data Collection 2015–16 and Common Core of Data 2015–16</li>
+          <li><a href="javascript:TabSwitcher('chart6_tb_1', 'chart6_content_1', 'chart6_tabcontent', 'chart6_tabmenu');"
+              id="chart6_tb_1" class="chart6_tabmenu active"><i class="icon-chart-button"></i></a></li>
+          <li><a href="javascript:TabSwitcher('chart6_tb_2', 'chart6_content_2', 'chart6_tabcontent', 'chart6_tabmenu');"
+              id="chart6_tb_2" class="chart6_tabmenu"><i class="icon-table-button"></i></a></li>
+          <li><a href="javascript:TabSwitcher('chart6_tb_3', 'chart6_content_3', 'chart6_tabcontent', 'chart6_tabmenu');"
+              id="chart6_tb_3" class="chart6_tabmenu"><i class="icon-outline-button"></i></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <article class="narrative-wrap">
+
+      <div class="narrative pure-g">
+
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"></div>
+
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-10-24 pure-u-xl-8-24">
+          <p>
+            Although over 8,000 districts offered access to Algebra I, in almost 90 percent of districts, less than
+            half of all 8<sup>th</sup> graders were enrolled in the course. We also see differences in enrollment by
+            state, with Minnesota and Pennsylvania,
+            for example, standing out as states with broad enrollment. <a class="md-trigger more-info" data-modal="modal-5">Learn
+              more about how States are focusing on Algebra I.<img alt="more detail" aria-hidden="true" src="assets/img/modal-icon.svg"></a>
+          </p>
+          <p>
+            We know that a strong STEM education is a path to successful career and we know that the need for STEM
+            knowledge and
+            skills will continue to grow in the future.
+            <sup><a href="#_ftn4" name="_ftnref4" title="">
+                [5]
+              </a></sup> Taking Algebra I before high school, such as in 8<sup>th</sup> grade, can set students up for
+            a strong
+            foundation of STEM education and open the door for various college and career options.
+          </p>
+          <p>
+            The data explored in this story highlight both successes and areas for improvement, as school leaders,
+            teachers and parents across the country, work to ensure equal access to a strong STEM education for all
+            students.
+          </p>
+
+
+          <div id="story-notes">
+            <hr>
+            <h5>Civil Rights Data Collection</h5>
+
+            <p>
+              The data explored in this story comes from the <a href="https://www2.ed.gov/about/offices/list/ocr/docs/crdc-2015-16.html">Civil Rights
+                Data Collection (CRDC)</a>. Since 1968, the U.S. Department of Education (ED) has conducted the CRDC to
+              collect data on key education and civil rights issues in our nation's public schools. The CRDC collects a
+              variety of information including student enrollment and educational programs and services, most of which
+              is disaggregated by race/ethnicity, sex, limited English proficiency, and disability. The CRDC informs
+              the Office of Civil Rights’ overall strategy for administering and enforcing the civil rights statutes
+              for which it is responsible. The CRDC collects data only
+              from public schools and does not include data from private
+              schools. To directly download the CRDC data files, click <a href="https://www2.ed.gov/about/offices/list/ocr/docs/2015-16-crdc-data.zip">here</a> (34MB).
+            </p>
+
+            <h5>Data Exclusion Rules</h5>
+            <p>
+              Data included in this story may differ slightly from other published reports due to certain data
+              decisions. For the purposes of these analyses, schools with incomplete or inconsistent data values were
+              excluded as follows:
+            </p>
+            <p>
+              1. Less than 1% of schools were excluded from all analyses because they reported inconsistent data for
+              Algebra I enrollment for the same grade level.
+            </p>
+            <p>
+              2. An additional 6% of schools serving 8<sup>th</sup> grade students were excluded from all enrollment
+              analyses due to missing 8<sup>th</sup> grade enrollment data or the 8<sup>th</sup> grade Algebra I
+              enrollment count being larger than
+              the 8<sup>th</sup> grade overall enrollment.
+            </p>
+            <p>
+              3. Fewer than 10 schools were excluded from the enrollment by urbanicity (locale) analysis due to missing
+              data.
+            </p>
+            <p>
+              4. Schools with an 8<sup>th</sup> grade Algebra I enrollment count larger than the 8<sup>th</sup> grade
+              enrollment for either the male or female subgroup (1% of schools serving 8th-grade students) were
+              excluded from the enrollment by gender
+              analysis.
+            </p>
+            <p>
+              5. Schools with an 8<sup>th</sup> grade Algebra I enrollment count larger than the 8<sup>th</sup> grade
+              enrollment for at least one race/ethnicity subgroup (16% of schools serving 8<sup>th</sup> grade
+              students) were excluded from the enrollment
+              by race/ethnicity analysis.
+            </p>
+            <h5>References</h5>
+            <div id="ftn1">
+              <p>
+                <sup><a href="#_ftnref1" name="_ftn1" title="">
+                    [1]
+                  </a></sup> Hadani, H. S., &amp; Rood, E. (2018).
+                <a href="https://centerforchildhoodcreativity.org/wp-content/uploads/sites/2/2018/02/CCC_The_Roots_of_STEM_Early_Learning.pdf">
+                  The roots of STEM success: Changing early learning experiences
+                  to build lifelong thinking skills
+                </a>. Sausalito, CA: Center for Childhood Creativity at the Bay Area Discovery Museum.
+              </p>
+            </div>
+            <div id="ftn2">
+              <p>
+                <sup><a href="#_ftnref2" name="_ftn2" title="">
+                    [2]
+                  </a></sup> <a href="https://www.mathedleadership.org/docs/resources/positionpapers/NCSMPositionPaper17.pdf">Building
+                  STEM Education on a Sound Mathematical Foundation: A joint position
+                  statement on STEM from the National Council of Supervisors of Mathematics and the National Council of
+                  Teachers of Mathematics.</a> National Council of Supervisors of Mathematics & National Council of
+                Teachers of
+                Mathematics (2018).
+              </p>
+            </div>
+            <div id="ftn3">
+              <p>
+                <sup><a href="#_ftnref3" name="_ftn3" title="">
+                    [3]
+                  </a></sup> Noonan, R. (2017). <a href="http://www.esa.doc.gov/sites/default/files/stem-jobs-2017-update.pdf">STEM
+                  jobs: 2017 Update</a>. Washington, DC: Office of the Chief Economist, Economics and Statistics
+                Administration,
+                U.S. Department of Commerce.
+              </p>
+            </div>
+            <div id="ftn4">
+              <p>
+                <sup><a href="#_ftnref4" name="_ftn4" title="">
+                    [4]
+                  </a></sup> The
+                <a href="https://ocrdata.ed.gov/">
+                  Civil Rights Data Collection (CRDC)
+                </a> , conducted by the Office for Civil Rights (OCR) under the U.S. Department of Education, gathers
+                information from our nation’s public schools.
+              </p>
+            </div>
+            <div id="ftn5">
+              <p>
+                <sup><a href="#_ftnref5" name="_ftn5" title="">
+                    [5]
+                  </a></sup> Noonan, R. (2017). <a href="http://www.esa.doc.gov/sites/default/files/stem-jobs-2017-update.pdf">STEM
+                  jobs: 2017 Update</a>. Washington, DC: Office of the Chief Economist, Economics and Statistics
+                Administration,
+                U.S. Department of Commerce.
+              </p>
+            </div>
+            <!-- <p>
+              <sup><a href="" name="" title="">
+                  [CALL-OUT]
+                </a></sup> Brown, J., Dalton, B., Laird, J., &amp; Ifill, N. (2018).
+              <em>
+                <a href="https://nces.ed.gov/pubs2018/2018118.pdf">
+                  Paths Through Mathematics and Science: Patterns and Relationships
+                  in High School Coursetaking
+                </a>
+              </em> (NCES 2018-118). Washington, DC: National Center for Education Statistics, U.S. Department of
+              Education.
+            </p>
+            <p>
+              <sup><a href="" name="" title="">
+                  [CALL-OUT]
+                </a></sup> Chen, X. (2009).
+              <em>
+                <a href="https://nces.ed.gov/pubs2009/2009161.pdf">
+                  Students who study science, technology, engineering, and
+                  mathematics (STEM) in postsecondary education
+                </a>
+              </em> (NCES 2009-161). Washington, DC: National Center for Education Statistics, U.S. Department of
+              Education.
+            </p>
+            <p>
+              <sup><a href="" name="" title="">
+                  [CALL-OUT]
+                </a></sup> Clotfelter, C., Ladd, H., &amp; Vigdor, J. (2013).
+              <a href="https://caldercenter.org/sites/default/files/wp87-2.pdf">
+                Algebra for 8<sup>th</sup> Graders: Evidence on its Effects from 10
+                North Carolina Districts
+              </a> . <em>Working Paper 87.</em> National Center for Analysis of Longitudinal Data in Education Research
+              (CALDER).
+            </p>
+            <p>
+              <sup><a href="" name="" title="">
+                  [CALL-OUT]
+                </a></sup> Domina, T., McEachin, A., Penner, A., &amp; Penner, E. (2015).
+              <a href="http://journals.sagepub.com/doi/abs/10.3102/0162373714543685">
+                Aiming high and falling short: California’s eighth-grade
+                Algebra-for-All effort
+              </a> . <em>Education Evaluation and Policy Analysis</em>, <em>37</em>(3), 275–295.
+            </p>
+            <p>
+              <sup><a href="" name="" title="">
+                  [CALL-OUT]
+                </a></sup> Loveless, T. (2013).
+              <em>
+                <a href="https://www.brookings.edu/wp-content/uploads/2016/06/2013-brown-center-report-web.pdf">
+                  The 2013 Brown Center report on American education: How well are
+                  American students learning?
+                </a>
+              </em> Washington, DC: The Brown Center on Education Policy, Brookings Institution.
+            </p>
+            <p>
+              <sup><a href="" name="" title="">
+                  [CALL-OUT]
+                </a></sup> NCSM &amp; NCTM (undated).
+              <em>
+                <a href="https://www.mathedleadership.org/docs/resources/positionpapers/NCSMPositionPaper17.pdf">
+                  Building STEM Education on a Sound Mathematical Foundation: A joint
+                  position statement on STEM from the National Council of Supervisors
+                  of Mathematics and the National Council of Teachers of Mathematics
+                </a>
+                .
+              </em>
+            </p>
+            <p>
+              <sup><a href="" name="" title="">
+                  [CALL-OUT]
+                </a></sup> Walston, J., &amp; McCarroll, J. C. (2010).
+              <em>
+                <a href="https://nces.ed.gov/pubs2010/2010016.pdf">
+                  Eighth-grade Algebra: Findings from the eighth-grade round of the
+                  Early Childhood Longitudinal Study, Kindergarten Class of 1998–99
+                  (ECLS-K)
+                </a>
+              </em> (NCES 2010-016). Washington, DC: National Center for Education Statistics, U.S. Department of
+              Education.
+            </p> -->
+
+          </div>
+        </div>
+
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24">
+        </div>
+
+      </div>
+
+
+    </article>
+
+    <footer class="pure-g">
+      <div class="wrap">
+
+        <div class="pure-u-sm-24-24 pure-u-md-4-24 pure-u-lg-4-24"><img src="assets/img/logo-white.svg"></div>
+
+        <div class="pure-u-sm-24-24 pure-u-md-10-24 pure-u-lg-10-24">
+          <p style="color: #fff;">Built by InformED.</p>
+          <p>We're an initiative at the U.S. Department of Education to make data discoverable, accessible, and
+            useful—and sometimes beautiful.</p>
+
+        </div>
+
+        <div class="pure-u-sm-24-24 pure-u-md-10-24 pure-u-lg-10-24">
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- modals -->
+  <div class="md-modal md-effect-9" id="modal-1">
+    <div class="md-content">
+      <div>
+        <blockquote>The Secretary of Education has outlined a <a href="https://www.federalregister.gov/documents/2018/03/02/2018-04291/secretarys-final-supplemental-priorities-and-definitions-for-discretionary-grant-programs">comprehensive
+            education agenda</a> that includes a focus on supporting projects that are designed to improve student
+          achievement or other educational outcomes in one or more of the STEM areas, including expanding access to
+          STEM and computer
+          science courses for all students. Additionally, in September 2017, the President signed a <a href="https://www.whitehouse.gov/presidential-actions/presidential-memorandum-secretary-education/">Memorandum</a>
+          to increase access to high-quality STEM education.</blockquote>
+
+        <i class="fas fa-times md-close"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="md-modal md-effect-9" id="modal-2">
+    <div class="md-content">
+      <div>
+        <blockquote>“Early access to algebra has an effect beyond simple increased knowledge measures and, in fact,
+          may “socialize” a student into taking more mathematics, regulating access both to advanced coursework and
+          increased achievement in high school.”</blockquote>
+        <h6>
+          Smith, J.B. (1996). <a href="http://journals.sagepub.com/doi/abs/10.3102/01623737018002141">Does an Extra
+            Year Make Any Difference? The Impact of Early Access to Algebra on
+            Long-Term Gains in Mathematics Attainment.</a> Education Evaluation and Policy Analysis, 18(2), 141–153.
+        </h6>
+        <blockquote>“The percentage of students entering STEM fields was higher among students who took trigonometry,
+          precalculus, or calculus in high school.”</blockquote>
+        <h6>
+          Chen, X. (2009). <a href="https://nces.ed.gov/pubs2009/2009161.pdf">Students who study science, technology,
+            engineering, and mathematics (STEM) in
+            postsecondary education (NCES 2009-161).</a> Washington, DC: National Center for Education Statistics, U.S.
+          Department of Education.
+        </h6>
+        <i class="fas fa-times md-close"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="md-modal md-effect-9" id="modal-3">
+    <div class="md-content">
+      <div>
+        <blockquote>Taking Algebra I in 8th grade may not be right for all students, particularly those who have
+          struggled with math in the past. When examining accelerating algebra coursetaking through shifts in algebra
+          placement policy “for those most
+          likely to struggle in algebra the best shot at passing the course eventually is to start early.” However,
+          “the overall effect of taking algebra by 8th grade is to increase the probability that students will pass
+          Algebra I by 10th grade, but to depress their performance on the Algebra I test and decrease the likelihood
+          they will pass Geometry by 11th grade…We find that the harmful effects are almost entirely confined to
+          students in the bottom 60% of the prior achievement distribution”.
+        </blockquote>
+        <h6>
+          Clotfelter, C.T., Ladd, H.F., & Vigdor, J.L. (2013). <a href="https://caldercenter.org/sites/default/files/wp87-2.pdf">Algebra
+            for 8th Graders: Evidence on its Effects from
+            10 North Carolina Districts. Working Paper No. 87.</a> Washington, DC: National Center for Analysis of
+          Longitudinal Data in Education Research (CALDER).
+        </h6>
+        <i class="fas fa-times md-close"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="md-modal md-effect-9" id="modal-4">
+    <div class="md-content">
+      <div>
+        <blockquote>“Enrollment in algebra or higher was associated with higher mathematics scores on the assessment
+          given at the end of the eighth grade, and this was true within each subgroup category—sex, race/ethnicity,
+          poverty status, mother’s education, family type, region, school type, and school’s algebra enrollment
+          (e.g., Black students in algebra or higher courses outperformed Black students not in algebra).”</blockquote>
+        <h6>
+          Walston, J., & McCarroll, J. C. (2010). <a href="https://nces.ed.gov/pubs2010/2010016.pdf">Eighth-grade
+            Algebra: Findings from the eighth-grade round of the
+            Early Childhood Longitudinal Study, Kindergarten Class of 1998–99 (ECLS-K) (NCES 2010-016).</a> Washington,
+          DC:
+          National Center for Education Statistics, U.S. Department of Education.
+        </h6>
+        <i class="fas fa-times md-close"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="md-modal md-effect-9" id="modal-5">
+    <div class="md-content">
+      <div>
+        <blockquote><a href="https://www2.ed.gov/admins/lead/account/stateplan17/index.html#map">Many states cite taking Algebra I classes</a> (or passing Algebra I exams) as an outcome measure in
+          their consolidated state plans, which describes how the Every Student Succeeds Act (ESSA) will be implemented
+          in their state.</blockquote>
+        <i class="fas fa-times md-close"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- the overlay element: must go after modal elements and be a sibling -->
+  <div class="md-overlay"></div>
+
+  <script>
+    document.getElementById("hero").classList.add('js-loading');
+
+    window.addEventListener("load", showPage);
+
+    function showPage() {
+      document.getElementById("hero").classList.remove('js-loading');
+    }
+  </script>
+
+  <!-- social share buttons -->
+  <script src="assets/js/social-share.js"></script>
+
+  <!-- tab switching -->
+  <script src="assets/js/tab-switcher.js"></script>
+
+  <script src="assets/js/scroll.js"></script>
+  <script src="assets/js/particles.js"></script>
+
+  <!-- classie.js by @desandro: https://github.com/desandro/classie -->
+  <script src="assets/js/modal-effect/classie.js"></script>
+  <script src="assets/js/modal-effect/modalEffects.js"></script>
+
+  <!-- for the blur effect -->
+  <!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
+  <script>
+    // this is important for IEs
+    var polyfilter_scriptpath = 'assets/js/modal-effect/';
+  </script>
+  <script src="assets/js/modal-effect/cssParser.js"></script>
+  <script src="assets/js/modal-effect/css-filters-polyfill.js"></script>
+
+  <!-- spinner -->
+  <script src="assets/js/spin.min.js"></script>
+
+  <!-- viz -->
+  <!-- viz libraries -->
+  <script src="viz/libs/d3.v4.js"></script>
+  <script src="viz/libs/jquery.slim.min.js"></script>
+  <script src="viz/libs/d3-annotation.min.js"></script>
+  <script src="viz/libs/topojson.v1.min.js"></script>
+  <!-- Grade Bar Chart -->
+  <script src="viz/grade_bar.js"></script>
+  <!-- School Type Bar Chart -->
+  <script src="viz/school_type_bar.js"></script>
+  <!-- Pie Chart -->
+  <script src="viz/pie.js"></script>
+  <!-- Ethnicity/Gender Bar Chart -->
+  <script src="viz/eth_gen_bar.js"></script>
+  <!-- load US shape data to prepare for map -->
+  <script src="viz/data/albers-usa-pr.js"></script>
+  <!-- load map data -->
+  <script src="viz/fetch-map-data.js"></script>
+  <!-- Map1 functions -->
+  <script src="viz/map1.js"></script>
+  <!-- Map2 functions -->
+  <script src="viz/map2.js"></script>
+  <!-- Note: while developing, you can comment out the rest of the vizs if you want to focus on one -->
 </body>
+
 
 </html>

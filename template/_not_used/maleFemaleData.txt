@@ -1,4 +1,0 @@
-characteristic	percentageEnrolledInAlgebra	total	percentageEnrolledInAlgebra_orig		
-Total	0.238992585	3642908	23.8992585		
-Female	0.249915712	1767756	24.99157123		
-Male	0.220894932	1855158	22.08949319		
