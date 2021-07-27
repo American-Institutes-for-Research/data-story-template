@@ -1,0 +1,46 @@
+/*
+* color definitions
+*/
+:root {
+  --default-third-level-header-color: rgba(34, 34, 42, 0.7);
+
+  --page-body-default-background-color: #22222a;
+
+  --page-body-default-text-color: #656569;
+
+  --default-h2-color: #22222a;
+
+  --intro-callout-text-underline-color: #7ec255;
+
+  --header-nav-link-color: #22222a;
+
+  --chart-info-text-color: #fff;
+
+  --footer-default-text-color: #fff;
+
+  --hero-section-parallax-bg-color: #c0d2e7;
+
+  --hero-title-card-bg-color: #fff;
+
+  --page-top-progress-bar-bg-color: #7ec255;
+
+  --hero-intro-text-default-color: #fff;
+
+  --page-body-sections-default-bg-color: #f9fafb;
+
+  --sections-third-level-header-color: #22222a;
+
+  --sections-fourth-level-header-color: #22222a;
+
+  --opener-large-character-color: #22222a;
+
+  --section-intro-third-level-header-color: rgba(255, 255, 255, 1);
+
+  --section-fifth-level-header-color: rgba(34, 34, 42, 0.6);
+
+  --section-link-underline-color: rgba(34, 34, 42, 0.3);
+
+  --section-link-underline-hover-color: rgba(34, 34, 42, 0.7);
+
+  --modal-window-link-underline-color: rgba(34, 34, 42, 0.8);
+}
