@@ -74,6 +74,7 @@
     <!-- JAVASCRIPT –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
     <script src="assets/js/loader.js"></script>
+    <script src="https://unpkg.com/petite-vue" defer init></script>
 
     <!-- EDIT THIS: Favicon, website icon. This will appear in browser tab. -->
     <link rel="shortcut icon" href="assets/img/favicon.ico" />
@@ -306,89 +307,70 @@
               est. Suspen.
             </h4>
 
-            <div id="chart1_content_1" class="chart1_tabcontent more-padding">
-              <h1
-                style="
-                  min-height: 600px;
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                "
-              >
-                Chart image goes here.
-              </h1>
-            </div>
-            <div
-              id="chart1_content_2"
-              class="chart1_tabcontent"
-              style="display: none"
-            >
-              <div>
-                <iframe
-                  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS0x-DDq2HEGPidiqqmLSsVC2JI6w7tPaPJ_FgBJTQBv-jdpIFzf88o_-x0pUsSuZnCTSaIkgUe4yEs/pubhtml?gid=2036872239&amp;single=true&amp;widget=true&amp;headers=false"
-                ></iframe>
-                <a
-                  class="data-links"
-                  href="data-download\chart-1_access-by-grade-level.csv"
-                  target="_blank"
-                  >Download the spreadsheet</a
-                >
-              </div>
-            </div>
-            <div
-              id="chart1_content_3"
-              class="chart1_tabcontent"
-              style="display: none"
-            >
-              <div>
-                <div class="notes-section">
-                  <p>
-                    Ut iaculis interdum ante, eu posuere sapien rutrum in.
-                    Vivamus at est nec libero fermentum efficitur. Fusce libero
-                    ex, iaculis ac risus vel, congue vestibulum augue. Quisque
-                    vel imperdiet quam, ac fermentum libero. Fusce ultricies
-                    varius risus et faucibus. Curabitur interdum, magna sit amet
-                    dapibus posuere, sem massa hendrerit felis.
-                  </p>
-                  <p>
-                    Posuere sapien rutrum in. Vivamus at est nec libero
-                    fermentum efficitur. Fusce libero ex, iaculis ac risus vel,
-                    congue vestibulum augue. Quisque vel imperdiet quam, ac
-                    fermentum libero. Fusce ultricies varius risus et faucibus.
-                    Curabitur interdum, magna sit amet dapibus posuere, sem
-                    massa hendrerit.
-                  </p>
+            <div v-scope="{ activeTab: 1 }">
+              <div class="tab-content-area" :class="activeTab === 1 ? 'active' : ''">
+                <div class="chart-image-container">
+                  <img src="./charts/chart-sample-small.png" alt="a description of the chart for accessibility" />
                 </div>
               </div>
-            </div>
-            <div class="tab-menu">
-              <ul>
-                <li>Source: The name of the data source</li>
-                <li>
+              <div class="tab-content-area" :class="activeTab === 2 ? 'active' : ''">
+                <div>
+                  <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwLgGiNu76VKw38F6K8jLQ9lsAyK4lhlQJgc3U5OzCvkBR4_wxLmHqL69jVa0n9U8lCk5hryuWYLrH/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
                   <a
-                    href="javascript:TabSwitcher('chart1_tb_1', 'chart1_content_1', 'chart1_tabcontent', 'chart1_tabmenu');"
-                    id="chart1_tb_1"
-                    class="chart1_tabmenu active"
-                    ><i class="icon-chart-button"></i
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="javascript:TabSwitcher('chart1_tb_2', 'chart1_content_2', 'chart1_tabcontent', 'chart1_tabmenu');"
-                    id="chart1_tb_2"
-                    class="chart1_tabmenu"
-                    ><i class="icon-table-button"></i
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="javascript:TabSwitcher('chart1_tb_3', 'chart1_content_3', 'chart1_tabcontent', 'chart1_tabmenu');"
-                    id="chart1_tb_3"
-                    class="chart1_tabmenu"
-                    ><i class="icon-outline-button"></i
-                  ></a>
-                </li>
-              </ul>
+                    class="data-links"
+                    href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwLgGiNu76VKw38F6K8jLQ9lsAyK4lhlQJgc3U5OzCvkBR4_wxLmHqL69jVa0n9U8lCk5hryuWYLrH/pub?gid=0&single=true&output=csv"
+                    >Download the spreadsheet</a
+                  >
+                </div>
+              </div>
+              <div class="tab-content-area" :class="activeTab === 3 ? 'active' : ''">
+                <div>
+                  <div class="notes-section">
+                    <p>
+                      Ut iaculis interdum ante, eu posuere sapien rutrum in.
+                      Vivamus at est nec libero fermentum efficitur. Fusce libero
+                      ex, iaculis ac risus vel, congue vestibulum augue. Quisque
+                      vel imperdiet quam, ac fermentum libero. Fusce ultricies
+                      varius risus et faucibus. Curabitur interdum, magna sit amet
+                      dapibus posuere, sem massa hendrerit felis.
+                    </p>
+                    <p>
+                      Posuere sapien rutrum in. Vivamus at est nec libero
+                      fermentum efficitur. Fusce libero ex, iaculis ac risus vel,
+                      congue vestibulum augue. Quisque vel imperdiet quam, ac
+                      fermentum libero. Fusce ultricies varius risus et faucibus.
+                      Curabitur interdum, magna sit amet dapibus posuere, sem
+                      massa hendrerit.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-menu">
+                <ul>
+                  <li>Source: The name of the data source</li>
+                  <li>
+                    <a
+                      :class="activeTab === 1 ? 'active' : ''"
+                      @click="activeTab = 1"
+                      ><i class="icon-chart-button"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a
+                      :class="activeTab === 2 ? 'active' : ''"
+                      @click="activeTab = 2"
+                      ><i class="icon-table-button"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a
+                      :class="activeTab === 3 ? 'active' : ''"
+                      @click="activeTab = 3"
+                      ><i class="icon-outline-button"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
           <div
@@ -458,24 +440,13 @@
         </div>
       </article>
 
-      <div class="map-transition wrap">
-        <div id="chart4_content_1" class="chart4_tabcontent">
-          <h1
-            style="
-              min-height: 600px;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-            "
-          >
-            Bigger chart image goes here
-          </h1>
+      <div class="map-transition big-chart-wrap" v-scope="{ activeTab: 1 }">
+        <div class="tab-content-area" :class="activeTab === 1 ? 'active' : ''">
+          <div class="chart-image-container">
+            <img src="./charts/chart-sample-large.png" alt="a description of the chart for accessibility" />
+          </div>
         </div>
-        <div
-          id="chart4_content_2"
-          class="chart4_tabcontent"
-          style="display: none"
-        >
+        <div class="tab-content-area" :class="activeTab === 2 ? 'active' : ''">
           <div class="white-info-text">
             <div>
               <p>
@@ -484,18 +455,13 @@
               </p>
               <a
                 class="data-links"
-                href="data-download\chart-4_access-by-urbanicity.csv"
-                target="_blank"
+                href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwLgGiNu76VKw38F6K8jLQ9lsAyK4lhlQJgc3U5OzCvkBR4_wxLmHqL69jVa0n9U8lCk5hryuWYLrH/pub?gid=0&single=true&output=csv"
                 >Download the spreadsheet</a
               >
             </div>
           </div>
         </div>
-        <div
-          id="chart4_content_3"
-          class="chart4_tabcontent"
-          style="display: none"
-        >
+        <div class="tab-content-area" :class="activeTab === 3 ? 'active' : ''">
           <div class="white-info-text">
             <div class="notes-section">
               <p>
@@ -533,25 +499,22 @@
             <li>Source: Name of data source</li>
             <li>
               <a
-                href="javascript:TabSwitcher('chart4_tb_1', 'chart4_content_1', 'chart4_tabcontent', 'chart4_tabmenu');"
-                id="chart4_tb_1"
-                class="chart4_tabmenu active"
+                :class="activeTab === 1 ? 'active' : ''"
+                @click="activeTab = 1"
                 ><i class="icon-chart-button"></i
               ></a>
             </li>
             <li>
               <a
-                href="javascript:TabSwitcher('chart4_tb_2', 'chart4_content_2', 'chart4_tabcontent', 'chart4_tabmenu');"
-                id="chart4_tb_2"
-                class="chart4_tabmenu"
+                :class="activeTab === 2 ? 'active' : ''"
+                @click="activeTab = 2"
                 ><i class="icon-table-button"></i
               ></a>
             </li>
             <li>
               <a
-                href="javascript:TabSwitcher('chart4_tb_3', 'chart4_content_3', 'chart4_tabcontent', 'chart4_tabmenu');"
-                id="chart4_tb_3"
-                class="chart4_tabmenu"
+                :class="activeTab === 3 ? 'active' : ''"
+                @click="activeTab = 3"
                 ><i class="icon-outline-button"></i
               ></a>
             </li>
@@ -596,100 +559,82 @@
               felis leo pulvinar sem, sed maximus urna dui quis libero.
               8<sup>th</sup>.
             </h4>
-            <div id="chart2_content_1" class="chart2_tabcontent">
-              <h1
-                style="
-                  min-height: 600px;
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                "
-              >
-                Chart image goes here.
-              </h1>
-            </div>
-            <div
-              id="chart2_content_2"
-              class="chart2_tabcontent"
-              style="display: none"
-            >
-              <div>
-                <iframe
-                  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR7C_nl_42t9Byipcq3vATa4IsaROjit4AvsNXgWmnvt2-jnGCzibyBQPZSXWpvVSQzh_ExocCqTQl5/pubhtml?widget=true&amp;headers=false"
-                ></iframe>
-                <a
-                  class="data-links"
-                  href="data-download\chart-3_access-by-school-type.csv"
-                  target="_blank"
-                  >Download the spreadsheet</a
-                >
-              </div>
-            </div>
-            <div
-              id="chart2_content_3"
-              class="chart2_tabcontent"
-              style="display: none"
-            >
-              <div>
-                <div class="notes-section">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                    tincidunt dapibus facilisis. Ut vulputate tortor id turpis
-                    vehicula, sit amet tempor ex luctus. Cras justo libero,
-                    laoreet id purus cursus, faucibus tempus ante. Sed tortor
-                    leo, feugiat eu pretium sit:
-                  </p>
-                  <ol>
-                    <li>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Sed tincidunt dapibus facilisis.
-                    </li>
-                    <li>
-                      Dolor sit amet, consectetur adipiscing elit. Sed tincidunt
-                      dapibus facilisis. Ut vulputate tortor id turpis vehicula,
-                      sit amet tempor ex luctus. Cras justo libero, laoreet id
-                      purus cursus.
-                    </li>
-                  </ol>
-                  <p>
-                    Consectetur adipiscing elit. Sed tincidunt dapibus
-                    facilisis. Ut vulputate tortor id turpis vehicula, sit amet
-                    tempor ex luctus. Cras justo libero, laoreet id purus
-                    cursus, faucibus tempus ante. Sed tortor leo, feugiat eu
-                    pretium sit amet, fringilla quis massa. Nulla eget lectus eu
-                    justo.
-                  </p>
+
+            <div v-scope="{ activeTab: 1 }">
+              <div class="tab-content-area" :class="activeTab === 1 ? 'active' : ''">
+                <div class="chart-image-container">
+                  <img src="./charts/chart-sample-small.png" alt="a description of the chart for accessibility" />
                 </div>
               </div>
-            </div>
-            <div class="tab-menu">
-              <ul>
-                <li>Source: Name of data source</li>
-                <li>
+              <div class="tab-content-area" :class="activeTab === 2 ? 'active' : ''">
+                <div>
+                  <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwLgGiNu76VKw38F6K8jLQ9lsAyK4lhlQJgc3U5OzCvkBR4_wxLmHqL69jVa0n9U8lCk5hryuWYLrH/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
                   <a
-                    href="javascript:TabSwitcher('chart2_tb_1', 'chart2_content_1', 'chart2_tabcontent', 'chart2_tabmenu');"
-                    id="chart2_tb_1"
-                    class="chart2_tabmenu active"
-                    ><i class="icon-chart-button"></i
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="javascript:TabSwitcher('chart2_tb_2', 'chart2_content_2', 'chart2_tabcontent', 'chart2_tabmenu');"
-                    id="chart2_tb_2"
-                    class="chart2_tabmenu"
-                    ><i class="icon-table-button"></i
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="javascript:TabSwitcher('chart2_tb_3', 'chart2_content_3', 'chart2_tabcontent', 'chart2_tabmenu');"
-                    id="chart2_tb_3"
-                    class="chart2_tabmenu"
-                    ><i class="icon-outline-button"></i
-                  ></a>
-                </li>
-              </ul>
+                    class="data-links"
+                    href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwLgGiNu76VKw38F6K8jLQ9lsAyK4lhlQJgc3U5OzCvkBR4_wxLmHqL69jVa0n9U8lCk5hryuWYLrH/pub?gid=0&single=true&output=csv"
+                    >Download the spreadsheet</a
+                  >
+                </div>
+              </div>
+              <div class="tab-content-area" :class="activeTab === 3 ? 'active' : ''">
+                <div>
+                  <div class="notes-section">
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                      tincidunt dapibus facilisis. Ut vulputate tortor id turpis
+                      vehicula, sit amet tempor ex luctus. Cras justo libero,
+                      laoreet id purus cursus, faucibus tempus ante. Sed tortor
+                      leo, feugiat eu pretium sit:
+                    </p>
+                    <ol>
+                      <li>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Sed tincidunt dapibus facilisis.
+                      </li>
+                      <li>
+                        Dolor sit amet, consectetur adipiscing elit. Sed tincidunt
+                        dapibus facilisis. Ut vulputate tortor id turpis vehicula,
+                        sit amet tempor ex luctus. Cras justo libero, laoreet id
+                        purus cursus.
+                      </li>
+                    </ol>
+                    <p>
+                      Consectetur adipiscing elit. Sed tincidunt dapibus
+                      facilisis. Ut vulputate tortor id turpis vehicula, sit amet
+                      tempor ex luctus. Cras justo libero, laoreet id purus
+                      cursus, faucibus tempus ante. Sed tortor leo, feugiat eu
+                      pretium sit amet, fringilla quis massa. Nulla eget lectus eu
+                      justo.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-menu">
+                <ul>
+                  <li>Source: Name of data source</li>
+                  <li>
+                    <a
+                      :class="activeTab === 1 ? 'active' : ''"
+                      @click="activeTab = 1"
+                      ><i class="icon-chart-button"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a
+                      :class="activeTab === 2 ? 'active' : ''"
+                      @click="activeTab = 2"
+                      ><i class="icon-table-button"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a
+                      :class="activeTab === 3 ? 'active' : ''"
+                      @click="activeTab = 3"
+                      ><i class="icon-outline-button"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
 
@@ -738,99 +683,81 @@
               Maecenas quis fermentum lorem, eget suscipit eros. Phasellus
               porttitor vestibulum purus, ut tincidunt nulla laoreet id.
             </h4>
-            <div id="chart3_content_1" class="chart3_tabcontent">
-              <h1
-                style="
-                  min-height: 600px;
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                "
-              >
-                Chart image goes here.
-              </h1>
-            </div>
-            <div
-              id="chart3_content_2"
-              class="chart3_tabcontent iframe-table"
-              style="display: none"
-            >
-              <div>
-                <iframe
-                  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRu_wMqsU27h6_INaX9DDPeH16tuJtS8OBkFI-RUOsNRg1lzKWt1wP9WVxX_h02kSpq_83ESpAybT1Q/pubhtml?widget=true&amp;headers=false"
-                ></iframe>
-                <a
-                  class="data-links"
-                  href="data-download\chart-4_access-by-urbanicity.csv"
-                  target="_blank"
-                  >Download the spreadsheet</a
-                >
-              </div>
-            </div>
-            <div
-              id="chart3_content_3"
-              class="chart3_tabcontent"
-              style="display: none"
-            >
-              <div>
-                <div class="notes-section">
-                  <p>
-                    Aenean sem lacus, interdum finibus sollicitudin in,
-                    convallis ut libero. In suscipit massa nec justo laoreet, a
-                    hendrerit erat aliquam. Maecenas quis fermentum lorem, eget
-                    suscipit eros. Phasellus porttitor vestibulum purus, ut
-                    tincidunt nulla laoreet id:
-                  </p>
-                  <ol>
-                    <li>
-                      Aenean sem lacus, interdum finibus sollicitudin in,
-                      convallis ut libero. In suscipit massa nec justo laoreet,
-                      a hendrerit erat aliquam.
-                    </li>
-                    <li>
-                      In suscipit massa nec justo laoreet, a hendrerit erat
-                      aliquam. Maecenas quis fermentum lorem, eget suscipit
-                      eros. Phasellus porttitor vestibulum purus, ut tincidunt
-                      nulla laoreet id.
-                    </li>
-                    <li>Missing urbanicity data.</li>
-                  </ol>
-                  <p>
-                    Maecenas quis fermentum lorem, eget suscipit eros. Phasellus
-                    porttitor vestibulum purus, ut tincidunt nulla laoreet id:
-                    <a href="" target="_blank">link</a>.
-                  </p>
+
+            <div v-scope="{ activeTab: 1 }">
+              <div class="tab-content-area" :class="activeTab === 1 ? 'active' : ''">
+                <div class="chart-image-container">
+                  <img src="./charts/chart-sample-small.png" alt="a description of the chart for accessibility" />
                 </div>
               </div>
-            </div>
-            <div class="tab-menu">
-              <ul>
-                <li>Source: Name of data source</li>
-                <li>
+              <div class="tab-content-area" :class="activeTab === 2 ? 'active' : ''">
+                <div>
+                  <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwLgGiNu76VKw38F6K8jLQ9lsAyK4lhlQJgc3U5OzCvkBR4_wxLmHqL69jVa0n9U8lCk5hryuWYLrH/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
                   <a
-                    href="javascript:TabSwitcher('chart3_tb_1', 'chart3_content_1', 'chart3_tabcontent', 'chart3_tabmenu');"
-                    id="chart3_tb_1"
-                    class="chart3_tabmenu active"
-                    ><i class="icon-chart-button"></i
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="javascript:TabSwitcher('chart3_tb_2', 'chart3_content_2', 'chart3_tabcontent', 'chart3_tabmenu');"
-                    id="chart3_tb_2"
-                    class="chart3_tabmenu"
-                    ><i class="icon-table-button"></i
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="javascript:TabSwitcher('chart3_tb_3', 'chart3_content_3', 'chart3_tabcontent', 'chart3_tabmenu');"
-                    id="chart3_tb_3"
-                    class="chart3_tabmenu"
-                    ><i class="icon-outline-button"></i
-                  ></a>
-                </li>
-              </ul>
+                    class="data-links"
+                    href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwLgGiNu76VKw38F6K8jLQ9lsAyK4lhlQJgc3U5OzCvkBR4_wxLmHqL69jVa0n9U8lCk5hryuWYLrH/pub?gid=0&single=true&output=csv"
+                    >Download the spreadsheet</a
+                  >
+                </div>
+              </div>
+              <div class="tab-content-area" :class="activeTab === 3 ? 'active' : ''">
+                <div>
+                  <div class="notes-section">
+                    <p>
+                      Aenean sem lacus, interdum finibus sollicitudin in,
+                      convallis ut libero. In suscipit massa nec justo laoreet, a
+                      hendrerit erat aliquam. Maecenas quis fermentum lorem, eget
+                      suscipit eros. Phasellus porttitor vestibulum purus, ut
+                      tincidunt nulla laoreet id:
+                    </p>
+                    <ol>
+                      <li>
+                        Aenean sem lacus, interdum finibus sollicitudin in,
+                        convallis ut libero. In suscipit massa nec justo laoreet,
+                        a hendrerit erat aliquam.
+                      </li>
+                      <li>
+                        In suscipit massa nec justo laoreet, a hendrerit erat
+                        aliquam. Maecenas quis fermentum lorem, eget suscipit
+                        eros. Phasellus porttitor vestibulum purus, ut tincidunt
+                        nulla laoreet id.
+                      </li>
+                      <li>Missing urbanicity data.</li>
+                    </ol>
+                    <p>
+                      Maecenas quis fermentum lorem, eget suscipit eros. Phasellus
+                      porttitor vestibulum purus, ut tincidunt nulla laoreet id:
+                      <a href="" target="_blank">link</a>.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-menu">
+                <ul>
+                  <li>Source: Name of data source</li>
+                  <li>
+                    <a
+                      :class="activeTab === 1 ? 'active' : ''"
+                      @click="activeTab = 1"
+                      ><i class="icon-chart-button"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a
+                      :class="activeTab === 2 ? 'active' : ''"
+                      @click="activeTab = 2"
+                      ><i class="icon-table-button"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a
+                      :class="activeTab === 3 ? 'active' : ''"
+                      @click="activeTab = 3"
+                      ><i class="icon-outline-button"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
 
@@ -907,102 +834,84 @@
               Maecenas quis fermentum lorem, eget suscipit eros. Phasellus
               porttitor vestibulum purus, ut tincidunt nulla laoreet id.
             </h4>
-            <div id="chart5_content_1" class="chart5_tabcontent">
-              <h1
-                style="
-                  min-height: 600px;
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                "
-              >
-                Chart image goes here
-              </h1>
-            </div>
-            <div
-              id="chart5_content_2"
-              class="chart5_tabcontent"
-              style="display: none"
-            >
-              <div>
-                <iframe
-                  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQYK2PwPFXUBxiLL8Sk2J8jFpWlzecjZyykR3n__t8q-uJv0aay1oisMqEwvPHNNZqrhf_UKg7JvvRy/pubhtml?widget=true&amp;headers=false"
-                ></iframe>
-                <a
-                  class="data-links"
-                  href="data-download\chart-5_enrollment-by-subgroup.csv"
-                  target="_blank"
-                  >Download the spreadsheet</a
-                >
-              </div>
-            </div>
-            <div
-              id="chart5_content_3"
-              class="chart5_tabcontent"
-              style="display: none"
-            >
-              <div>
-                <div class="notes-section">
-                  <p>
-                    Vestibulum consequat tempus est, at semper odio commodo et.
-                    Vivamus orci metus, viverra vitae varius in, pellentesque ac
-                    massa. Nunc semper molestie ligula, sit amet maximus erat.
-                  </p>
-                  <ol>
-                    <li>
-                      Curabitur interdum ullamcorper tellus ac imperdiet.
-                      Vestibulum consequat tempus est, at semper odio commodo
-                      et. Vivamus orci metus.
-                    </li>
-                    <li>
-                      Bt semper odio commodo et. Vivamus orci metus, viverra
-                      vitae varius in, pellentesque ac massa. Nunc semper
-                      molestie ligula, sit amet maximus erat.
-                    </li>
-                    <li>
-                      Curabitur interdum ullamcorper tellus ac imperdiet.
-                      Vestibulum consequat tempus est, at semper odio commodo
-                      et. Vivamus orci metus, viverra vitae varius in,
-                      pellentesque ac massa. Nunc semper molestie ligula, sit
-                      amet maximus erat.
-                    </li>
-                    <li>
-                      Linnterdum ullamcorper tellus ac imperdiet. Vestibulum
-                      consequat tempus est, at semper odio commodo et. Vivamus
-                      orci metus, vive la.
-                    </li>
-                  </ol>
+
+            <div v-scope="{ activeTab: 1 }">
+              <div class="tab-content-area" :class="activeTab === 1 ? 'active' : ''">
+                <div class="chart-image-container">
+                  <img src="./charts/chart-sample-small.png" alt="a description of the chart for accessibility" />
                 </div>
               </div>
-            </div>
-            <div class="tab-menu">
-              <ul>
-                <li>Source: Name of data source</li>
-                <li>
+              <div class="tab-content-area" :class="activeTab === 2 ? 'active' : ''">
+                <div>
+                  <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwLgGiNu76VKw38F6K8jLQ9lsAyK4lhlQJgc3U5OzCvkBR4_wxLmHqL69jVa0n9U8lCk5hryuWYLrH/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
                   <a
-                    href="javascript:TabSwitcher('chart5_tb_1', 'chart5_content_1', 'chart5_tabcontent', 'chart5_tabmenu');"
-                    id="chart5_tb_1"
-                    class="chart5_tabmenu active"
-                    ><i class="icon-chart-button"></i
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="javascript:TabSwitcher('chart5_tb_2', 'chart5_content_2', 'chart5_tabcontent', 'chart5_tabmenu');"
-                    id="chart5_tb_2"
-                    class="chart5_tabmenu"
-                    ><i class="icon-table-button"></i
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="javascript:TabSwitcher('chart5_tb_3', 'chart5_content_3', 'chart5_tabcontent', 'chart5_tabmenu');"
-                    id="chart5_tb_3"
-                    class="chart5_tabmenu"
-                    ><i class="icon-outline-button"></i
-                  ></a>
-                </li>
-              </ul>
+                    class="data-links"
+                    href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwLgGiNu76VKw38F6K8jLQ9lsAyK4lhlQJgc3U5OzCvkBR4_wxLmHqL69jVa0n9U8lCk5hryuWYLrH/pub?gid=0&single=true&output=csv"
+                    >Download the spreadsheet</a
+                  >
+                </div>
+              </div>
+              <div class="tab-content-area" :class="activeTab === 3 ? 'active' : ''">
+                <div>
+                  <div class="notes-section">
+                    <p>
+                      Vestibulum consequat tempus est, at semper odio commodo et.
+                      Vivamus orci metus, viverra vitae varius in, pellentesque ac
+                      massa. Nunc semper molestie ligula, sit amet maximus erat.
+                    </p>
+                    <ol>
+                      <li>
+                        Curabitur interdum ullamcorper tellus ac imperdiet.
+                        Vestibulum consequat tempus est, at semper odio commodo
+                        et. Vivamus orci metus.
+                      </li>
+                      <li>
+                        Bt semper odio commodo et. Vivamus orci metus, viverra
+                        vitae varius in, pellentesque ac massa. Nunc semper
+                        molestie ligula, sit amet maximus erat.
+                      </li>
+                      <li>
+                        Curabitur interdum ullamcorper tellus ac imperdiet.
+                        Vestibulum consequat tempus est, at semper odio commodo
+                        et. Vivamus orci metus, viverra vitae varius in,
+                        pellentesque ac massa. Nunc semper molestie ligula, sit
+                        amet maximus erat.
+                      </li>
+                      <li>
+                        Linnterdum ullamcorper tellus ac imperdiet. Vestibulum
+                        consequat tempus est, at semper odio commodo et. Vivamus
+                        orci metus, vive la.
+                      </li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-menu">
+                <ul>
+                  <li>Source: Name of data source</li>
+                  <li>
+                    <a
+                      :class="activeTab === 1 ? 'active' : ''"
+                      @click="activeTab = 1"
+                      ><i class="icon-chart-button"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a
+                      :class="activeTab === 2 ? 'active' : ''"
+                      @click="activeTab = 2"
+                      ><i class="icon-table-button"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a
+                      :class="activeTab === 3 ? 'active' : ''"
+                      @click="activeTab = 3"
+                      ><i class="icon-outline-button"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
 
@@ -1067,44 +976,25 @@
         </div>
       </article>
 
-      <div class="map-area wrap">
-        <div id="chart6_content_1" class="chart6_tabcontent">
-          <h1
-            style="
-              min-height: 600px;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-            "
-          >
-            Bigger chart image goes here.
-          </h1>
+      <div class="map-area big-chart-wrap" v-scope="{ activeTab: 1 }">
+        <div class="tab-content-area" :class="activeTab === 1 ? 'active' : ''">
+          <div class="chart-image-container">
+            <img src="./charts/chart-sample-large.png" alt="a description of the chart for accessibility" />
+          </div>
         </div>
-        <div
-          id="chart6_content_2"
-          class="chart6_tabcontent"
-          style="display: none"
-        >
+        <div class="tab-content-area" :class="activeTab === 2 ? 'active' : ''">
           <div class="white-info-text">
             <div>
-              <p>
-                Table spreadsheet view not available due to length. Please use
-                the link below to download the complete table.
-              </p>
+              <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwLgGiNu76VKw38F6K8jLQ9lsAyK4lhlQJgc3U5OzCvkBR4_wxLmHqL69jVa0n9U8lCk5hryuWYLrH/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
               <a
                 class="data-links"
-                href="data-download/non-machine-readable/chart-6_enrollment-map.csv.zip"
-                target="_blank"
+                href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwLgGiNu76VKw38F6K8jLQ9lsAyK4lhlQJgc3U5OzCvkBR4_wxLmHqL69jVa0n9U8lCk5hryuWYLrH/pub?gid=0&single=true&output=csv"
                 >Download the spreadsheet</a
               >
             </div>
           </div>
         </div>
-        <div
-          id="chart6_content_3"
-          class="chart6_tabcontent"
-          style="display: none"
-        >
+        <div class="tab-content-area" :class="activeTab === 3 ? 'active' : ''">
           <div class="white-info-text">
             <div class="notes-section">
               <p>
@@ -1145,25 +1035,22 @@
             <li>Source: Name of data source</li>
             <li>
               <a
-                href="javascript:TabSwitcher('chart6_tb_1', 'chart6_content_1', 'chart6_tabcontent', 'chart6_tabmenu');"
-                id="chart6_tb_1"
-                class="chart6_tabmenu active"
+                :class="activeTab === 1 ? 'active' : ''"
+                @click="activeTab = 1"
                 ><i class="icon-chart-button"></i
               ></a>
             </li>
             <li>
               <a
-                href="javascript:TabSwitcher('chart6_tb_2', 'chart6_content_2', 'chart6_tabcontent', 'chart6_tabmenu');"
-                id="chart6_tb_2"
-                class="chart6_tabmenu"
+                :class="activeTab === 2 ? 'active' : ''"
+                @click="activeTab = 2"
                 ><i class="icon-table-button"></i
               ></a>
             </li>
             <li>
               <a
-                href="javascript:TabSwitcher('chart6_tb_3', 'chart6_content_3', 'chart6_tabcontent', 'chart6_tabmenu');"
-                id="chart6_tb_3"
-                class="chart6_tabmenu"
+                :class="activeTab === 3 ? 'active' : ''"
+                @click="activeTab = 3"
                 ><i class="icon-outline-button"></i
               ></a>
             </li>
@@ -1578,9 +1465,6 @@
 
     <!-- social share buttons functions -->
     <script src="assets/js/social-share.js"></script>
-
-    <!-- tab switching functions -->
-    <script src="assets/js/tab-switcher.js"></script>
 
     <!-- scroll and top progress indicator -->
     <script src="assets/js/scroll.js"></script>

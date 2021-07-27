@@ -619,6 +619,11 @@ section.intro .bigger {
   margin: 0 auto;
 }
 
+.big-chart-wrap {
+  max-width: 1200px;
+  margin: 50px auto 0 auto;
+}
+
 @media screen and (min-width: 100em) {
   .wrap {
     max-width: 1450px;
@@ -1307,6 +1312,23 @@ article sup a {
 
 .tab-menu a {
   border-bottom: none;
+}
+
+.tab-content-area {
+  display: none;
+  min-height: 300px;
+}
+
+.tab-content-area.active {
+  display: block;
+}
+
+.chart-image-container {
+  width: 100%;
+}
+
+.chart-image-container img {
+  width: 100%;
 }
 
 @media (max-width: 53.125em) {

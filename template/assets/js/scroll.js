@@ -1,5 +1,5 @@
 (function () {
-  "use strict";
+  ("use strict");
 
   // ---
   // scroll progress bar
@@ -96,6 +96,14 @@
     .cloneNode(true);
   // create the list of nav items with a ul
   var linkList = document.createElement("ul");
+
+  /////
+  /////
+  /////
+  // define name of links on page top, and anchor ids in page body, here
+  /////
+  /////
+  /////
   var anchorLinks = {
     "SECTION ONE": "Section1Anchor",
     "SECTION TWO": "Section2Anchor",
