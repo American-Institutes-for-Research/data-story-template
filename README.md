@@ -8,4 +8,4 @@
 1. Install the `servr` package (https://github.com/yihui/servr)
 2. Open the `/template` folder in RStudio
 3. Open a terminal in RStudio
-4. Run `Rscript -e "servr::httd()" -b`
+4. Run `Rscript -e "servr::httw()" -b`
