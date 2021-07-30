@@ -55,7 +55,6 @@
     <link rel="stylesheet" href="assets/css/libs/Glyphter-font.css" />
     <link rel="stylesheet" href="assets/css/libs/animate.css" />
     <!-- Custom site stylesheet. Edit this. -->
-    <link rel="stylesheet" href="assets/css/variable.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
 
     <!-- FONT –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -198,7 +197,7 @@
         <!-- CHART AREA GRID
   ––––––––––––––––––––––––––––––––––––––––––––––––––
 
-  <div class="chart-area pure-g">
+  <div class="small-chart-area pure-g">
 
     <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
 
@@ -293,7 +292,7 @@
             class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"
           ></div>
         </div>
-        <div class="chart-area pure-g">
+        <div class="small-chart-area pure-g">
           <div
             class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"
           ></div>
@@ -309,14 +308,27 @@
             </h4>
 
             <div v-scope="{ activeTab: 1 }">
-              <div class="tab-content-area" :class="activeTab === 1 ? 'active' : ''">
-                <div class="chart-image-container">
-                  <img src="./charts/chart-sample-small.png" alt="a description of the chart for accessibility" />
+              <div
+                class="tab-content-area"
+                :class="activeTab === 1 ? 'active' : ''"
+              >
+                <!-- The padding-top rule is used to adjust each iframe's aspect ratio  -->
+                <div class="chart-image-container" style="padding-top: 56.25%">
+                  <iframe
+                    class="responsive-iframe"
+                    src="./charts/r-exports/chart1.html"
+                    aria-label="A description of this interactive chart for accessibility"
+                  ></iframe>
                 </div>
               </div>
-              <div class="tab-content-area" :class="activeTab === 2 ? 'active' : ''">
+              <div
+                class="tab-content-area"
+                :class="activeTab === 2 ? 'active' : ''"
+              >
                 <div>
-                  <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwLgGiNu76VKw38F6K8jLQ9lsAyK4lhlQJgc3U5OzCvkBR4_wxLmHqL69jVa0n9U8lCk5hryuWYLrH/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+                  <iframe
+                    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwLgGiNu76VKw38F6K8jLQ9lsAyK4lhlQJgc3U5OzCvkBR4_wxLmHqL69jVa0n9U8lCk5hryuWYLrH/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"
+                  ></iframe>
                   <a
                     class="data-links"
                     href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwLgGiNu76VKw38F6K8jLQ9lsAyK4lhlQJgc3U5OzCvkBR4_wxLmHqL69jVa0n9U8lCk5hryuWYLrH/pub?gid=0&single=true&output=csv"
@@ -324,24 +336,27 @@
                   >
                 </div>
               </div>
-              <div class="tab-content-area" :class="activeTab === 3 ? 'active' : ''">
+              <div
+                class="tab-content-area"
+                :class="activeTab === 3 ? 'active' : ''"
+              >
                 <div>
                   <div class="notes-section">
                     <p>
                       Ut iaculis interdum ante, eu posuere sapien rutrum in.
-                      Vivamus at est nec libero fermentum efficitur. Fusce libero
-                      ex, iaculis ac risus vel, congue vestibulum augue. Quisque
-                      vel imperdiet quam, ac fermentum libero. Fusce ultricies
-                      varius risus et faucibus. Curabitur interdum, magna sit amet
-                      dapibus posuere, sem massa hendrerit felis.
+                      Vivamus at est nec libero fermentum efficitur. Fusce
+                      libero ex, iaculis ac risus vel, congue vestibulum augue.
+                      Quisque vel imperdiet quam, ac fermentum libero. Fusce
+                      ultricies varius risus et faucibus. Curabitur interdum,
+                      magna sit amet dapibus posuere, sem massa hendrerit felis.
                     </p>
                     <p>
                       Posuere sapien rutrum in. Vivamus at est nec libero
-                      fermentum efficitur. Fusce libero ex, iaculis ac risus vel,
-                      congue vestibulum augue. Quisque vel imperdiet quam, ac
-                      fermentum libero. Fusce ultricies varius risus et faucibus.
-                      Curabitur interdum, magna sit amet dapibus posuere, sem
-                      massa hendrerit.
+                      fermentum efficitur. Fusce libero ex, iaculis ac risus
+                      vel, congue vestibulum augue. Quisque vel imperdiet quam,
+                      ac fermentum libero. Fusce ultricies varius risus et
+                      faucibus. Curabitur interdum, magna sit amet dapibus
+                      posuere, sem massa hendrerit.
                     </p>
                   </div>
                 </div>
@@ -418,7 +433,7 @@
           ></div>
         </div>
 
-        <div class="chart-area pure-g">
+        <div class="small-chart-area pure-g">
           <div
             class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"
           ></div>
@@ -441,10 +456,15 @@
         </div>
       </article>
 
-      <div class="map-transition big-chart-wrap" v-scope="{ activeTab: 1 }">
+      <div class="large-chart-area big-chart-wrap" v-scope="{ activeTab: 1 }">
         <div class="tab-content-area" :class="activeTab === 1 ? 'active' : ''">
-          <div class="chart-image-container">
-            <img src="./charts/chart-sample-large.png" alt="a description of the chart for accessibility" />
+          <!-- The padding-top style is used to adjust each iframe chart's aspect ratio  -->
+          <div class="chart-image-container" style="padding-top: 60%">
+            <iframe
+              class="responsive-iframe"
+              src="./charts/r-exports/chart2.html"
+              aria-label="A description of this interactive chart for accessibility"
+            ></iframe>
           </div>
         </div>
         <div class="tab-content-area" :class="activeTab === 2 ? 'active' : ''">
@@ -499,23 +519,17 @@
           <ul>
             <li>Source: Name of data source</li>
             <li>
-              <a
-                :class="activeTab === 1 ? 'active' : ''"
-                @click="activeTab = 1"
+              <a :class="activeTab === 1 ? 'active' : ''" @click="activeTab = 1"
                 ><i class="icon-chart-button"></i
               ></a>
             </li>
             <li>
-              <a
-                :class="activeTab === 2 ? 'active' : ''"
-                @click="activeTab = 2"
+              <a :class="activeTab === 2 ? 'active' : ''" @click="activeTab = 2"
                 ><i class="icon-table-button"></i
               ></a>
             </li>
             <li>
-              <a
-                :class="activeTab === 3 ? 'active' : ''"
-                @click="activeTab = 3"
+              <a :class="activeTab === 3 ? 'active' : ''" @click="activeTab = 3"
                 ><i class="icon-outline-button"></i
               ></a>
             </li>
@@ -544,7 +558,7 @@
           ></div>
         </div>
 
-        <div class="chart-area pure-g">
+        <div class="small-chart-area pure-g">
           <div
             class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"
           ></div>
@@ -562,14 +576,27 @@
             </h4>
 
             <div v-scope="{ activeTab: 1 }">
-              <div class="tab-content-area" :class="activeTab === 1 ? 'active' : ''">
-                <div class="chart-image-container">
-                  <img src="./charts/chart-sample-small.png" alt="a description of the chart for accessibility" />
+              <div
+                class="tab-content-area"
+                :class="activeTab === 1 ? 'active' : ''"
+              >
+                <!-- The padding-top style is used to adjust each iframe chart's aspect ratio  -->
+                <div class="chart-image-container" style="padding-top: 60%">
+                  <iframe
+                    class="responsive-iframe"
+                    src="./charts/r-exports/chart3.html"
+                    aria-label="A description of this interactive chart for accessibility"
+                  ></iframe>
                 </div>
               </div>
-              <div class="tab-content-area" :class="activeTab === 2 ? 'active' : ''">
+              <div
+                class="tab-content-area"
+                :class="activeTab === 2 ? 'active' : ''"
+              >
                 <div>
-                  <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwLgGiNu76VKw38F6K8jLQ9lsAyK4lhlQJgc3U5OzCvkBR4_wxLmHqL69jVa0n9U8lCk5hryuWYLrH/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+                  <iframe
+                    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwLgGiNu76VKw38F6K8jLQ9lsAyK4lhlQJgc3U5OzCvkBR4_wxLmHqL69jVa0n9U8lCk5hryuWYLrH/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"
+                  ></iframe>
                   <a
                     class="data-links"
                     href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwLgGiNu76VKw38F6K8jLQ9lsAyK4lhlQJgc3U5OzCvkBR4_wxLmHqL69jVa0n9U8lCk5hryuWYLrH/pub?gid=0&single=true&output=csv"
@@ -577,15 +604,18 @@
                   >
                 </div>
               </div>
-              <div class="tab-content-area" :class="activeTab === 3 ? 'active' : ''">
+              <div
+                class="tab-content-area"
+                :class="activeTab === 3 ? 'active' : ''"
+              >
                 <div>
                   <div class="notes-section">
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                      tincidunt dapibus facilisis. Ut vulputate tortor id turpis
-                      vehicula, sit amet tempor ex luctus. Cras justo libero,
-                      laoreet id purus cursus, faucibus tempus ante. Sed tortor
-                      leo, feugiat eu pretium sit:
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Sed tincidunt dapibus facilisis. Ut vulputate tortor id
+                      turpis vehicula, sit amet tempor ex luctus. Cras justo
+                      libero, laoreet id purus cursus, faucibus tempus ante. Sed
+                      tortor leo, feugiat eu pretium sit:
                     </p>
                     <ol>
                       <li>
@@ -593,19 +623,19 @@
                         Sed tincidunt dapibus facilisis.
                       </li>
                       <li>
-                        Dolor sit amet, consectetur adipiscing elit. Sed tincidunt
-                        dapibus facilisis. Ut vulputate tortor id turpis vehicula,
-                        sit amet tempor ex luctus. Cras justo libero, laoreet id
-                        purus cursus.
+                        Dolor sit amet, consectetur adipiscing elit. Sed
+                        tincidunt dapibus facilisis. Ut vulputate tortor id
+                        turpis vehicula, sit amet tempor ex luctus. Cras justo
+                        libero, laoreet id purus cursus.
                       </li>
                     </ol>
                     <p>
                       Consectetur adipiscing elit. Sed tincidunt dapibus
-                      facilisis. Ut vulputate tortor id turpis vehicula, sit amet
-                      tempor ex luctus. Cras justo libero, laoreet id purus
+                      facilisis. Ut vulputate tortor id turpis vehicula, sit
+                      amet tempor ex luctus. Cras justo libero, laoreet id purus
                       cursus, faucibus tempus ante. Sed tortor leo, feugiat eu
-                      pretium sit amet, fringilla quis massa. Nulla eget lectus eu
-                      justo.
+                      pretium sit amet, fringilla quis massa. Nulla eget lectus
+                      eu justo.
                     </p>
                   </div>
                 </div>
@@ -669,7 +699,7 @@
           ></div>
         </div>
 
-        <div class="chart-area pure-g">
+        <div class="small-chart-area pure-g">
           <div
             class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"
           ></div>
@@ -686,14 +716,25 @@
             </h4>
 
             <div v-scope="{ activeTab: 1 }">
-              <div class="tab-content-area" :class="activeTab === 1 ? 'active' : ''">
+              <div
+                class="tab-content-area"
+                :class="activeTab === 1 ? 'active' : ''"
+              >
                 <div class="chart-image-container">
-                  <img src="./charts/chart-sample-small.png" alt="a description of the chart for accessibility" />
+                  <img
+                    src="./charts/static-imgs/chart-sample-small.png"
+                    alt="a description of the static chart for accessibility"
+                  />
                 </div>
               </div>
-              <div class="tab-content-area" :class="activeTab === 2 ? 'active' : ''">
+              <div
+                class="tab-content-area"
+                :class="activeTab === 2 ? 'active' : ''"
+              >
                 <div>
-                  <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwLgGiNu76VKw38F6K8jLQ9lsAyK4lhlQJgc3U5OzCvkBR4_wxLmHqL69jVa0n9U8lCk5hryuWYLrH/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+                  <iframe
+                    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwLgGiNu76VKw38F6K8jLQ9lsAyK4lhlQJgc3U5OzCvkBR4_wxLmHqL69jVa0n9U8lCk5hryuWYLrH/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"
+                  ></iframe>
                   <a
                     class="data-links"
                     href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwLgGiNu76VKw38F6K8jLQ9lsAyK4lhlQJgc3U5OzCvkBR4_wxLmHqL69jVa0n9U8lCk5hryuWYLrH/pub?gid=0&single=true&output=csv"
@@ -701,21 +742,24 @@
                   >
                 </div>
               </div>
-              <div class="tab-content-area" :class="activeTab === 3 ? 'active' : ''">
+              <div
+                class="tab-content-area"
+                :class="activeTab === 3 ? 'active' : ''"
+              >
                 <div>
                   <div class="notes-section">
                     <p>
                       Aenean sem lacus, interdum finibus sollicitudin in,
-                      convallis ut libero. In suscipit massa nec justo laoreet, a
-                      hendrerit erat aliquam. Maecenas quis fermentum lorem, eget
-                      suscipit eros. Phasellus porttitor vestibulum purus, ut
-                      tincidunt nulla laoreet id:
+                      convallis ut libero. In suscipit massa nec justo laoreet,
+                      a hendrerit erat aliquam. Maecenas quis fermentum lorem,
+                      eget suscipit eros. Phasellus porttitor vestibulum purus,
+                      ut tincidunt nulla laoreet id:
                     </p>
                     <ol>
                       <li>
                         Aenean sem lacus, interdum finibus sollicitudin in,
-                        convallis ut libero. In suscipit massa nec justo laoreet,
-                        a hendrerit erat aliquam.
+                        convallis ut libero. In suscipit massa nec justo
+                        laoreet, a hendrerit erat aliquam.
                       </li>
                       <li>
                         In suscipit massa nec justo laoreet, a hendrerit erat
@@ -726,8 +770,9 @@
                       <li>Missing urbanicity data.</li>
                     </ol>
                     <p>
-                      Maecenas quis fermentum lorem, eget suscipit eros. Phasellus
-                      porttitor vestibulum purus, ut tincidunt nulla laoreet id:
+                      Maecenas quis fermentum lorem, eget suscipit eros.
+                      Phasellus porttitor vestibulum purus, ut tincidunt nulla
+                      laoreet id:
                       <a href="" target="_blank">link</a>.
                     </p>
                   </div>
@@ -821,7 +866,7 @@
           ></div>
         </div>
 
-        <div class="chart-area pure-g">
+        <div class="small-chart-area pure-g">
           <div
             class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"
           ></div>
@@ -837,14 +882,25 @@
             </h4>
 
             <div v-scope="{ activeTab: 1 }">
-              <div class="tab-content-area" :class="activeTab === 1 ? 'active' : ''">
+              <div
+                class="tab-content-area"
+                :class="activeTab === 1 ? 'active' : ''"
+              >
                 <div class="chart-image-container">
-                  <img src="./charts/chart-sample-small.png" alt="a description of the chart for accessibility" />
+                  <img
+                    src="./charts/static-imgs/chart-sample-small.png"
+                    alt="a description of the chart for accessibility"
+                  />
                 </div>
               </div>
-              <div class="tab-content-area" :class="activeTab === 2 ? 'active' : ''">
+              <div
+                class="tab-content-area"
+                :class="activeTab === 2 ? 'active' : ''"
+              >
                 <div>
-                  <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwLgGiNu76VKw38F6K8jLQ9lsAyK4lhlQJgc3U5OzCvkBR4_wxLmHqL69jVa0n9U8lCk5hryuWYLrH/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+                  <iframe
+                    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwLgGiNu76VKw38F6K8jLQ9lsAyK4lhlQJgc3U5OzCvkBR4_wxLmHqL69jVa0n9U8lCk5hryuWYLrH/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"
+                  ></iframe>
                   <a
                     class="data-links"
                     href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwLgGiNu76VKw38F6K8jLQ9lsAyK4lhlQJgc3U5OzCvkBR4_wxLmHqL69jVa0n9U8lCk5hryuWYLrH/pub?gid=0&single=true&output=csv"
@@ -852,13 +908,17 @@
                   >
                 </div>
               </div>
-              <div class="tab-content-area" :class="activeTab === 3 ? 'active' : ''">
+              <div
+                class="tab-content-area"
+                :class="activeTab === 3 ? 'active' : ''"
+              >
                 <div>
                   <div class="notes-section">
                     <p>
-                      Vestibulum consequat tempus est, at semper odio commodo et.
-                      Vivamus orci metus, viverra vitae varius in, pellentesque ac
-                      massa. Nunc semper molestie ligula, sit amet maximus erat.
+                      Vestibulum consequat tempus est, at semper odio commodo
+                      et. Vivamus orci metus, viverra vitae varius in,
+                      pellentesque ac massa. Nunc semper molestie ligula, sit
+                      amet maximus erat.
                     </p>
                     <ol>
                       <li>
@@ -954,7 +1014,7 @@
           ></div>
         </div>
 
-        <div class="chart-area pure-g">
+        <div class="small-chart-area pure-g">
           <div
             class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"
           ></div>
@@ -977,16 +1037,21 @@
         </div>
       </article>
 
-      <div class="map-area big-chart-wrap" v-scope="{ activeTab: 1 }">
+      <div class="large-chart-area big-chart-wrap" v-scope="{ activeTab: 1 }">
         <div class="tab-content-area" :class="activeTab === 1 ? 'active' : ''">
           <div class="chart-image-container">
-            <img src="./charts/chart-sample-large.png" alt="a description of the chart for accessibility" />
+            <img
+              src="./charts/static-imgs/chart-sample-large.png"
+              alt="a description of the chart for accessibility"
+            />
           </div>
         </div>
         <div class="tab-content-area" :class="activeTab === 2 ? 'active' : ''">
           <div class="white-info-text">
             <div>
-              <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwLgGiNu76VKw38F6K8jLQ9lsAyK4lhlQJgc3U5OzCvkBR4_wxLmHqL69jVa0n9U8lCk5hryuWYLrH/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+              <iframe
+                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwLgGiNu76VKw38F6K8jLQ9lsAyK4lhlQJgc3U5OzCvkBR4_wxLmHqL69jVa0n9U8lCk5hryuWYLrH/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"
+              ></iframe>
               <a
                 class="data-links"
                 href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwLgGiNu76VKw38F6K8jLQ9lsAyK4lhlQJgc3U5OzCvkBR4_wxLmHqL69jVa0n9U8lCk5hryuWYLrH/pub?gid=0&single=true&output=csv"
@@ -1035,23 +1100,17 @@
           <ul>
             <li>Source: Name of data source</li>
             <li>
-              <a
-                :class="activeTab === 1 ? 'active' : ''"
-                @click="activeTab = 1"
+              <a :class="activeTab === 1 ? 'active' : ''" @click="activeTab = 1"
                 ><i class="icon-chart-button"></i
               ></a>
             </li>
             <li>
-              <a
-                :class="activeTab === 2 ? 'active' : ''"
-                @click="activeTab = 2"
+              <a :class="activeTab === 2 ? 'active' : ''" @click="activeTab = 2"
                 ><i class="icon-table-button"></i
               ></a>
             </li>
             <li>
-              <a
-                :class="activeTab === 3 ? 'active' : ''"
-                @click="activeTab = 3"
+              <a :class="activeTab === 3 ? 'active' : ''" @click="activeTab = 3"
                 ><i class="icon-outline-button"></i
               ></a>
             </li>

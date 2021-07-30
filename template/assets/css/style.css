@@ -755,7 +755,7 @@ section.intro .wrap {
   max-height: 40.625em;
 }
 
-.map-area .wrap {
+.large-chart-area .wrap {
   height: calc(100vh - 300px);
 }
 
@@ -1232,10 +1232,6 @@ article sup a {
   border-bottom: none;
 }
 
-.map-transition .wrap {
-  padding-top: 52px;
-}
-
 .more-info {
   cursor: pointer;
   border-bottom: 1px dotted #31515f;
@@ -1301,11 +1297,7 @@ article sup a {
   opacity: 1;
 }
 
-.map-area .tab-menu li {
-  color: #fff;
-}
-
-.map-transition .tab-menu li {
+.large-chart-area .tab-menu li {
   color: #fff;
 }
 
@@ -1328,6 +1320,8 @@ article sup a {
 }
 
 .chart-image-container {
+  position: relative;
+  overflow: hidden;
   width: 100%;
 }
 
@@ -1531,14 +1525,26 @@ article sup a {
     /*transition: all 0.3s 1s ease-out; */
 }
 
-.chart-area iframe {
+.small-chart-area iframe {
   width: 100%;
-  min-height: 300px;
 }
 
-.map-area iframe {
+.large-chart-area iframe {
   width: 100%;
-  min-height: 300px;
+}
+
+.responsive-container {
+
+}
+
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .map_containers {
