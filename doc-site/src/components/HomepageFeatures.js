@@ -12,7 +12,10 @@ const FeatureList = [
   {
     title: "Vanilla HTML5",
     description: (
-      <>Just plain HTML, JavaScript, and CSS. No framework, no build tool.</>
+      <>
+        Just plain HTML, JavaScript, CSS, plus a few lightweight libraries. No
+        framework, no build tool.
+      </>
     ),
   },
   {

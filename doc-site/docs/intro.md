@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Intro
 
-- This tutorial assumes you have a little HTML, CSS, and JavaScript knowledge, especially if you want to customize the look and functionalities of the template. We won't teach these topics from the groud up. But feel free to ask any questions related to these.
+- This tutorial assumes you know a little HTML, CSS, and JavaScript, especially if you want to customize the look and functionalities of the template. We won't teach these topics from the groud up. But feel free to ask any questions related to these.
 - Many comments are added in the code files to give hints about their functionalities, which you can refer to.
 
 Let's first see how to set up an environment on the computer to run and edit the template.
