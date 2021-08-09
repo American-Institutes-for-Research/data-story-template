@@ -1,4 +1,5 @@
 ---
+sidebar_label: Add a link on top
 sidebar_position: 1
 ---
 
