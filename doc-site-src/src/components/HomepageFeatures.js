@@ -39,6 +39,12 @@ export default function HomepageFeatures() {
   return (
     <section className={styles.features}>
       <div className="container">
+        <div style={{ textAlign: "center", margin: "20px 0 70px 0" }}>
+          <h2>A Feature Rich Web Template for Data Story</h2>
+          <h3 style={{ color: "#004b87" }}>
+            by American Insitutes for Research
+          </h3>
+        </div>
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
