@@ -2,30 +2,22 @@
 sidebar_position: 4
 ---
 
-# Deploy your site
+# Deploy the site
 
-Docusaurus is a **static-site-generator** (also called **[Jamstack](https://jamstack.org/)**).
+The data story template is a **static website**.
 
-It builds your site as simple **static HTML, JavaScript and CSS files**.
+It is just simple **static HTML, JavaScript and CSS files**.
 
-## Build your site
+## Where to deploy
 
-Build your site **for production**:
+Once your site runs well locally, you can now deploy the content in the `template` folder **almost anywhere** easily, **for free** or very small cost.
 
-```bash
-npm run build
-```
+Usually you just need to copy & paste all the files and upload them to the hosting service you choose.
 
-The static files are generated in the `build` folder.
+Some great, easy to use, and free services are:
 
-## Deploy your site
+- [GitHub Pages](https://pages.github.com/) (This is where this tutorial is deployed.)
+- [Netlify](https://www.netlify.com/)
+- [Vercel](https://vercel.com/)
 
-Test your production build locally:
-
-```bash
-npm run serve
-```
-
-The `build` folder is now served at `http://localhost:3000/`.
-
-You can now deploy the `build` folder **almost anywhere** easily, **for free** or very small cost (read the **[Deployment Guide](https://docusaurus.io/docs/deployment)**).
+Or just [AWS S3](https://aws.amazon.com/s3/) (more technical to use).

@@ -5,9 +5,9 @@ sidebar_position: 1
 # Intro
 
 - This tutorial assumes you know a little HTML, CSS, and JavaScript, especially if you want to customize the look and functionalities of the template. We won't teach these topics from the groud up. But feel free to ask any questions related to these.
-- Many comments are added in the code files to give hints about their functionalities, which you can refer to.
+- Many comments are added in the code files to give hints about their functionalities.
 
-Let's first see how to set up an environment on the computer to run and edit the template.
+Let's first see how to set up an environment on the computer to run and edit the template locally.
 
 ## Tools
 
@@ -18,7 +18,7 @@ Let's first see how to set up an environment on the computer to run and edit the
 - R package [servr](https://github.com/yihui/servr)
   - We use this package to run a simple local web server for development.
 
-Alternatively, there are other great choices for code editor and IDE such as [VS Code](https://code.visualstudio.com/). And you could use [Node](https://nodejs.org/en/) to run a local dev server. But we won't use them for this tutorial.
+Alternatively, there are other great choices for code editor and IDE such as [VS Code](https://code.visualstudio.com/). You could also use [Node](https://nodejs.org/en/) to run a local dev server. But we won't use them for this tutorial.
 
 ## Start the site locally
 
@@ -27,7 +27,7 @@ Alternatively, there are other great choices for code editor and IDE such as [VS
   - File -> Open Project
 - Open a new terminal in RStudio
   - Tools -> Terminal -> New Terminal
-- In the terminal, run command `Rscript -e "servr::httw()" -b`. It should open your default browser and display the “index.html” page.
+- In the terminal, run the command `Rscript -e "servr::httw()" -b`. It should open your default browser and display the “index.html” page.
 
   ![Image of a terminal in RStudio](/img/tutorial/new-terminal-serve-up.png)
 
