@@ -6,7 +6,7 @@ module.exports = {
   title: "Data Story Web Page Template",
   tagline: "tutorial and documentaion",
   url: "https://your-docusaurus-test-site.com",
-  baseUrl: "/",
+  baseUrl: "/data-story-template/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
