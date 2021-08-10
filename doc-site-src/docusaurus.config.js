@@ -4,7 +4,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: "Data Story Web Page Template",
-  tagline: "tutorial and documentaion",
+  tagline: "Tutorial and Cheat Sheet",
   url: "https://your-docusaurus-test-site.com",
   baseUrl: "/data-story-template/",
   onBrokenLinks: "throw",
