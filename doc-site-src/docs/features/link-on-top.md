@@ -1,9 +1,9 @@
 ---
-sidebar_label: Add a link on top
+sidebar_label: Add or edit links on top
 sidebar_position: 1
 ---
 
-# Add a link to the top navigation
+# Links in the top navigation
 
 When the page is scrolled down, a top navigation will appear. The links in the top navigation are page anchors. When one is clicked, the page can scroll to an element’s position that you’ve specified.
 
@@ -21,3 +21,8 @@ When the page is scrolled down, a top navigation will appear. The links in the t
 4. Done. You can scroll the page down a bit to show the top navigation, then click the link you just added. It will scroll to the element that you specified.
 
 ![Image of HTML page](/img/tutorial/nav-new-link.png)
+
+## Edit existing ones
+
+1. You can change the displayed name of the link in the same place in the `/template/assets/js/scroll.js` file.
+2. To change the anchored position, in the HTML file, cut the corresponding anchor ID and add it to a different element that it needs to scroll to.
