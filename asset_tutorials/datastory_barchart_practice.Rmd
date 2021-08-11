@@ -1,0 +1,113 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+Read in the data:
+
+```{r}
+table1 <- read.table(file = "Table1_English_language_learner_status_CTE_participants.txt", 
+               sep="\t",
+               header = TRUE)
+```
+
+
+Convert data to percentages and separate total row vs. bar rows:
+
+```{r}
+table1$percentageCTEparticipants <- table1$percentageCTEparticipants*100
+total <- table1[1,]
+bars <- table1[-1,]
+```
+
+
+Bar chart variables:
+
+```{r}
+# use as data inputs
+bar_values <- rev(bars$percentageCTEparticipants)
+bar_names <- rev(bars$characteristic)
+
+# use as color input
+colors <- rev(c("#38b7e4","#38b7e4","#38b7e4","#38b7e4","#38b7e4","#38b7e4","#38b7e4",
+            "#7cc454","#7cc454",
+            "#e2ba31", "#e2ba31",
+            "#d15f2e", "#d15f2e"))
+
+# use as spacing input
+spacing <- c(0.5,0.5,2.5,0.5,2.5,0.5,2.5,0.5,0.5,0.5,0.5,0.5,0.5)
+
+# use as title text
+title_text <- "Percentage of high school students who were CTE participants"
+```
+
+
+Create horizontal bar chart:
+
+```{r, fig.width=20, fig.height=10}
+par(omi=c(0,0,1.5,0.25), mai=c(0.25,5.25,0.5,0.25))
+
+# create horizontal barplot:
+# insert all necessary arguments
+# remove borders from bars
+# use color and spacing vectors given
+# remove any axis lines/labels/ticks
+# set the name text size to 1.5 
+# set the x scale limit to 5 larger than the maximum value
+p <- barplot()
+
+# insert plot title:
+# insert all necessary arguments
+# make title in outer margin
+# set title text size to 2.25
+# set vertical position to 2.5
+title()
+
+# insert y-axis line:
+# insert all necessary arguments
+# remove tick lines and labels
+# make line width 3
+# set "at" = c(0,100) to prevent too-short axis line
+axis()
+
+# insert bar labels:
+# insert all necessary arguments
+# add padding of + 2 to the x position
+# make label text size 1.5
+# round values to whole numbers and add a percent sign
+text()
+
+# to add margin text:
+margin_text = paste0(
+  round(total$percentageCTEparticipants, digits=0), " ", "percent of high school students were CTE participants\n(earned at least one credit in CTE)")
+mtext(side = 3.7, at = total$percentageCTEparticipants - 15, 
+      text = margin_text, cex = 1.5)
+
+# to add the dotted vertical line:
+abline(v = total$percentageCTEparticipants, 
+       lty = "dashed", lwd = 2, col = "darkgrey")
+```
+
+
+Now, experiment with different plot settings to see how they affect the plot:
+
+```{r, fig.width=20, fig.height=10}
+
+```
+
+
+Now, save your plot:
+
+```{r}
+png("practice_barplot.pdf", width=20, height=10, units="in", res=300)
+
+# insert code for plot (copy and paste from above)
+
+dev.off()
+```
+
+
+
+
+
+

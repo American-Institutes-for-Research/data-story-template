@@ -1,0 +1,73 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+Read in the data:
+
+```{r}
+table6a <- read.table(file = "Table6a_Highest_education_NonCTE_concentrators.csv", 
+               sep=",",
+               header = TRUE,
+               encoding="UTF-8", 
+               col.names = c("characteristic2","pctNonCTEdistribution"))
+
+```
+
+
+Convert value column to percentages:
+
+```{r}
+# complete the statement the convert this column to a percentage value:
+# table6a$pctNonCTEdistribution <- 
+```
+
+
+Pie chart variables:
+
+```{r}
+pie_values <- table6a$pctNonCTEdistribution
+pie_labels <- table6a$characteristic2
+pie_colors <- rainbow(length(pie_values))
+
+title_text <- "Percentage distribution of high school non-CTE concentrators by highest level of\neducational attainment eight years after expected high school graduation"
+```
+
+
+Create pie chart:
+
+```{r, fig.height = 5, fig.width = 7}
+# customize margins and line width if necessary
+par(mai=c(0.2,0.2,0.2,0.2))
+
+# create pie chart:
+# insert all necessary arguments
+# use color vector given
+# set an appropriate radius size, font size, etc.
+pie()
+
+# insert plot title:
+# insert all necessary arguments
+# use title text given
+# set an appropraite font size, "line" value, etc.
+title()
+
+# insert plot legend:
+# insert all necessary arguments
+# use color and label vectors given
+# set an appropriate position
+# customize style variables (like "bty", "ncol", "cex", etc.)
+legend()
+```
+
+
+Now, save your plot:
+
+```{r}
+pdf("practice_piechart.pdf", width=7, height=5)
+
+# insert code for plot (copy and paste from above)
+
+dev.off()
+```
+

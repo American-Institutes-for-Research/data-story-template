@@ -1,0 +1,271 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This plot primarily uses the barplot() function in R. You can see the full documentation by entering ?barplot in the console, or visiting https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/barplot. For some details on customization, see https://www.r-graph-gallery.com/210-custom-barplot-layout.html.
+
+
+Read in the data:
+
+```{r}
+table4 <- read.table(file = "Table4_Percentage_public_school_districts_by_activity.txt", 
+               sep="\t",
+               header = TRUE)
+```
+
+```{r}
+table4
+```
+
+Since the percent variable is a decimal, and we want to display it as a percentage in the visualization, the following calculation is performed on the field:
+
+```{r}
+table4$pctPublicSchoolDistricts <- table4$pctPublicSchoolDistricts*100
+table4
+```
+
+
+Basic bar chart:
+
+```{r}
+bar_values <- table4$pctPublicSchoolDistricts
+bar_names <- table4$characteristic
+
+barplot(height = bar_values, names.arg = bar_names)
+```
+
+
+To make the plot horizontal: 
+
+```{r}
+bar_values <- table4$pctPublicSchoolDistricts
+bar_names <- table4$characteristic
+
+barplot(height = bar_values, names.arg = bar_names, 
+        horiz = TRUE)
+```
+
+
+Making the plot horizontal reverses the order of the bars. To fix this, reverse the value and name vectors: 
+
+```{r}
+bar_values <- rev(table4$pctPublicSchoolDistricts)
+bar_names <- rev(table4$characteristic)
+
+barplot(height = bar_values, names.arg = bar_names,
+        horiz = TRUE)
+```
+
+
+To make label text horizontal:
+
+```{r}
+bar_values <- rev(table4$pctPublicSchoolDistricts)
+bar_names <- rev(table4$characteristic)
+
+barplot(height = bar_values, names.arg = bar_names,
+        las = TRUE, horiz = TRUE)
+```
+
+
+To adjust plot margins and set figure size for viewer:
+
+```{r, fig.width=20, fig.height=5}
+# the par() function is used to set graphical parameters, like margins
+# oma is for setting outer margin area space, mar for plot margins
+# these set the figure dimensions in inches
+# order of vector is bottom, left, top, right
+
+# remove plot margins to fit plot content better, add outer margins to prevent label text from being cut off and leave room for plot title::
+par(omi=c(0,0,0,0), mai=c(0.25,8,1.5,0.25))
+
+bar_values <- rev(table4$pctPublicSchoolDistricts)
+bar_names <- rev(table4$characteristic)
+
+barplot(height = bar_values, names.arg = bar_names,
+        las = TRUE, horiz = TRUE)
+```
+
+
+To change text size and font:
+
+```{r, fig.width=20, fig.height=5}
+# adjust left outer margin with font size to prevent text being cut off
+par(omi=c(0,0,0,0), mai=c(0.25,12.25,1.5,0.25))
+
+bar_values <- rev(table4$pctPublicSchoolDistricts)
+bar_names <- rev(table4$characteristic)
+
+barplot(height = bar_values, names.arg = bar_names,
+        las = TRUE, horiz = TRUE,
+        cex.names = 1.5, family = "sans")
+
+# for a large font selection, download the "extrafonts" package
+```
+
+
+To change bar width and color:
+
+```{r, fig.width=20, fig.height=5}
+par(omi=c(0,0,0,0), mai=c(0.25,12.25,1.5,0.25))
+
+bar_values <- rev(table4$pctPublicSchoolDistricts)
+bar_names <- rev(table4$characteristic)
+bar_color <- "#7cc354"
+
+barplot(height = bar_values, names.arg = bar_names,
+        las = TRUE, horiz = TRUE,
+        cex.names = 1.5, family = "sans",
+        col = bar_color, border = "transparent",
+        space = 0.5)
+
+# "col" can also be set to a vector of colors for different colored bars
+```
+
+
+To format plot style and axes:
+
+```{r, fig.width=20, fig.height=5}
+par(omi=c(0,0,0,0), mai=c(0.25,12.25,1.5,0.25))
+
+bar_values <- rev(table4$pctPublicSchoolDistricts)
+bar_names <- rev(table4$characteristic)
+bar_color <- "#7cc354"
+
+
+barplot(height = bar_values, names.arg = bar_names,
+        las = TRUE, horiz = TRUE,
+        cex.names = 1.5, family = "sans",
+        col = bar_color, border = "transparent",
+        space = 0.5, axes = FALSE)
+
+# full documentation for axis function: https://www.rdocumentation.org/packages/graphics/versions/3.5.2/topics/axis
+# 1 for horizontal axis and 2 for vertical axis
+# "lwd.tick" = 0 turns off tick marks by setting their line width to 0
+# the "at" vector sets the range (length) of the axis line
+# "lwd"  sets the axis line width
+axis(2, lwd.tick=0, labels=FALSE, at=c(0,100), lwd = 3)
+```
+
+
+To add a title:
+
+```{r, fig.width=20, fig.height=5}
+par(omi=c(0,0,0,0), mai=c(0.25,12.25,1.5,0.25))
+
+bar_values <- rev(table4$pctPublicSchoolDistricts)
+bar_names <- rev(table4$characteristic)
+bar_color <- "#7cc354"
+plt_title <- "Among public school districts that offered CTE\nprograms, percentage by activity offered"
+
+barplot(height = bar_values, names.arg = bar_names,
+        las = TRUE, horiz = TRUE,
+        cex.names = 1.5, family = "sans",
+        col = bar_color, border = "transparent",
+        space = 0.5, axes = FALSE,
+        main = plt_title,
+        cex.main = 2)
+
+axis(2, lwd.tick=0, labels=FALSE, at=c(0,100), lwd = 3)
+```
+
+
+For more control over title position, put title in outer margin of plot:
+
+```{r, fig.width=20, fig.height=5}
+# adjust margin values to switch extra space for title from plot margin to outer margin
+par(omi=c(0,0,1.25,0), mai=c(0.25,12.25,0.25,0.25))
+
+bar_values <- rev(table4$pctPublicSchoolDistricts)
+bar_names <- rev(table4$characteristic)
+bar_color <- "#7cc354"
+plt_title <- "Among public school districts that offered CTE\nprograms, percentage by activity offered"
+
+p <- barplot(height = bar_values, names.arg = bar_names,
+        las = TRUE, horiz = TRUE,
+        cex.names = 1.5, family = "sans",
+        col = bar_color, border = "transparent",
+        space = 0.5, axes = FALSE)
+        
+title(main = plt_title,
+        cex.main = 2.25, family = "sans", outer = TRUE, line = 0.75)
+# "outer" moves title to outer margin of plot and "line" value controls verical positioning
+
+axis(2, lwd.tick=0, labels=FALSE, at=c(0,100), lwd = 3)
+```
+
+
+To add bar labels:
+
+```{r, fig.width=20, fig.height=5}
+par(omi=c(0,0,1.25,0), mai=c(0.25,12.25,0.25,0.25))
+
+bar_values <- rev(table4$pctPublicSchoolDistricts)
+bar_names <- rev(table4$characteristic)
+bar_color <- "#7cc354"
+plt_title <- "Among public school districts that offered CTE\nprograms, percentage by activity offered"
+
+# the paste0() function joins multiple strings together (in this case, a percent sign is joined to each data value)
+# the round() function with digits set to 0 rounds each data value to a whole number
+text_labels <- paste0(round(bar_values, digits = 0),"%")
+
+p <- barplot(height = bar_values, names.arg = bar_names,
+        las = TRUE, horiz = TRUE,
+        cex.names = 1.5, family = "sans",
+        col = bar_color, border = "transparent",
+        space = 0.5, axes = FALSE, 
+        xlim=c(0,max(bar_values)+6))
+# specifying x-axis range leaves room for bar label text
+        
+title(main = plt_title,
+        cex.main = 2.25, family = "sans", outer = TRUE, line = 0.75)
+
+axis(2, lwd.tick=0, labels=FALSE, at=c(0,100), lwd = 3)
+
+#Set the text labels to be slightly to the right of the actual values by adding 3
+text(y = p, x = bar_values + 3, cex = 1.25, 
+     labels = text_labels)
+```
+
+
+To save the plot:
+
+```{r}
+# use same figure size we have been using
+# you must specify inches for png or jpeg (the default is pixels)
+png("example_piechart.png", width = 20, height = 5, units="in", res=300)
+
+#Can also save as a jpeg or pdf
+# jpeg("example_piechart.jpg", width = 7, height = 5, units="in", res=300)
+# pdf("example_barplot.pdf", width=20, height=5)
+
+
+
+par(omi=c(0,0,1.25,0), mai=c(0.25,12.25,0.25,0.25))
+
+bar_values <- rev(table4$pctPublicSchoolDistricts)
+bar_names <- rev(table4$characteristic)
+bar_color <- "#7cc354"
+plt_title <- "Among public school districts that offered CTE\nprograms, percentage by activity offered"
+text_labels <- paste0(round(bar_values, digits = 0),"%")
+
+p <- barplot(height = bar_values, names.arg = bar_names,
+        las = TRUE, horiz = TRUE,
+        cex.names = 1.5, family = "sans",
+        col = bar_color, border = "transparent",
+        space = 0.5, axes = FALSE, 
+        xlim=c(0,max(bar_values)+6))
+        
+title(main = plt_title,
+        cex.main = 2.25, family = "sans", outer = TRUE, line = 0.75)
+
+axis(2, lwd.tick=0, labels=FALSE, at=c(0,100), lwd = 3)
+
+text(y = p, x = bar_values + 3, cex = 1.25, 
+     labels = text_labels)
+
+dev.off()
+```
+
+"null device 1" should appear as output. This indicates that R has finished saving the file, and the plot is no longer available in your environment.

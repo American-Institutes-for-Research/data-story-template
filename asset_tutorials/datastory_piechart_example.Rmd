@@ -1,0 +1,98 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+Read in the data:
+This will give you a warning ("incomplete final line found...") because the file is so short, but it will still work.
+
+```{r}
+table9 <- read.table(file = "Table9_Employment_Earnings_CTE_concentrators.csv", 
+               sep=",",
+               header = TRUE, 
+               col.names = c("characteristic","pctCTEdistribution"))
+```
+
+```{r}
+table9
+```
+
+
+Set labels, values, and colors:
+
+```{r}
+pie_values <- table9$pctCTEdistribution
+pie_labels <- table9$characteristic
+pie_colors <- c("gray90","gray65","gray50")
+```
+
+
+Make the pie chart:
+
+```{r, fig.width = 7, fig.height = 5}
+# customize plot margins
+# larger for top due to title
+# "lwd": controls the thickness of the outlines; must be specified here
+# for pie charts
+par(mai=c(0.2,0.2,0.4,0.2), lwd=2)
+
+# "radius": controls the size of the circle
+
+# "cex": controls the label font size
+# "clockwise": controls what order the slices are in
+pie(x = pie_values, labels = paste0(pie_values,"%"), col = pie_colors,
+    radius = .7, cex = .9,
+    clockwise = TRUE)
+
+# "outer": controls where the title is in the outer margin or the plot
+# "line": controls vertical position of title text
+title(main = "Percentage distribution of high school CTE concentrators by\nemployment earnings eight years after expected high school graduation", cex.main = 1.1, line = -.75)
+
+# for legend position, either a keyword (like "bottom" or "topright") or x and y coordinates can be used
+# "legend": labels to be displayed
+# "fill": colors corresponding to the legend labels
+# "horiz": whether the legend items are listed horizontally or vertically
+# "bty": set to "n" for no outline/box around legend
+legend("bottom", legend = pie_labels, fill = pie_colors, 
+       horiz = TRUE, cex = .9, bty = 'n')
+```
+
+
+Now, with different legend settings:
+
+```{r, fig.width = 7, fig.height = 5}
+par(mai=c(0.2,0.2,0.4,0.2), lwd=2)
+
+pie(pie_values, labels = paste0(pie_values,"%"), col = pie_colors,
+    radius = .7, cex = .9,
+    clockwise = TRUE)
+
+title(main = "Percentage distribution of high school CTE concentrators by\nemployment earnings eight years after expected high school graduation", cex.main = 1.1, line = -.75)
+
+# "ncol": sets the number of columns in the legend
+legend(x = .75, y = -.7, legend = pie_labels, fill = pie_colors, 
+       cex = .9, ncol = 1)
+```
+
+
+Save the plot:
+
+```{r}
+png("example_piechart.png", width = 7, height = 5, units="in", res=300)
+#pdf("example_piechart.pdf", width=7, height=5)
+#jpeg("example_piechart.jpg", width = 7, height = 5, units="in", res=300)
+
+par(mai=c(0.2,0.2,0.4,0.2), lwd=2)
+
+pie(pie_values, labels = paste0(pie_values,"%"), col = pie_colors,
+    radius = .7, cex = .9,
+    clockwise = TRUE)
+
+title(main = "Percentage distribution of high school CTE concentrators by\nemployment earnings eight years after expected high school graduation", cex.main = 1.1, line = -.75)
+
+legend("bottom", legend = pie_labels, fill = pie_colors, 
+       horiz = TRUE, cex = .9, bty = 'n')
+
+dev.off()
+```
+
