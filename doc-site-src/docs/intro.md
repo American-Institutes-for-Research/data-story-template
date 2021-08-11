@@ -5,6 +5,9 @@ sidebar_position: 1
 # Intro
 
 - This tutorial assumes you know a little HTML, CSS, and JavaScript, especially if you want to customize the look and functionalities of the template. We won't teach these topics from the groud up. But feel free to ask any questions related to these.
+    - I recommend [freeCodeCamp](https://www.freecodecamp.org/) if you are serious about learning web development.
+      - For beginners: https://www.freecodecamp.org/news/html-css-and-javascript-explained-for-beginners/
+      - freeCodeCamp is a completely open source, free, and community driven initiative. It offers guided courses on front end and back end development, data viz, machine learning, software testing, security, and more.
 - Many comments are added in the code files to give hints about their functionalities.
 
 During the process, we'll build portions of the data story in `/template-excercise-material/HEERF Reporting OCDO Blog Entry v0.2 - Copy.docx`.
