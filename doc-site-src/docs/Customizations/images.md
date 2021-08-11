@@ -51,3 +51,12 @@ Additionally, you can add inline CSS styles or use a CSS class to style it:
   alt="a new image"
 />
 ```
+
+<details>
+<summary>Excercise</summary>
+
+1. Add the `/template-excercise-material/DataStories_HEERF_Cards.png` image to the page body after the paragraphs
+
+(please refer to `/template-excercise-material/HEERF Reporting OCDO Blog Entry v0.2 - Copy.docx`)
+
+</details>

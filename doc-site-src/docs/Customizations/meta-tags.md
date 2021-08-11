@@ -42,3 +42,10 @@ Last, copy & paste the converted text in the `href` attribute.
 When you click the share by email icon, the computer's default email client will be automatically filled with the template:
 
 ![Image of email open](/img/tutorial/email-open.png)
+
+<details>
+<summary>Excercise</summary>
+
+1. Update some meta tags
+
+</details>

@@ -26,3 +26,10 @@ When the page is scrolled down a bit, a top navigation will appear. The links in
 
 1. You can change the displayed name of the link in the same place in the `/template/assets/js/scroll.js` file.
 2. To change the anchored position, in the HTML file, cut out the corresponding anchor ID attribute and add it to a different element that you need it to scroll to.
+
+<details>
+<summary>Excercise</summary>
+
+1. (optional) Try update the name or position of an anchor link in the top nav, or add a new link.
+
+</details>

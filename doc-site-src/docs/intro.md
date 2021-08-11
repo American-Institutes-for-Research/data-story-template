@@ -7,6 +7,8 @@ sidebar_position: 1
 - This tutorial assumes you know a little HTML, CSS, and JavaScript, especially if you want to customize the look and functionalities of the template. We won't teach these topics from the groud up. But feel free to ask any questions related to these.
 - Many comments are added in the code files to give hints about their functionalities.
 
+During the process, we'll build portions of the data story in `/template-excercise-material/HEERF Reporting OCDO Blog Entry v0.2 - Copy.docx`.
+
 Let's first see how to set up an environment on the computer to run and edit the template locally.
 
 ## Tools
@@ -18,7 +20,7 @@ Let's first see how to set up an environment on the computer to run and edit the
 - R package [servr](https://github.com/yihui/servr)
   - We use this package to run a simple local web server for development.
 
-Alternatively, there are other great choices for code editor and IDE such as [VS Code](https://code.visualstudio.com/). You could also use [Node](https://nodejs.org/en/) to run a local dev server. But we won't use them for this tutorial.
+There are other great choices for code editor and IDE such as [VS Code](https://code.visualstudio.com/). You could also use [Node](https://nodejs.org/en/) to run a local dev server. But we won't use them for this tutorial.
 
 ## Start the site locally
 
@@ -31,4 +33,16 @@ Alternatively, there are other great choices for code editor and IDE such as [VS
 
   ![Image of a terminal in RStudio](/img/tutorial/new-terminal-serve-up.png)
 
-- As soon as you edit the code files and save, `servr` should automatically reload the web page.
+- As soon as you edit the code files and save, `servr` should automatically reload the web page. But this feature does not work all the time, often you'll need to hit the refresh button on your browser to bring in changes.
+
+## For Python users whose R is not working
+
+- Open the project in whatever code editor/IDE you prefer - they typically support HTML/CSS/JavaScript out of the box.
+- In a terminal, at project root, run `python -m SimpleHTTPServer 8080` to spin up a basic static server.
+
+<details>
+<summary>Excercise</summary>
+
+1. Set up your local web dev enviroment, and make sure it is working.
+
+</details>
