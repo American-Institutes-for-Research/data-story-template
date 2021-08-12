@@ -4,9 +4,9 @@ sidebar_position: 1
 
 # Edit texts
 
-Often, the easiest way to find the text you want to edit is to use a code editor's search feature. As long as you do not change any text's surrounding HTML element, it should retain the same style.
+Often, the easiest way to find the text you want to edit is to **use a code editor's search feature**. As long as you do not change any text's surrounding HTML element, it should retain the same style.
 
-It is also very helpful to use the browser's developer tool to inspect HTML elements, so that you can directly locate the element you want to edit.
+It is also very helpful to **use the browser's developer tool** to inspect HTML elements, so that you can directly locate the element you want to edit.
 
 <details>
 <summary>Excercise</summary>

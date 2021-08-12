@@ -22,20 +22,30 @@ For example, to remove the logo's delayed fade in effect, you can remove some An
 />
 ```
 
-## Customize CSS You can also change/add your CSS rules in the
+## Fonts
 
-`/template/assets/css/style.css` file to apply any stylings. ## JavaScript
-powered styles The loading screen and effect is powered by JavaScript in
+- [Google Fonts](https://fonts.google.com/)
+- Include in `<head>`
+- Update CSS rules
+
+## Customize CSS
+
+You can also change/add your CSS rules in the `/template/assets/css/style.css` file to apply any stylings.
+
+## JavaScript powered styles
+
+The loading screen and effect is powered by JavaScript in
 `/template/assets/js/loader.js`. The parallax scroll effect is also by
 JavaScript in `/template/assets/js/scroll.js`. You need to know JavaScript
 fairly well to customize those. But to remove the loading screen, all you need
-to do is to remove this piece of HTML: ```html
+to do is to remove this piece of HTML:
 
+```html
 <div id="loader-wrapper">
   <div id="loader"></div>
   <div class="loader-section"></div>
 </div>
-````
+```
 
 To remove the parallax effect for an element, just remove the `data-parallax` attribute, for example:
 
@@ -54,6 +64,6 @@ To remove the parallax effect for an element, just remove the `data-parallax` at
 
 1. Try removing the CSS classes for the elements mentioned above to turn off the effect.
 
-2. (optional) Any custom stylings you could do?
+2. (optional) Any custom stylings you know how to apply?
 
 </details>
