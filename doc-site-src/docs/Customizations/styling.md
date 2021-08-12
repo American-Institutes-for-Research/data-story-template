@@ -24,9 +24,9 @@ For example, to remove the logo's delayed fade in effect, you can remove some An
 
 ## Fonts
 
-- [Google Fonts](https://fonts.google.com/)
+- [Google Fonts](https://fonts.google.com/), [Font Awesome](https://fontawesome.com/)
 - Include in `<head>`
-- Update CSS rules
+- Update CSS rules or HTML
 
 ## Customize CSS
 
