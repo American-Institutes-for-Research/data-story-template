@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Basic Page Needs –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>
+      EDIT THIS: Page title - this will appear in search engine and browser tab
+    </title>
+
+    <meta
+      name="description"
+      content="EDIT THIS: Description of the site. This will appear in search engine."
+    />
+    <!-- SOCIAL –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="EDIT THIS: Title of titter card when shared on twitter."
+    />
+    <meta
+      name="twitter:creator"
+      content="EDIT THIS: Twitter handle. e.g. @usedgov"
+    />
+    <meta
+      name="twitter:description"
+      content="EDIT THIS: Twitter card description."
+    />
+
+    <meta
+      property="og:title"
+      content="EDIT THIS: Facebook card title when shared."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="EDIT THIS: replace this with the full website URL."
+    />
+    <meta
+      property="og:description"
+      content="EDIT THIS: Facebook card description."
+    />
+
+    <!-- CSS –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <!-- Libraries. Do not edit these. -->
+    <link rel="stylesheet" href="assets/css/libs/normalize.css" />
+    <link rel="stylesheet" href="assets/css/libs/grids-responsive.css" />
+    <link rel="stylesheet" href="assets/css/libs/component.css" />
+    <link rel="stylesheet" href="assets/css/libs/Glyphter-font.css" />
+    <link rel="stylesheet" href="assets/css/libs/animate.css" />
+    <!-- Custom site stylesheet. Update this file to include your stylings. -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- FONT –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,600,700"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,500"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    />
+
+    <!-- JAVASCRIPT –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="assets/js/loader.js"></script>
+    <script src="https://unpkg.com/petite-vue" defer init></script>
+
+    <!-- EDIT THIS: Favicon, website icon. This will appear in browser tab. -->
+    <link rel="shortcut icon" href="assets/img/favicon.ico" />
+  </head>
+
+  <body>
+   
+
+    <!-- Header of the website. -->
+    <header
+      style="box-shadow: rgba(34, 34, 42, 0) 0px 1px 1px"
+      class="changeOpacity"
+    >
+      <div class="wrap">
+        <div class="header-content">
+          <nav class="main-home">
+            <a class="edu-link" href="">Data Matters</a>
+          </nav>
+          <nav>
+            <a id="share-facebook" target="_blank" class="social-links"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a id="share-twitter" target="_blank" class="social-links"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <!-- EDIT THIS: email sharing template -->
+            <a
+              class="social-links"
+              href="mailto:?subject=data story email title&amp;body=my email body content"
+              target="_blank"
+              ><i class="fas fa-envelope"></i
+            ></a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Website section indicator at top of page, controlled by JavaScript. -->
+    <div class="progress"></div>
+
+    <main class="mod_scale_fluid">
+      <section id="hero" class="intro">
+        <div class="wrap">
+          <!-- Hero section particle effect background container. Controlled by JavaScript. -->
+          <div id="site__bg"></div>
+
+          <div class="bigger">
+            <div>
+              <p>
+                Data Matters: 
+Drawing Insights from Higher Education Emergency Relief Fund (HEERF) Reporting for 2020
+              </p>
+              <a href="#data-story-title">
+                <h3 class="animated delay-2s fadeInDown">
+                  <span class="pulse-wave"
+                    ><i class="fas fa-arrow-down"></i></span
+                  >READ THE STORY
+                </h3>
+              </a>
+            </div>
+          </div>
+
+          <!-- You can replace or remove this image -->
+          <img
+            class="logo-overlay"
+            src="assets/img/logo-white.svg"
+            alt="U.S. Department of Education seal"
+            
+          />
+
+          <!-- Container for hero section parallax effect. Controller by JavaScript. -->
+          <div class="screen">
+            <div class="screen-holder"></div>
+          </div>
+        </div>
+      </section>
+
+      
+
+      <article class="narrative-wrap">
+        <!-- NARRATIVE GRID
+  ––––––––––––––––––––––––––––––––––––––––––––––––––
+
+  <div class="narrative pure-g">
+
+    <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"></div>
+
+    <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-10-24 pure-u-xl-8-24">
+    </div>
+
+    <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"></div>
+
+  </div>
+
+    -->
+
+        <!-- CHART AREA GRID
+  ––––––––––––––––––––––––––––––––––––––––––––––––––
+
+  <div class="small-chart-area pure-g">
+
+    <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+
+    <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-12-24 pure-u-xl-10-24">
+
+    </div>
+
+    <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+
+  </div>
+
+  -->
+
+        <div class="narrative pure-g section" id="Section1Anchor">
+          <div
+            class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"
+          ></div>
+          <div
+            class="
+              pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-10-24 pure-u-xl-8-24
+            "
+          >
+            <div class="acorn">
+              <img src="assets/img/acorn.svg" alt="Acorn motif" />
+            </div>
+            <h3>
+              Origins of the Higher Education Emergency Relief Fund
+            </h3>
+            <p>
+            The COVID-19 pandemic has highlighted and exacerbated disparities across the nation, including those in the higher education sector. During this unprecedented time, students who were enrolled in colleges, universities, and trade schools across the country faced adversity in a variety of ways. For instance, according to a recent National Center for Education Statistics (NCES) report, 88 percent of postsecondary students reported experiencing a disruption or change in their enrollment due to the pandemic, and 40 percent of undergraduates experienced a financial disruption or change due to the pandemic, such as losing a job or lost income due to reduced work hours. Further, at the onset of the pandemic, many students lacked reliable access to basic internet services, technological devices, and other supports that are key components to a successful remote learning experience.
+            </p>
+            <p>
+            In response to the pandemic and its impact on higher education, Congress created the Higher Education Emergency Relief Fund (HEERF) program, part of the Education Stabilization Fund (ESF) that the U.S. Department of Education (Department) administers. HEERF includes both a student portion and an institutional portion of funds. The student portion of HEERF provides funds to institutions of higher education to disburse emergency financial aid grants directly to students with immediate needs arising from the disruption of education due to the COVID-19 crisis. In 2020, the institutional portion could be used by institutions to cover costs associated with significant changes to the delivery of instruction due to COVID-19, or to provide additional financial aid grants directly to students.
+            </p>
+            <p>
+             The Coronavirus Aid, Relief, and Economic Security Act (CARES) Act established the first round of HEERF funding by providing $14 billion to an emergency relief fund for higher education in March 2020. More than three-quarters (76%)* of Title IV-eligible institutions of higher education received CARES Act awards through HEERF in 2020. Subsequently, institutions are required to submit annual performance reports to the Department detailing the use of funds earmarked for both student grants and institutional expenditures. Below, we highlight some key insights gleaned from the first annual report for HEERF, which covers CARES Act spending from the period between March 13, 2020, and December 31, 2020.
+            </p>
+            
+            <img
+  style="margin: 30px 0;"
+  src="./assets/img/DataStories_HEERF_Cards.png"
+  alt="a new image"
+/>
+
+            <h4>
+              <em>*CARES Act HEERF grants were awarded to institutions based on a formula established in  Section 18004(a)(1) of the CARES Act. The remaining 24% of Title IV-eligible higher education institutions either did not apply for a HEERF grant prior to the September 30, 2020, application deadline for HEERF awards, were not eligible for funding based on the formula set in the statute, or voluntarily returned awards to the Department.</em>
+            </h4>
+
+            <div class="acorn">
+              <img src="assets/img/acorn.svg" alt="Acorn motif" />
+            </div>
+            <h3>
+              How HEERF Has Supported Students Directly
+            </h3>
+            <p>
+             Overall, institutions reported that 8.1 million students—amounting to 54% of all eligible students—received emergency financial aid grant support in 2020 through HEERF. From the student portion of HEERF in 2020, institutions awarded $6.1 billion in emergency financial aid grants, or more than $750 per student recipient. Of the emergency grant recipients awarded via HEERF’s student portion, 94% were undergraduates and 6% were graduate students. Among those undergraduates who received HEERF aid, more than 4.5 million (61%) were Pell Grant recipients. Because the Pell Grant program primarily serves undergraduates with exceptional financial need, these data indicate that most of the HEERF emergency financial aid grants were awarded to students who were financially vulnerable even prior to the pandemic. 
+            </p>
+            
+            <div class="acorn">
+              <img src="assets/img/acorn.svg" alt="Acorn motif" />
+            </div>
+            <h3>
+              How HEERF Has Supported Institutions 
+            </h3>
+            <p>
+             The institutional portion of HEERF supported a variety of needs in 2020. The greatest portion of institutional funds (at least $1.7 billion) was used to cover reimbursements of tuition, housing, room and board, and other fee refunds. From these institutional funds, colleges and universities also provided at least $286 million in additional emergency financial aid grants directly to students. Beyond these two broad uses of funds, other uses of the institutional portion include:
+            </p>
+            <ul style="font-size: 17px;">
+              <li>$802 million for online technology and training, including software and training for distance learning and laptops and tablets for students;</li>
+<li>$492 million for campus safety and operations, including expenses for cleaning activities and additional class sections to allow for social distancing;</li>
+<li>$246 million to replace lost revenue due to reduced enrollment and other sources of revenue;</li>
+<li>$84 million in additional student supports, such as subsidizing food service and off-campus housing;</li>
+<li>$30 million in tuition discounts; and</li>
+<li>$397 million for other purposes.</li>
+            </ul>
+            
+            <p>
+              Relative spending in each of these categories varied somewhat by institutional control, as shown in the figure below. For example, private not-for-profit institutions reported spending the greatest share on additional student supports and replacing lost revenue. Meanwhile, private for-profit institutions reported spending the highest share of funds on campus safety and operations and online technology and training.
+            </p>
+          </div>
+          <div
+            class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"
+          ></div>
+        </div>
+        <div class="small-chart-area pure-g">
+          <div
+            class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"
+          ></div>
+          <div
+            class="
+              pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-12-24 pure-u-xl-10-24
+            "
+          >
+          
+
+            <div v-scope="{ activeTab: 1 }">
+              <div
+                class="tab-content-area"
+                :class="activeTab === 1 ? 'active' : ''"
+              >
+                <!-- The padding-top rule is used to adjust each iframe's aspect ratio  -->
+                <div class="chart-image-container">
+                  <img src="./charts/static-imgs/DataStories_HEERF_Graph.png" alt="a description of the data viz so that assessibility user can know what it is about" />
+                </div>
+              </div>
+              <div
+                class="tab-content-area"
+                :class="activeTab === 2 ? 'active' : ''"
+              >
+                <div>
+                  <iframe
+                    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwLgGiNu76VKw38F6K8jLQ9lsAyK4lhlQJgc3U5OzCvkBR4_wxLmHqL69jVa0n9U8lCk5hryuWYLrH/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"
+                  ></iframe>
+                  <a
+                    class="data-links"
+                    href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwLgGiNu76VKw38F6K8jLQ9lsAyK4lhlQJgc3U5OzCvkBR4_wxLmHqL69jVa0n9U8lCk5hryuWYLrH/pub?gid=0&single=true&output=csv"
+                    >Download the spreadsheet</a
+                  >
+                </div>
+              </div>
+              <div
+                class="tab-content-area"
+                :class="activeTab === 3 ? 'active' : ''"
+              >
+                <div>
+                  <div class="notes-section">
+                    <p>
+                      Ut iaculis interdum ante, eu posuere sapien rutrum in.
+                      Vivamus at est nec libero fermentum efficitur. Fusce
+                      libero ex, iaculis ac risus vel, congue vestibulum augue.
+                      Quisque vel imperdiet quam, ac fermentum libero. Fusce
+                      ultricies varius risus et faucibus. Curabitur interdum,
+                      magna sit amet dapibus posuere, sem massa hendrerit felis.
+                    </p>
+                    <p>
+                      Posuere sapien rutrum in. Vivamus at est nec libero
+                      fermentum efficitur. Fusce libero ex, iaculis ac risus
+                      vel, congue vestibulum augue. Quisque vel imperdiet quam,
+                      ac fermentum libero. Fusce ultricies varius risus et
+                      faucibus. Curabitur interdum, magna sit amet dapibus
+                      posuere, sem massa hendrerit.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-menu">
+                <ul>
+                  <li>Source: The name of the data source</li>
+                  <li>
+                    <a
+                      :class="activeTab === 1 ? 'active' : ''"
+                      @click="activeTab = 1"
+                      ><i class="icon-chart-button"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a
+                      :class="activeTab === 2 ? 'active' : ''"
+                      @click="activeTab = 2"
+                      ><i class="icon-table-button"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a
+                      :class="activeTab === 3 ? 'active' : ''"
+                      @click="activeTab = 3"
+                      ><i class="icon-outline-button"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div
+            class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"
+          ></div>
+        </div>
+
+        <div class="narrative pure-g">
+          <div
+            class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"
+          ></div>
+
+          <div
+            class="
+              pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-10-24 pure-u-xl-8-24
+            "
+          >
+            <div class="acorn">
+              <img src="assets/img/acorn.svg" alt="Acorn motif" />
+            </div>
+            <h3>
+              Ongoing HEERF Support
+            </h3>
+            <p>
+             Challenges related to COVID-19 remain, and HEERF continues to support postsecondary students and their institutions. Additional funding was provided to postsecondary institutions in late 2020 and March 2021 respectively through the Coronavirus Response and Relief Supplemental Appropriations (CRRSA) Act, and the American Rescue Plan (ARP). Collectively, the CARES Act, CRRSA Act, and ARP Act funding for higher education (also known as HEERF I, II, and III) total approximately $76 billion, $30 billion of which is required to be disbursed directly to students in the form of emergency financial aid grants. 
+            </p>
+            <p>
+              To best serve students during this challenging time, the Department encourages institutions to continue to prioritize the financial needs of their students, by first awarding students with exceptional need. The Department will continue to collect data and monitor how institutions choose to distribute emergency financial aid grants to students and allocate institutional funds to key recovery and sustainment activities through future annual reporting cycles. To view or download more detailed data from the 2020 CARES Act annual performance report, visit the ESF Public Transparency Portal at https://covid-relief-data.ed.gov/.
+            </p>
+          </div>
+
+          <div
+            class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"
+          ></div>
+        </div>
+
+      </article>
+
+
+      <!-- Site footer -->
+      <footer class="pure-g">
+        <div class="wrap">
+          <!-- EDIT THIS: you can change or remove this logo image. -->
+          <div class="pure-u-sm-24-24 pure-u-md-4-24 pure-u-lg-4-24">
+            <img src="assets/img/logo-white.svg" />
+          </div>
+
+          <div class="pure-u-sm-24-24 pure-u-md-10-24 pure-u-lg-10-24">
+            <p style="color: #fff">Aliquet vitae ultrices sed</p>
+            <p>
+              Aliquam gravida ligula maximus lectus molestie, nec euismod massa
+              tempor. Orci varius natoque penatibus et magnis dis parturient
+              montes, nascetur ridiculus mus.
+            </p>
+          </div>
+
+          <div class="pure-u-sm-24-24 pure-u-md-10-24 pure-u-lg-10-24"></div>
+        </div>
+      </footer>
+    </main>
+
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!-- modal windows -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <div class="md-modal md-effect-9" id="modal-1">
+      <div class="md-content">
+        <div>
+          <blockquote>
+            Sed in risus non ligula pharetra vulputate vel non velit. Nullam sed
+            aliquam diam. Proin sed ante dapibus, pretium nunc eleifend, congue
+            velit.
+            <a href=""
+              >Ln risus non ligula pharetra vulputate vel non velit. Nullam sed
+              aliquam diam. Proin sed ante dapibus, pretium nunc eleifend,
+              congue velit.</a
+            >Pharetra vulputate vel non velit. Nullam sed aliquam diam. Proin
+            sed ante dapibus, pretium nunc eleifend, congue velit.<a href=""
+              >Proin sed ante dapibus, pretium nunc eleifend, congue velit.</a
+            >
+            Ssus non ligula pharetra vulputate vel non velit. Nullam sed aliquam
+            diam. Proin sed ante dapibus, pretium nunc eleifend, congue velit.
+          </blockquote>
+
+          <i class="fas fa-times md-close"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="md-modal md-effect-9" id="modal-2">
+      <div class="md-content">
+        <div>
+          <blockquote>
+            Sed in risus non ligula pharetra vulputate vel non velit. Nullam sed
+            aliquam diam. Proin sed ante dapibus, pretium nunc eleifend, congue
+            velit.
+          </blockquote>
+          <h6>
+            Ligula pharetra vulputate vel non velit. Nullam sed aliquam diam.
+            Proin sed ante dapibus, pretium nunc eleifend, congue velit.
+            <a href="">
+              Gla pharetra vulputate vel. Nullam sed aliquam diam. Proin sed
+              ante dapibus, pretium nunc eleifend, congue velit.</a
+            >
+            Pigula pharetra vulputate vel non. Nullam sed aliquam diam. Proin
+            sed ante dapibus, pretium nunc eleifend, congue velit.
+          </h6>
+          <blockquote>
+            "Risus non ligula pharetra vulputate vel non velit. Nullam sed
+            aliquam diam. Proin sed ante dapibus, pretium nunc eleifend, congue
+            velit."
+          </blockquote>
+          <h6>
+            Ban risus non ligula pharetra vulputate vel non velit. Nullam sed
+            aliquam diam. Proin sed ante dapibus, pretium nunc eleifend, congue
+            velit.
+            <a href="">
+              Lliquam diam. Proin sed ante dapibus, pretium nunc eleifend,
+              congue velit.</a
+            >
+            Dfas diam. Proin sed ante dapibus, pretium nunc eleifend, congue
+            velit.
+          </h6>
+          <i class="fas fa-times md-close"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="md-modal md-effect-9" id="modal-3">
+      <div class="md-content">
+        <div>
+          <blockquote>
+            "Sed in risus non ligula pharetra vulputate vel non velit. Nullam
+            sed aliquam diam. Proin sed ante dapibus, pretium nunc eleifend,
+            congue velit."
+          </blockquote>
+          <h6>
+            Lawu risus non ligula pharetra vulputate vel non velit. Nullam sed
+            aliquam diam. Proin sed ante dapibus, pretium nunc eleifend, congue
+            velit.
+            <a href="">
+              Sed in risus non ligula pharetra vulputate vel non velit. Wo dang
+              godsoi wansui.</a
+            >
+            Lopigula pharetra vulputate vel non velit. Nullam sed aliquam diam.
+            Proin sed ante dapibus, pretium nunc eleifend, congue.
+          </h6>
+          <i class="fas fa-times md-close"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="md-modal md-effect-9" id="modal-4">
+      <div class="md-content">
+        <div>
+          <blockquote>
+            “Chino wilo in risus non ligula pharetra vulputate vel non velit.
+            Nullam sed aliquam diam. Proin sed ante dapibus, pretium nunc
+            eleifend, congue.”
+          </blockquote>
+          <h6>
+            Labida in risus non ligula pharetra vulputate vel non velit. Nullam
+            sed aliquam diam. Proin sed ante.
+            <a href=""
+              >La viva ligula pharetra vulputate vel non velit. Nullam sed
+              aliquam diam. Proin sed ante dapibus, pretium nunc eleifend,
+              congue velit.</a
+            >
+            Pisus non ligula pharetra vulputate vel non velit. Nullam sed
+            aliquam diam. Proin sed ante dapibus, pretium nunc eleifend, congue
+            velit.
+          </h6>
+          <i class="fas fa-times md-close"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="md-modal md-effect-9" id="modal-5">
+      <div class="md-content">
+        <div>
+          <blockquote>
+            <a href=""
+              >Sisus non ligula pharetra vulputate vel non velit. Nullam sed
+              aliquam diam. Proin sed ante dapibus, pretium nunc eleifend,
+              congue velit.</a
+            >
+            Sed in risus non ligula pharetra vulputate vel non velit. Nullam sed
+            aliquam diam. Proin sed ante dapibus, pretium nunc eleifend, congue
+            velit.
+          </blockquote>
+          <i class="fas fa-times md-close"></i>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!-- end of modal windows -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+
+    <!-- the overlay element: must go after modal elements and be a sibling -->
+    <div class="md-overlay"></div>
+
+    <script>
+      document.getElementById("hero").classList.add("js-loading");
+
+      window.addEventListener("load", showPage);
+
+      function showPage() {
+        document.getElementById("hero").classList.remove("js-loading");
+      }
+    </script>
+
+    <!-- social share buttons functions -->
+    <script src="assets/js/social-share.js"></script>
+
+    <!-- scroll and top progress indicator -->
+    <script src="assets/js/scroll.js"></script>
+    <!-- particle effects -->
+    <script src="assets/js/particles.js"></script>
+
+    <!-- modal effects - classie.js by @desandro: https://github.com/desandro/classie -->
+    <script src="assets/js/modal-effect/classie.js"></script>
+    <script src="assets/js/modal-effect/modalEffects.js"></script>
+    <!-- for the blur effect -->
+    <!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
+    <script>
+      // this is important for IEs. You can also just drop IE suport since Microsoft dropped IE already.
+      var polyfilter_scriptpath = "assets/js/modal-effect/";
+    </script>
+    <script src="assets/js/modal-effect/cssParser.js"></script>
+    <script src="assets/js/modal-effect/css-filters-polyfill.js"></script>
+  </body>
+</html>
