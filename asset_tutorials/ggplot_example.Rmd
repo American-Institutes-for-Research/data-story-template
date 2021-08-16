@@ -1,0 +1,103 @@
+---
+title: "Ggplot2 example"
+output: html_document
+---
+
+```{r}
+library(ggplot2)
+library(plotly)
+```
+
+Read in data:
+```{r}
+table1 <- read.table(file = "../Table1_English_language_learner_status_CTE_participants.txt", 
+               sep="\t",
+               header = TRUE)
+
+```
+
+Convert decimal to percentage and add category column:
+```{r}
+table1$percentageCTEparticipants <- table1$percentageCTEparticipants*100
+table1$category <- c("Total", "Race", "Race", "Race", "Race",
+                     "Race", "Race", "Race", "Gender", "Gender",
+                     "Special Ed", "Special Ed", "ELL", "ELL")
+```
+
+Separate total from the remaining data:
+```{r}
+total <- table1[1,]
+df <- table1[-1,]
+```
+
+We need to set up the category and characteristic columns as factors, which tells the plot to treat them as categories with a fixed number of options. The "characteristic" column is already factor, but R might order the factor alphabetically. In order to preserve the current order, we'll convert it to a character vector, and then back to a vector.
+```{r}
+df$category <- as.factor(df$category)
+df$characteristic <- as.character(df$characteristic)
+factor_order <- df$characteristic
+df$characteristic <- factor(df$characteristic, levels=factor_order)
+
+#create a column with the labels
+#"White" is the topmost bar, so only it has the %
+df$percent_label <- ifelse(df$characteristic == "White", 
+                           paste0(round(df$percentageCTEparticipants, 0), "%"),
+                           as.character(round(df$percentageCTEparticipants, 0)))
+```
+
+```{r}
+#Most basic plot with no formatting
+ggplot(df, aes(x=characteristic, y=percentageCTEparticipants, 
+               fill=category)) + geom_bar(stat = "identity")
+
+#stat = "identity" tells ggplot to use the y value as the height of the bar.
+#Its default is stat = "count", which plots the number of occurrences
+#of the x value, like a histogram.
+
+#If we want to create a grouped bar chart, then we use stat = "identity"
+#and add a second option, position. position = "dodge" will put the
+#bars side by side, position = "stack" will stack them, and 
+#position = "fill" will make a percent stacked barplot.
+```
+
+```{r}
+#Set up list of color values and value of reference line for total
+color_values = c("Race" = "#2EB4E7", "Gender" = "#7EC255", 
+                 "Special Ed" = "#E7BE2E", "ELL" = "#E7612E")
+ref_line = total$percentageCTEparticipants[1]
+
+#Start off the same as with no formatting
+plt <- ggplot(df, aes(x=characteristic, y=percentageCTEparticipants, fill=category)) + 
+  geom_bar(stat="identity") + 
+  #flip the coordinates so bars are horizontal
+  coord_flip() +
+  #set limits of y axis
+  ylim(0, 93) +
+  #set axis labels and titles
+  labs(x="", y="", 
+       title = "Percentage of high school students who were CTE participants") +
+  #remove the legend, the gray background, and center title
+  theme(legend.position = "none", 
+        panel.background = element_blank(),
+        plot.title = element_text(hjust=2)) + 
+  #remove axis ticks (from the horizontal axis)
+  guides(x="none") + 
+  #set the order of the bars
+  scale_x_discrete(limits=rev(levels(df$characteristic))) +
+  #add labels
+  geom_text(aes(label=percent_label), hjust=1) +
+  #add reference line
+  geom_hline(yintercept = ref_line, linetype=2) +
+  #manually set the fill colors
+  scale_fill_manual(values=color_values)
+
+plt
+
+```
+
+```{r}
+#this is a plotly function that takes a ggplot object
+ggplotly(plt)
+```
+
+
+

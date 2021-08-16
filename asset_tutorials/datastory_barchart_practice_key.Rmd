@@ -1,0 +1,101 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+Read in the data:
+
+```{r}
+table1 <- read.table(file = "CTE-dataset/Table1_English_language_learner_status_CTE_participants.txt", 
+               sep="\t",
+               header = TRUE)
+```
+
+```{r}
+table1$percentageCTEparticipants <- table1$percentageCTEparticipants*100
+table1
+```
+
+```{r}
+total <- table1[1,]
+bars <- table1[-1,]
+```
+
+```{r}
+bars
+```
+
+```{r}
+bar_values <- rev(bars$percentageCTEparticipants)
+bar_names <- rev(bars$characteristic)
+
+colors <- rev(c("#38b7e4","#38b7e4","#38b7e4","#38b7e4","#38b7e4","#38b7e4","#38b7e4",
+            "#7cc454","#7cc454",
+            "#e2ba31", "#e2ba31",
+            "#d15f2e", "#d15f2e"))
+spacing <- c(0.5,0.5,2.5,0.5,2.5,0.5,2.5,0.5,0.5,0.5,0.5,0.5,0.5)
+```
+
+
+```{r, fig.width=20, fig.height=10}
+par(omi=c(0,0,1.5,0.25), mai=c(0.25,5.25,0.5,0.25))
+
+p <- barplot(height = bar_values, names.arg = bar_names,
+        las = TRUE, horiz = TRUE,
+        cex.names = 1.5, family = "sans",
+        col = colors, 
+        border = "transparent",
+        space = spacing,
+        axes = FALSE, 
+        xlim=c(0,max(bar_values)+5))
+        
+title(main = "Percentage of high school students who were CTE participants",
+        cex.main = 2.25, family = "sans", outer = TRUE, line = 2)
+
+axis(2, lwd.tick=0, labels=FALSE, at=c(0,100), lwd = 3)
+
+text(y = p, x = bar_values + 2, 
+     labels = paste0(round(bar_values, digits=0),"%"), cex = 1.5)
+
+margin_text = paste0(
+  round(total$percentageCTEparticipants, digits=0), " ", "percent of high school students were CTE participants\n(earned at least one credit in CTE)")
+mtext(side = 3.7, at = total$percentageCTEparticipants - 15, 
+      text = margin_text, cex = 1.5)
+
+abline(v = total$percentageCTEparticipants, lty = "dashed", 
+       lwd = 2, col = "darkgrey")
+```
+
+```{r}
+png("practice_barplot_key.pdf", width=20, height=10, units="in", res=300)
+
+par(omi=c(0,0,1.5,0.25), mai=c(0.25,5.25,0.5,0.25))
+
+p <- barplot(height = bar_values, names.arg = bar_names,
+        las = TRUE, horiz = TRUE,
+        cex.names = 1.5, family = "sans",
+        col = colors, 
+        border = "transparent",
+        space = spacing,
+        axes = FALSE, 
+        xlim=c(0,max(bar_values)+5))
+        
+title(main = "Percentage of high school students who were CTE participants",
+        cex.main = 2.25, family = "sans", outer = TRUE, line = 2)
+
+axis(2, lwd.tick=0, labels=FALSE, at=c(0,100), lwd = 3)
+
+text(y = p, x = bar_values + 2, 
+     labels = paste0(round(bar_values, digits=0),"%"), cex = 1.5)
+
+margin_text = paste0(
+  round(total$percentageCTEparticipants, digits=0), " ", "percent of high school students were CTE participants\n(earned at least one credit in CTE)")
+mtext(side = 3.7, at = total$percentageCTEparticipants - 15, 
+      text = margin_text, cex = 1.5)
+
+abline(v = total$percentageCTEparticipants, lty = "dashed", 
+       lwd = 2, col = "darkgrey")
+
+dev.off()
+```
+
