@@ -1,0 +1,126 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+Tutorials can be found at https://www.r-graph-gallery.com/168-load-a-shape-file-into-r.html and https://www.r-graph-gallery.com/choropleth-map-in-r.html.
+
+Read in the data:
+
+```{r}
+table2b <- read.table(file = "Table2b_STEM_Super_Cluster_CTE.csv", 
+               sep=",",
+               header = TRUE)
+```
+
+```{r}
+table2b
+```
+
+
+Read in the shapefile:
+
+```{r}
+library(rgdal)
+```
+
+```{r}
+states <- readOGR(dsn="states", layer="states-polygon", verbose = FALSE)
+```
+
+Join the csv data to the shapefile data:
+
+```{r}
+states@data <- merge(x=states@data, y=table2b, 
+    by.y=c("state"), by.x=c("NAME"), all.x=TRUE, sort=FALSE)
+```
+
+
+Set color scheme for plot:
+
+```{r}
+colors <- heat.colors(5)
+breaks <- c(0,10,20,30,40,100)
+
+color_scheme <- colors[findInterval(states$STEM.Super.Cluster, vec = breaks)]
+
+```
+
+Plot the map:
+
+```{r, fig.height = 10, fig.width = 12}
+par(omi=c(2.5,0.5,0.5,0.5))
+par(mai=c(2.5,0.5,0.5,0.5))
+
+plot(states, xlim=c(-141,-53), ylim=c(20, 75),
+     col = color_scheme, cex.main = 1.25,
+     main = "Percentage of high school CTE concentrations in STEM and\nSTEM-related career clusters, by state: 2016–17")
+
+legend("right",
+       legend = levels(cut(states$STEM.Super.Cluster, breaks)), 
+       fill = colors, 
+       cex = 1, bty = "n", title='Percentage by State') 
+```
+
+```{r, fig.height = 10, fig.width = 12}
+par(omi=c(2.5,0.5,0.5,0.5))
+par(mai=c(2.5,0.5,0.5,0.5))
+
+plot(states, xlim=c(-140,-53), ylim=c(28, 50),
+     col = color_scheme, cex.main = 1.25,
+     main = "Percentage of high school CTE concentrations in STEM and\nSTEM-related career clusters, by state: 2016–17")
+
+legend("right",
+       legend = levels(cut(states$STEM.Super.Cluster, breaks)), 
+       fill = colors, 
+       cex = 1, bty = "n", title='Percentage by State') 
+```
+
+```{r}
+plot(states, xlim=c(-125,-53), ylim=c(28, 50),
+     col = color_scheme, cex.main = 1.25,
+     main = "Percentage of high school CTE concentrations in STEM and\nSTEM-related career clusters, by state: 2016–17")
+
+legend(x=-70, y=40,
+       #legend = levels(cut(states$STEM.Super.Cluster, breaks)), 
+       legend = levels(cut(states$STEM.Super.Cluster, breaks)), 
+       fill = colors, 
+       cex = 1, bty = "n", title='Percentage by State') 
+```
+
+
+```{r}
+library(usmap)
+library(ggplot2)
+
+plot_usmap(regions="states") +
+  labs(title = "Percentage of high school CTE concentrations in STEM and\nSTEM-related career clusters, by state: 2016–17") +
+  theme(panel.background = element_rect(color="black", fill="lightblue"))
+```
+
+
+
+```{r}
+plot_usmap(data=table2b, values="STEM.Super.Cluster") +
+  labs(title = "Percentage of high school CTE concentrations in STEM and\nSTEM-related career clusters, by state: 2016–17") +
+  theme(panel.background = element_rect(color="black", fill="lightblue")) + 
+    scale_fill_continuous(name = "") + 
+  theme(legend.position = "right")
+```
+
+
+```{r}
+table2b$stem_binned <- cut(table2b$STEM.Super.Cluster, breaks = breaks)
+plt <- plot_usmap(data=table2b, values="stem_binned") +
+  labs(title = "Percentage of high school CTE concentrations in STEM and\nSTEM-related career clusters, by state: 2016–17") +
+  theme(panel.background = element_blank()) + 
+    scale_fill_manual(name = "",
+                      values=c("#feedde", "#fdbe85", "#fd8d3c", "#d94701")) + 
+  theme(legend.position = "right")
+plt
+```
+
+```{r}
+library(plotly)
+ggplotly(plt)
+```
