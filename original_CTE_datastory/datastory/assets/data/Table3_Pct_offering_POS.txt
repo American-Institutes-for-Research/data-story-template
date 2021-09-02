@@ -1,0 +1,10 @@
+characteristic	percentageOfferingPOS
+Total	0.547
+City	0.655
+Suburb	0.53
+Town	0.584
+Rural	0.558
+0% to less than 35% of students receiving free or reduced-price lunch	0.509
+35% to less than 50% of students receiving free or reduced-price lunch	0.668
+50% to less than 75% of students receiving free or reduced-price lunch	0.526
+75% to 100% of students receiving free or reduced-price lunch	0.528

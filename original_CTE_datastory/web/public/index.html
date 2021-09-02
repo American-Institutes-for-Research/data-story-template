@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description"
+    content="CTE data story: insights into how CTE can improve students' income after they graduate. Data shows that, eight years after their expected graduation date, students who focused on career and technical education (CTE) courses while in high school had higher median annual earnings than students who did not focus on CTE.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <title>CTE Data Story</title>
+
+  <!-- SOCIAL
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CTE data story: insights into how CTE can improve students' income after they graduate.">
+  <meta name="twitter:creator" content="@usedgov">
+  <meta name="twitter:description"
+    content="Eight years after their expected graduation date, students who focused on career and technical education (CTE) courses while in high school had higher median annual earnings than students who did not focus on CTE.">
+
+  <meta property="og:title" content="CTE data story: insights into how CTE can improve students' income after they graduate.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www2.ed.gov/datastory/cte/index.html">
+  <meta property="og:description"
+    content="Data shows that, eight years after their expected graduation date, students who focused on career and technical education (CTE) courses while in high school had higher median annual earnings than students who did not focus on CTE.">
+
+  <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/grids-responsive.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/component.css">
+  <link rel="stylesheet" href="assets/css/Glyphter-font.css">
+  <link rel="stylesheet" href="assets/css/animate.css">
+
+  <!-- FONT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,500" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+  <!-- JAVASCRIPT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <script src="assets/js/loader.js"></script>
+
+  <script src="https://d3js.org/d3-selection.v1.min.js"></script>
+  <script src="https://d3js.org/d3-array.v1.min.js"></script>
+  <script src="https://d3js.org/d3-geo.v1.min.js"></script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://unpkg.com/topojson@3"></script>
+  <script src="assets/data/albers-usa-pr.js"></script>
+  <script src="assets/data/states.js"></script>
+
+  <!-- Favicon
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <link rel="icon" type="assets/image/ico" href="assets/img/favicon.ico">
+
+</head>
+
+<body>
+  <div id="ie-mask">
+    <div class="browser-dialog">
+      <h2>Internet Explorer 11 and older are no longer being supported.</h2>
+      <h1 style="margin: 10px 0; ">Please download a current browser, or use Microsoft Edge to access this data story:</h1>
+      <ul>
+        <li>
+          <a href="https://www.google.com/chrome/">Download Chrome</a>
+        </li>
+        <li>
+          <a href="https://www.mozilla.org/en-US/firefox/new/">Download Firefox</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    /**
+    * detect IE
+    * returns version of IE or false, if browser is not Internet Explorer
+    */
+    function detectIE() {
+      var ua = window.navigator.userAgent;
+
+      var msie = ua.indexOf('MSIE ');
+      if (msie > 0) {
+        // IE 10 or older => return version number
+        return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+      }
+
+      var trident = ua.indexOf('Trident/');
+      if (trident > 0) {
+        // IE 11 => return version number
+        var rv = ua.indexOf('rv:');
+        return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+      }
+      
+      // other browser
+      return false;
+    }
+    var isIE = detectIE()
+    var IEMask = document.getElementById("ie-mask")
+
+    if (isIE) {
+      IEMask.style.display = "block"
+    }
+  </script>
+
+
+  <!-- page loader animation -->
+  <div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section"></div>
+  </div>
+
+  <header style="box-shadow: rgba(34, 34, 42, 0) 0px 1px 1px;" class="changeOpacity">
+    <div class="wrap">
+      <div class="header-content">
+
+        <nav class="main-home">
+          <a class="edu-link" href="">U.S. Department of Education</a>
+        </nav>
+        <nav>
+          <a id="share-facebook" href="" target="_blank" class="social-links"><i class="fab fa-facebook-f"></i></a>
+          <a id="share-twitter" href="" target="_blank" class="social-links"><i class="fab fa-twitter"></i></a>
+          <a href="mailto:?subject=CTE%20Data%20Story&amp;body=https%3A%2F%2Fwww2.ed.gov%2Fdatastory%2Fcte%2Findex.html"
+            target="_blank" class="social-links"><i class="fas fa-envelope"></i></a>
+        </nav>
+      </div>
+    </div>
+
+  </header>
+  <div class="progress"></div>
+
+  <main class="mod_scale_fluid">
+
+    <section id="hero" class="intro">
+      <div class="wrap">
+
+        <div id="site__bg"></div>
+        <div class="bigger">
+          <div>
+            <p>
+              Eight years after their expected graduation date, students who focused on career and technical education (CTE) courses
+              while in high school had higher median annual earnings than students who did not focus on CTE.
+            </p>
+            <a href="#data-story-title">
+              <h3 class="animated delay-2s fadeInDown">
+                <span class="pulse-wave"><i class="fas fa-arrow-down"></i></span>EXPLORE THIS DATA
+                STORY</h3>
+            </a>
+          </div>
+        </div>
+
+
+        <img class="logo-overlay animated delay-2s fadeInLeft" src="assets/img/logo-white.svg"
+          alt="U.S. Department of Education seal" data-parallax="-0.3">
+
+        <div class="screen" data-parallax="0.2">
+          <div class="screen-holder"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="title-card" id="data-story-title">
+      <div class="wrap">
+        <div></div>
+        <div class="title-card">
+          <h2>Bridging the Skills Gap: Career and Technical Education in High School</h2>
+          <h3>SEPTEMBER 2019 | U.S. DEPARTMENT OF EDUCATION</h3>
+          <!-- <p>
+            Algebra is the foundation for students' future success in science, technology, engineering, and math. Do
+            they have the opportunity to
+            take it early? Using national data, we look at students' access to and enrollment in Algebra I in the
+            8<sup>th</sup>
+            grade.
+          </p> -->
+
+        </div>
+        <div class="screen" data-parallax="0.3">
+          <div class="screen-holder"></div>
+        </div>
+      </div>
+    </section>
+
+    <article class="narrative-wrap">
+
+      <!-- NARRATIVE GRID
+  ––––––––––––––––––––––––––––––––––––––––––––––––––
+
+  <div class="narrative pure-g">
+
+    <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"></div>
+
+    <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-10-24 pure-u-xl-8-24">
+    </div>
+
+    <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"></div>
+
+  </div>
+
+    -->
+
+      <!-- CHART AREA GRID
+  ––––––––––––––––––––––––––––––––––––––––––––––––––
+
+  <div class="chart-area pure-g">
+
+    <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+
+    <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-12-24 pure-u-xl-10-24">
+
+    </div>
+
+    <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+
+  </div>
+
+  -->
+
+      <div class="narrative pure-g section" id="WHYALGEBRAI">
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24">
+        </div>
+        <div class="opener pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-10-24 pure-u-xl-8-24">
+
+          <p id="WHATISCTE">
+            Career and technical education (CTE) provides an important pathway to success for high school students and offers
+            each student opportunities to personalize his or her education based on their career interests and unique learning needs. CTE
+            refers to courses and programs designed to prepare students for careers in current or emerging professions. At the high
+            school level, CTE provides students with opportunities to explore a career theme of interest while learning a set of
+            technical and employability skills that integrate into or complement their academic studies. High school CTE is meant to
+            connect with and lead to postsecondary programs of study or additional training after high school, which may include more
+            specialized technical instruction. These pathways can culminate in postsecondary degrees or certificates, apprenticeships, or employment. <a class="md-trigger more-info" data-modal="modal-1">Learn more about CTE<img alt="more detail" aria-hidden="true" src="assets/img/modal-icon.svg"></a>.
+          </p>
+
+          <p>
+            A critical workforce challenge in the United States is the skills gap, particularly among jobs that require either a
+              high school diploma, postsecondary certificate, or associate&rsquo;s degree.<sup><a href="#_ftn1" name="_ftnref1">[1]</a></sup>
+              Jobs requiring these &ldquo;middle skills&rdquo; outnumber the adults in the workforce who possess them, and
+              this gap presents a barrier to American economic competitiveness. There are 30 million jobs in the United States that
+              do not require a bachelor&rsquo;s degree that pay median earnings of $55,000 or more.<sup>
+                <a href="#_ftn5"
+                  name="_ftnref5">[2]</a></sup>&nbsp; CTE provides an important avenue for young adults to gain these skills beginning in
+              high school. How do we engage a new generation of young Americans and prepare them for rewarding careers? Last year,
+              Congress reauthorized the <em>Strengthening Career and Technical Education Act for the 21st Century</em> (also
+              referred to as <em>Perkins V</em>), the federal legislation that supports CTE programs and whose purpose is to address
+              these critical issues.<sup><a href="#_ftn2" name="_ftnref2">[3]</a></sup>
+          </p>
+
+          <p>
+            This data story explores both access to and participation in CTE in high school, as well as the outcomes of students who
+            concentrate their studies in CTE, using national and state-level data from the Department. <a class="md-trigger more-info" data-modal="modal-3">Learn more about the data sources<img alt="more detail" aria-hidden="true" src="assets/img/modal-icon.svg"></a>.
+          </p>
+
+          <p>
+            While definitions vary by state, the U.S. Department of Education (the Department) issued non-regulatory guidance on
+            two
+            different measures of student participation in CTE.&nbsp; At the high school level, the term <em>CTE participant</em>
+            refers to a student who earned at least one credit in any CTE course. The term<em> CTE concentrator</em> refers to a
+            student who earned two or more credits within a single program of study, such as Health Science or Business Management
+            and Administration. <a class="md-trigger more-info" data-modal="modal-2">Learn more about CTE participants and CTE
+              concentrators<img alt="more detail" aria-hidden="true" src="assets/img/modal-icon.svg"></a>.
+          </p>
+
+          <div class="acorn" id="WHOCONCENTRATESWHERE"><img src="assets/img/acorn.svg" alt="Acorn motif"></div>
+        </div>
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24">
+        </div>
+      </div>
+
+      
+
+      <div class="chart-area pure-g">
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-12-24 pure-u-xl-10-24">
+          <div id="table1_participant_chart"></div>
+        </div>
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+      </div>
+
+       <div class="narrative pure-g">
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"></div>
+
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-10-24 pure-u-xl-8-24">
+          <p>
+            Over three-fourths of 9th-grade public school students in 2009 had participated in CTE by their senior year in 2013 (77
+            percent). These students had earned at least one CTE credit in high school. Percentages of students who participated
+            varied across some demographic characteristics such as sex and race/ethnicity. These percentages included all public
+            school students, regardless of high school graduation status. <a class="md-trigger more-info" data-modal="modal-6">Learn more about CTE participants by select student characteristics<img alt="more detail" aria-hidden="true" src="assets/img/modal-icon.svg"></a>.
+          </p>
+        </div>
+
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"></div>
+      </div>
+
+      <div class="chart-area pure-g">
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-12-24 pure-u-xl-10-24">
+          <div id="table1_concentrator_chart"></div>
+        </div>
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+      </div>
+
+      <div class="narrative pure-g">
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"></div>
+
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-10-24 pure-u-xl-8-24">
+          <p>
+            Over one-third of 9th-grade public school students (37 percent) in 2009 had concentrated in CTE by 2013. These
+            students had earned two or more credits in a at least one program of study in high school. Percentages of students who concentrated varied across
+            some demographic characteristics such as sex and race/ethnicity. These percentages included all public school students,
+            regardless of high school graduation status. <a class="md-trigger more-info" data-modal="modal-7">Learn more about CTE concentrators by select student characteristics<img alt="more detail" aria-hidden="true" src="assets/img/modal-icon.svg"></a>.
+          </p>
+
+          <div class="acorn"><img src="assets/img/acorn.svg" alt="Acorn motif"></div>
+        </div>
+
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"></div>
+
+      </div>
+
+      <div class="chart-area pure-g">
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-12-24 pure-u-xl-10-24 section" id="WHOHASACCESSWHERE">
+          <h4>
+            CTE concentrations in STEM and STEM-related career clusters represented one-third of all CTE concentrations in high
+            school. However, the percentage of concentrations in these career clusters varied widely by state.
+          </h1>
+        </div>
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+      </div>
+    </article>
+
+    <div class="map-transition wrap">
+      <div id="table2_cluster_map"></div>
+    </div>
+
+    <article class="narrative-wrap">
+      <div class="narrative pure-g">
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24">
+        </div>
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-10-24 pure-u-xl-8-24" id="WHOHASACCESSWHERE">
+          <p>
+            Science, Technology, Engineering, and Mathematics (STEM) subjects are critical disciplines for a society whose economic
+            growth and adaptability are dependent upon innovation. In 2017, CTE concentrations<sup>
+              <a href="#_ftn3"
+                name="_ftnref3">[4]</a></sup> in STEM and STEM-related (Health Science; Agriculture, Food, and Natural Resources; and
+            Information Technology) career clusters represented 35 percent of all CTE concentrations in high school. <a class="md-trigger more-info" data-modal="modal-4">Learn more about career clusters<img
+                alt="more detail" aria-hidden="true" src="assets/img/modal-icon.svg"></a>.
+          </p>
+          <p>In the 50 states, the District of Columbia, and Puerto Rico, the jurisdictions having the five highest percentages of CTE
+          concentrations in STEM and STEM-related career clusters in 2017 were the District of Columbia (70 percent), Missouri (50 percent), Ohio (49
+          percent), Arkansas (49 percent), and Florida (48 percent).</p>
+        </div>
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24">
+        </div>
+      </div>
+
+      <div class="chart-area pure-g">
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-12-24 pure-u-xl-10-24 section" id="WHOHASACCESSWHERE">
+          <h4>
+            The top three most prevalent career clusters in the nation’s high schools were: (1) Arts, Audio-Visual Technology, and
+            Communication; (2) Business Management and Administration; and (3) Health Science.
+          </h4>
+        </div>
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+      </div>
+    </article>
+
+    <div class="map-transition wrap">
+      <div id="table2_cluster_toggle_map"></div>
+    </div>
+
+    <article class="narrative-wrap">
+      <div class="narrative pure-g">
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"></div>
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-10-24 pure-u-xl-8-24" id="WHOHASACCESSWHERE">
+          <p>
+            In 2017, the most popular career cluster out of all 16 career clusters in the nation&rsquo;s high schools was Arts,
+            Audio-Visual Technology, and Communication (420,000 concentrations, or 12 percent of all CTE
+            concentrations), followed
+            by Business Management and Administration (410,000 concentrations, or 11 percent of all CTE concentrations)
+            and Health
+            Science (390,000 concentrations, or 11 percent of all CTE concentrations). The percentages of concentrations
+            in these
+            career clusters varied by state. <a class="md-trigger more-info" data-modal="modal-5">Learn more about state
+              CTE concentrations by career cluster<img alt="more detail" aria-hidden="true"
+                src="assets/img/modal-icon.svg"></a>.
+          </p>
+          <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+        </div>
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24">
+        </div>
+      </div>
+
+      <div class="acorn"><img src="assets/img/acorn.svg" alt="Acorn motif"></div>
+      
+      <div class="chart-area pure-g">
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-12-24 pure-u-xl-10-24 section" id="WHOHASACCESSWHERE">
+          <h4>
+            Nearly all public school districts offered CTE programs to high school students. About three-fourths of these districts
+            offered CTE courses that earn both high school and postsecondary credit, commonly called dual credit.
+          </h4>
+        </div>
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+      </div>
+    </article>
+
+    <div class="map-transition wrap">
+      <div id="table4_credit_activity_chart"></div>
+    </div>
+
+    <article class="narrative-wrap">
+      <div class="narrative pure-g">
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"></div>
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-10-24 pure-u-xl-8-24" id="WHOHASACCESSWHERE">
+          <p>
+            CTE can offer career exploration and career-building activities in the classroom as well as hands-on learning experiences outside the classroom. Almost all public school districts (98 percent) offered CTE programs to high school students during the 2016&ndash;17 school year, but the activities offered in these CTE programs varied by district. Among districts that offered CTE programs, the most common CTE activity or feature was work-based learning opportunities, such as on-the-job training, internships, practicums, clinical experiences, or cooperative education (77 percent); followed by CTE courses that earned both high school and postsecondary credits, sometimes referred to as &ldquo;dual credit&rdquo; or &ldquo;concurrent credit&rdquo; (73 percent); mentoring by local employers (65 percent); and student-run enterprises or services (55 percent). <a class="md-trigger more-info" data-modal="modal-8">Learn more about public school districts offering dual credit<img alt="more detail" aria-hidden="true"
+                src="assets/img/modal-icon.svg"></a>.
+          </p>
+        </div>
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24">
+        </div>
+      </div>
+
+      <div class="chart-area pure-g">
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-12-24 pure-u-xl-10-24 section" id="WHOHASACCESSWHERE">
+          <h4>
+            CTE programs were delivered in varied locations, including high schools and part-time CTE centers.
+          </h4>
+        </div>
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+      </div>
+    </article>
+
+    <div class="map-transition wrap">
+      <div id="table5_location_chart"></div>
+    </div>
+
+    <article class="narrative-wrap">
+      <div class="narrative pure-g">
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"></div>
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-10-24 pure-u-xl-8-24" id="WHOHASACCESSWHERE">
+          <p>
+            The most common locations in which school districts offered CTE programs to high school students were traditional high
+            schools in the district (83 percent), followed by part-time CTE centers (43 percent) and 2-year community or
+            technical
+            colleges or 4-year colleges or universities (35 percent). About 30 percent of school districts also offered
+            CTE
+            programs online (including in blended/hybrid courses).
+          </p>
+        </div>
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24">
+        </div>
+      </div>
+
+      <div class="acorn"><img src="assets/img/acorn.svg" alt="Acorn motif"></div>
+
+      <div class="chart-area pure-g">
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-12-24 pure-u-xl-10-24 section" id="WHOENROLLSWHERE">
+            <h4 id="WHOGRADUATESFINDSAJOB" style="font-style: italic;">
+                In this section, we explore descriptive data related to the education and labor market outcomes of CTE concentrators and non-CTE concentrators (also referred to as &ldquo;non-concentrators&rdquo; in this data story). It is important to note that the findings in this section cannot be used to draw conclusions about the effectiveness of CTE because these data do not account for differences in both observable and unobservable characteristics. Such descriptive data do not imply causation.
+            </h4>
+        </div>
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+      </div>
+
+      <div class="chart-area pure-g">
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-12-24 pure-u-xl-10-24 section" id="WHOENROLLSWHERE">
+          <h4>
+            High school students who were CTE concentrators graduated from high school at higher rates than their non-concentrator
+            peers.
+          </h4>
+        </div>
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+      </div>
+    </article>
+
+    <div class="map-transition wrap">
+      <div id="table7_graduated_hs"></div>
+    </div>
+
+    <article class="narrative-wrap">
+      <div class="narrative pure-g">
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"></div>
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-10-24 pure-u-xl-8-24" id="WHOENROLLSWHERE">
+          <p>Among 9th-grade public school students in 2009 who went on to concentrate in CTE in high school, 94 percent graduated
+          from high school<sup><a href="#_ftn4" name="_ftnref4">[5]</a></sup> by their expected year of graduation, and 98 percent earned their high school diplomas within three
+          years of their expected graduation date. Among
+            9th-grade public
+            school students in 2009 who were non-concentrators in high school, 86 percent had graduated from high school
+            by 2013,
+            and 92 percent had graduated from high school by 2016.</p>
+        </div>
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24">
+        </div>
+      </div>
+
+      <div class="chart-area pure-g">
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-12-24 pure-u-xl-10-24 section" id="WHOENROLLSWHERE">
+          <h4>
+            High school students who were CTE concentrators enrolled in postsecondary education within eight years of their expected high school graduation at slightly higher rates than non-concentrators.
+          </h4>
+        </div>
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+      </div>
+    </article>
+
+    <div class="map-transition wrap">
+      <div id="table8_enrolled_ps"></div>
+    </div>
+
+    <article class="narrative-wrap">
+      <div class="narrative pure-g">
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"></div>
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-10-24 pure-u-xl-8-24" id="WHOENROLLSWHERE">
+          <p>Enrollment in postsecondary education is considered a major stepping stone for high school students who choose to pursue
+          that educational pathway. Among 10th-grade public school students in 2002 who were CTE concentrators in high school, 72 percent enrolled in postsecondary education by 2006, or two years after their expected year of high school graduation, and 84 percent enrolled by 2012, or eight years after their expected year of high school graduation. Among 10th-grade public school students in 2002 who were non-concentrators in high school, 70 percent enrolled in postsecondary education by 2006 and 82 percent enrolled by 2012.</p>
+        </div>
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24">
+        </div>
+      </div>
+      
+      <div class="chart-area pure-g">
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-12-24 pure-u-xl-10-24 section" id="WHOENROLLSWHERE">
+          <h4>
+            About half of both CTE concentrators and non-concentrators earned a postsecondary credential within eight years of their expected high school graduation.&nbsp; There was no measurable difference between CTE concentrators and non-concentrators earning a bachelor&rsquo;s degree; about one-quarter of CTE concentrators and non-concentrators earned a bachelor&rsquo;s degree. However, high school students who were CTE concentrators were more likely than non-concentrators to earn an associate&rsquo;s degree as their highest level of educational attainment within eight years of their expected high school graduation.
+          </h4>
+        </div>
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+      </div>
+    </article>
+
+    <div class="map-transition wrap" style="margin-top: 1em;">
+      <div id="table6a_concentrators"></div>
+    </div>
+
+    <article class="narrative-wrap">
+      <div class="narrative pure-g">
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"></div>
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-10-24 pure-u-xl-8-24" id="WHOENROLLSWHERE">
+          <p>
+            Among 10th-grade public school students in 2002 who were CTE concentrators in high school, 50 percent had
+            completed a
+            college degree or credential as their highest level of educational attainment by 2012 (eight years after
+            their
+            expected year of high school graduation). About 28 percent of students who were CTE concentrators in high
+            school
+            earned a bachelor&rsquo;s degree or higher, while 11 percent earned an associate&rsquo;s degree, and 11
+            percent earned
+            a postsecondary certificate by 2012.
+          </p>
+          <p>
+            Non-concentrators were more likely than CTE concentrators to not have attained a high school diploma by 2012 (5 percent
+            compared with 2 percent) but were more likely to earn a graduate or professional degree (8 percent compared with 5 percent).
+          </p>
+        </div>
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24">
+        </div>
+      </div>
+
+      <div class="acorn"><img src="assets/img/acorn.svg" alt="Acorn motif"></div>
+      
+      <div class="chart-area pure-g">
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-12-24 pure-u-xl-10-24 section" id="WHOENROLLSWHERE">
+          <h4>
+            High school students who were CTE concentrators were employed full-time at higher rates eight years after their expected high school graduation compared to non-concentrators.
+          </h4>
+        </div>
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+      </div>
+    </article>
+
+    <div class="map-transition wrap" style="margin-top: 1em;">
+      <div id="table9_status_concentrators"></div>
+    </div>
+
+    <article class="narrative-wrap">
+      <div class="narrative pure-g">
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"></div>
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-10-24 pure-u-xl-8-24" id="WHOENROLLSWHERE">
+          <p>Examining employment outcomes for CTE concentrators provides a snapshot of their long-term outcomes. Among 10th-grade public school students in 2002 who were CTE concentrators in high school, 72 percent were employed full-time in 2012, compared to 67 percent of non-concentrators. In addition, a lower percentage of CTE concentrators than of non-concentrators were employed part time or unemployed in 2012.</p>
+        </div>
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24">
+        </div>
+      </div>
+
+      <div class="chart-area pure-g">
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-12-24 pure-u-xl-10-24 section" id="WHOENROLLSWHERE">
+          <h4>
+            Eight years after their expected high school graduation, the median annual earnings for CTE concentrators
+            were higher
+            than for non-concentrators.
+          </h4>
+        </div>
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-6-24 pure-u-xl-7-24"></div>
+      </div>
+    </article>
+
+    <div class="map-transition wrap">
+      <div id="table9_earnings_concentrators"></div>
+    </div>
+
+    <article class="narrative-wrap">
+      <div class="narrative pure-g">
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"></div>
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-10-24 pure-u-xl-8-24" id="WHOENROLLSWHERE">
+          <p>Among 10th-grade public school students in 2002 who were CTE concentrators in high school, the median annual earnings eight years after high school were $23,950, compared to $20,015 for non-concentrators&mdash;almost a $4,000 difference. In addition, 41 percent earned less than $20,000, compared to 45 percent of non-concentrators.</p>
+        </div>
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24">
+        </div>
+      </div>
+
+      <div class="acorn"><img src="assets/img/acorn.svg" alt="Acorn motif"></div>
+
+      <div class="narrative pure-g">
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"></div>
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-10-24 pure-u-xl-8-24" id="WHOENROLLSWHERE">
+          <p>The data explored in this story highlight CTE access, participation, and educational and labor market outcomes. They tell an interesting story of the potential benefits of a concentrated sequence of CTE courses in high school. Concentrating in CTE can provide students with a strong foundation of technical knowledge and employability skills to
+          complement their academic studies and prepare them for both college and career options.</p>
+        </div>
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24">
+        </div>
+      </div>
+    </article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <article class="narrative-wrap">
+      <div class="narrative pure-g">
+
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24"></div>
+
+        <div class="pure-u-sm-24-24 pure-u-md-16-24 pure-u-lg-10-24 pure-u-xl-8-24">
+          <div id="story-notes">
+            <hr>
+            <h5>Data Notes</h5>
+
+            <p>
+              <strong><u>High School Longitudinal Study of 2009</u></strong><br>
+              National participation data were based on a longitudinal study using a nationally-representative sample
+              of a cohort
+              of students from the High School Longitudinal Study of 2009 (HSLS:09), conducted by the National Center
+              for Education
+              Statistics (NCES), Institute of Education Sciences, U.S. Department of Education. The cohort consisted of
+              9th-grade
+              public school students in fall 2009 and followed up with a collection of high school transcripts in 2013
+              to examine
+              course credits earned during high school. The study included over 23,000 9th-graders from 944 schools in
+              2009.
+            </p>
+
+            <p>
+              <strong><u>Education Longitudinal Study of 2002</u></strong><br>
+              National outcome data were based on a longitudinal study using a nationally-representative sample of a
+              cohort of
+              students from the Education Longitudinal Study of 2002 (ELS:02), conducted by the National Center for
+              Education
+              Statistics (NCES), Institute of Education Sciences, U.S. Department of Education, to permit analysis of
+              longer-term
+              education and labor market outcomes. The cohort consisted of 10th-grade public school students in spring
+              2002 and
+              followed up with a collection of high school transcripts in 2005 to examine course credits during high
+              school. The
+              study included over 15,000 10th-graders from 750 schools in 2002.
+            </p>
+
+            <p>
+              <strong><u>Fast Response Survey System</u></strong><br>
+              The Fast Response Survey System (FRSS) survey &ldquo;Career and Technical Education Programs in Public
+              School
+              Districts&rdquo; (FRSS 208) collected nationally representative data on career and technical education
+              (CTE) programs
+              for the 2016&ndash;17 school year. The topics covered included entities that provide the CTE programs, the
+              locations
+              at which the CTE programs are offered to high school students, and work-based learning activities and
+              employer
+              involvement in CTE programs, as well as barriers preventing the school district from offering CTE programs
+              and
+              barriers to student participation in CTE programs. The survey was mailed to approximately 1,800 public
+              school
+              districts with high school grades in the 50 states and the District of Columbia. The unweighted survey
+              response rate
+              was 87 percent, and the weighted response rate using the initial base weights was 86 percent. The report
+              <em>Career
+                and Technical Education Programs in Public School Districts: 2016&ndash;17 </em>(NCES 2018-028) presents
+              selected
+              findings from the survey.
+            </p>
+
+            <p>
+              <strong><u>Consolidated Annual Report</u></strong><br>
+              The Consolidated Annual Report (CAR) is a single reporting instrument developed by the Department of Education that
+              enables eligible agencies to submit the narrative performance report pursuant to 2 CFR 200.328 and 34 CFR 76.720, the
+              financial reports pursuant to 2 CFR 200.327 and 34 CFR 76.720, and the performance data reports pursuant
+              to section
+              113 of the Perkins Act. Data submission for the previous fiscal year is due by December 31 of each year.
+            </p>
+
+            <h5>Data Limitations</h5>
+            <p>
+              High school graduation rates: In this data story, a CTE concentrator is defined as a student who has
+              completed at
+              least two course credits in a single career and technical education (CTE) subject, according to the
+              student&rsquo;s
+              high school transcript(s), while a non-concentrator could be any student who did not meet this criterion.
+              Because they
+              are required to have completed at least two course credits in a single subject during high school, CTE
+              concentrators
+              may be more likely to have complete transcript data and/or have completed high school than
+              non-concentrators. Please
+              use caution when comparing the high school graduation rates of these two groups.
+            </p>
+
+            <p>
+              Employment earnings (including median earnings): The analysis of employment earnings in this data story
+              includes all
+              students in the sample who have data available. It is not restricted to students who were working full
+              time and full
+              year. Due to differences in employment status between CTE concentrators and non-concentrators, please use
+              caution when
+              comparing the earnings data of these two groups.
+            </p>
+
+            <h5>Note on significant differences</h5>
+            <p>
+              Only statistically significant differences (at p &#60; .05) are discussed except where noted. If differences between groups are not statistically significant, we use the phrase “no measurable difference.”
+            </p>
+
+            <h5>References</h5>
+            <div id="ftn1">
+              <p>
+                <sup><a href="#_ftnref1" name="_ftn1">[1]</a></sup> Burrowes, J., Young, A., Restuccia, D., Fuller, J.,
+                and Raman,
+                M. <em>Bridge
+                  the Gap: Rebuilding America&rsquo;s Middle Skills</em>, 2014. Retrieved from : <a target="_blank"
+                  href="https://www.hbs.edu/competitiveness/Documents/bridge-the-gap.pdf">https://www.hbs.edu/competitiveness/Documents/bridge-the-gap.pdf</a>
+              </p>
+            </div>
+            <div id="ftn5">
+              <p>
+                <sup><a href="#_ftnref5" name="_ftn5">[2]</a></sup> Georgetown University Center on Education and the Workforce, <em>Good Jobs
+                  That Pay without a BA: A State-by-State Analysis,</em> 2017. Retrieved from:
+                <a target="_blank" href="https://goodjobsdata.org/wp-content/uploads/Good-Jobs-States.pdf">https://goodjobsdata.org/wp-content/uploads/Good-Jobs-States.pdf</a>
+              </p>
+            </div>
+            <div id="ftn2">
+              <p>
+                <sup><a href="#_ftnref2" name="_ftn2">[3]</a></sup> Pettey, Richard. It&rsquo;s Time to Rethink Career
+                and
+                Technical Education.
+                <em>Homeroom: The Official Blog of the U.S. Department of Education</em>, December 19, 2018. Retrieved
+                from: <a target="_blank"
+                  href="https://blog.ed.gov/2018/12/time-rethink-career-technical-education/">https://blog.ed.gov/2018/12/time-rethink-career-technical-education/</a>
+              </p>
+            </div>
+            <div id="ftn3">
+              <p>
+                <sup><a href="#_ftnref3" name="_ftn3">[4]</a></sup> For state data, the term CTE
+                &ldquo;concentrations&rdquo; is
+                used instead of
+                CTE &ldquo;concentrators&rdquo; because a subset of students might have concentrated in more than one
+                career cluster
+                and would be counted in each applicable career cluster.
+              </p>
+            </div>
+            <div id="ftn4">
+              <p>
+                <sup><a href="#_ftnref4" name="_ftn4">[5]</a></sup> &ldquo;Graduated from high school&rdquo; is defined
+                in this
+                data story as
+                having obtained a regular high school diploma, a GED or other high school equivalency, or a certificate
+                of attendance.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pure-u-sm-0-24 pure-u-md-4-24 pure-u-lg-7-24 pure-u-xl-8-24">
+        </div>
+      </div>
+    </article>
+
+    <footer class="pure-g">
+      <div class="wrap">
+
+        <div class="pure-u-sm-24-24 pure-u-md-4-24 pure-u-lg-4-24"><img src="assets/img/logo-white.svg"></div>
+
+        <div class="pure-u-sm-24-24 pure-u-md-10-24 pure-u-lg-10-24">
+          <p style="color: #fff;">Built by InformED.</p>
+          <p>We're an initiative at the U.S. Department of Education to make data discoverable, accessible, and
+            useful.</p>
+
+        </div>
+
+        <div class="pure-u-sm-24-24 pure-u-md-10-24 pure-u-lg-10-24">
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- modals -->
+  <div class="md-modal md-effect-9" id="modal-1">
+    <div class="md-content">
+      <div>
+        <blockquote>
+          The term &ldquo;career and technical education&rdquo; (CTE) in the <a target="_blank"
+            href="https://legcounsel.house.gov/Comps/Carl%20D.%20Perkins%20Career%20And%20Technical%20Education%20Act%20Of%202006(not-in-effect).pdf">Strengthening
+            Career and Technical Education for the 21st Century Act of 2018</a>, Sec. 3(5), means &ldquo;organized
+          educational
+          activities that&mdash;(A) offer a sequence of courses that&mdash; (i) provides individuals with rigorous
+          academic
+          content and relevant technical knowledge and skills needed to prepare for further education and careers in
+          current or
+          emerging professions, which may include high-skill, high-wage, or in-demand industry sectors or occupations,
+          which
+          shall be, at the secondary level, aligned with the challenging State academic standards adopted by a State
+          under
+          section 1111(b)(1) of the Elementary and Secondary Education Act of 1965; (ii) provides technical skill
+          proficiency or
+          a recognized postsecondary credential, which may include an industry-recognized credential, a certificate,
+          or an
+          associate degree; and (iii) may include prerequisite courses (other than a remedial course) that meet the
+          requirements
+          of this subparagraph; (B) include competency-based, work-based, or other applied learning that supports the
+          development of academic knowledge, higher-order reasoning and problem-solving skills, work attitudes,
+          employability
+          skills, technical skills, and occupation-specific skills, and knowledge of all aspects of an industry,
+          including
+          entrepreneurship, of an individual; (C) to the extent practicable, coordinate between secondary and
+          postsecondary
+          education programs through programs of study, which may include coordination through articulation
+          agreements, early
+          college high school programs, dual or concurrent enrollment program opportunities, or other credit transfer
+          agreements
+          that provide postsecondary credit or advanced standing; and (D) may include career exploration at the high
+          school
+          level or as early as the middle grades (as such term is defined in section 8101 of the Elementary and
+          Secondary
+          Education Act of 1965).&rdquo;
+        </blockquote>
+        <i class="fas fa-times md-close"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="md-modal md-effect-9" id="modal-2">
+    <div class="md-content">
+      <div>
+        <blockquote>
+          <u>CTE Concentrator</u>: At the secondary school level, a student who has completed at least two course credits in a
+          single Career and Technical Education (CTE) program of study or career cluster. Once a student earns two course credits
+          in a single CTE program of study or career cluster, he or she is counted as a CTE concentrator. One course credit is
+          equivalent to one Carnegie unit, a standardized measurement of student course taking, that signals the successful
+          completion of one course lasting a full academic year. See the Perkins CTE Basic State Grants program definition of a
+          CTE concentrator in the&nbsp;<a target="_blank"
+            href="https://legcounsel.house.gov/Comps/Carl%20D.%20Perkins%20Career%20And%20Technical%20Education%20Act%20Of%202006(not-in-effect).pdf">Strengthening
+            Career and Technical Education for the 21st Century Act of 2018</a>, Section 3(12).
+        </blockquote>
+        <blockquote>
+          <u>CTE Participant</u>: At the secondary school level, a student who has completed at least one course credit in a
+          Career and Technical Education (CTE) program of study or career cluster. Once a student earns one course credit in a CTE
+          program of study or career cluster, he or she is counted as a CTE participant. One course credit is equivalent to one
+          Carnegie unit, a standardized measurement of student course taking, that signals the successful completion of one course
+          lasting a full academic year. See the Perkins CTE Basic State Grants program definition of a CTE participant in
+          the&nbsp;<a target="_blank"
+            href="https://legcounsel.house.gov/Comps/Carl%20D.%20Perkins%20Career%20And%20Technical%20Education%20Act%20Of%202006(not-in-effect).pdf">Strengthening
+            Career and Technical Education for the 21st Century Act of 2018</a>, Section 3(13).
+        </blockquote>
+        <i class="fas fa-times md-close"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="md-modal md-effect-9" id="modal-3">
+    <div class="md-content">
+      <div>
+        <blockquote>
+          This data story examines the percentage of public high school students who earned at least two CTE credits in
+          a
+          single CTE program of study or career cluster (these students are referred to as a CTE concentrator in this
+          data
+          story), as measured by the cohort CTE concentration rate. We calculate the cohort CTE concentration rate by
+          identifying the &ldquo;cohort&rdquo; of first-year high school students in a particular year. The CTE
+          concentration
+          rate is the percentage of students in this cohort who earned at least two CTE credits within the standard
+          number of
+          years in high school. Because this data story used a variety of data sources to highlight important aspects of
+          CTE
+          participation and outcomes, the cohorts were defined in different ways, as follows:
+          <ul>
+            <li>National participation data were based on a longitudinal study using a nationally-representative sample
+              of a
+              cohort of students from the High School Longitudinal Study of 2009 (HSLS:09), conducted by the National
+              Center for
+              Education Statistics (NCES), Institute of Education Sciences, U.S. Department of Education. The cohort
+              consisted of
+              9th grade public high school students in 2009&ndash;10 and followed up with a collection of high school
+              transcripts
+              in 2013 to examine course credits earned over the study period. The study included over 23,000 9th graders
+              from 944
+              schools in 2009.</li>
+            <li>National outcome data were based on a longitudinal study using a nationally-representative sample of a
+              cohort of
+              students from the Education Longitudinal Study of 2002 (ELS:02), conducted by the National Center for
+              Education
+              Statistics (NCES), Institute of Education Sciences, U.S. Department of Education, to permit analysis of
+              longer-term
+              education and labor market outcomes. The cohort consisted of 10th grade public high school students in
+              2001&ndash;02
+              and followed up with a collection of high school transcripts in 2004 to examine course credits earned over
+              the study
+              period. The study included over 12,000 10th graders from 750 schools in 2002.</li>
+          </ul>
+        </blockquote>
+        <i class="fas fa-times md-close"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="md-modal md-effect-9" id="modal-4">
+    <div class="md-content">
+      <div>
+        <blockquote>
+          <u>Programs of Study (also referred to as Career Clusters in this data story)</u>: The term &ldquo;programs of study&rdquo; in the <a target="_blank"
+            href="https://legcounsel.house.gov/Comps/Carl%20D.%20Perkins%20Career%20And%20Technical%20Education%20Act%20Of%202006(not-in-effect).pdf">Strengthening
+            Career and Technical Education for the 21st Century Act of 2018</a>, Section 3(41), means &ldquo;a coordinated,
+          nonduplicative sequence of academic and technical content at the secondary and postsecondary level that&mdash; (A)
+          incorporates challenging State academic standards, including those adopted by a State under section 1111(b)(1) of the
+          Elementary and Secondary Education Act of 1965; (B) addresses both academic and technical knowledge and skills,
+          including employability skills; (C) is aligned with the needs of industries in the economy of the State, region, Tribal
+          community, or local area; (D) progresses in specificity (beginning with all aspects of an industry or career cluster and
+          leading to more occupation-specific instruction); (E) has multiple entry and exit points that incorporate credentialing;
+          and (F) culminates in the attainment of a recognized postsecondary credential.&rdquo;&nbsp; Advance CTE, which
+          represents State Directors of CTE, developed a set of common career clusters to classify the numerous programs of study
+          that are offered to students. The Career Cluster Framework&copy; includes 16 CTE programs of study/career clusters as
+          follows: (1) Agriculture, Food, and Natural Resources; (2) Architecture &amp; Construction; (3) Arts, A/V Technology, and Communications; (4) Business Management and Administration; (5) Education and Training; (6) Finance; (7)
+          Government and Public Administration; (8) Health Science; (9) Hospitality and Tourism; (10) Human Services; (11)
+          Information Technology; (12) Law, Public Safety, Corrections, and Security; (13) Manufacturing; (14) Marketing; (15)
+          Science, Technology, Engineering, and Mathematics (STEM); and (16) Transportation, Distribution, and Logistics.
+        </blockquote>
+        <i class="fas fa-times md-close"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="md-modal md-effect-9" id="modal-5">
+    <div class="md-content">
+      <div>
+        <blockquote>
+          State CTE Concentrations by Career Cluster: This data story examines the number of public high school students
+          who
+          earned at least two CTE credits in a single CTE program of study or career cluster (these students are
+          referred to as
+          a CTE concentrator in this data story), as measured by an annual count of students and their concentrations in
+          any of
+          the 16 career clusters identified in the federal program performance reporting requirements under the Carl D.
+          Perkins
+          Career and Technical Education Act of 2006, collected by the Office of Career, Technical, and Adult Education
+          (OCTAE),
+          U.S. Department of Education, through the Consolidated Annual Report (CAR) data submission system. The cohort
+          consisted of any public high school student in 2016&ndash;17 who was considered a CTE concentrator in that
+          year to
+          examine CTE enrollments in each career cluster. The data included over 3.5 million CTE enrollments. Please
+          note that
+          for state data, we refer to CTE &ldquo;concentrations&rdquo; instead of CTE &ldquo;concentrators&rdquo;
+          because a
+          subset of students might have concentrated in more than one career cluster and would be counted in each
+          applicable
+          career cluster.
+        </blockquote>
+        <i class="fas fa-times md-close"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="md-modal md-effect-9" id="modal-6">
+    <div class="md-content">
+      <div>
+        <blockquote>
+          CTE Participants by Select Student Characteristics: Male students were more likely to be CTE participants than female
+          students (80 percent of male students were CTE participants compared with 73 percent of female students). In addition,
+          White students were more likely to be CTE participants than Black, Hispanic, and Asian students (80 percent of White
+          students were CTE participants compared with 75 percent of Black, 74 percent of Hispanic, and 71 percent of Asian
+          students). Notably, there were no measurable differences in CTE participation for students receiving special education
+          services compared with students who did not receive special education services and for English learner (EL) students
+          compared with non-EL students.
+        </blockquote>
+        <i class="fas fa-times md-close"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="md-modal md-effect-9" id="modal-7">
+    <div class="md-content">
+      <div>
+        <blockquote>
+          CTE Concentrators by Select Student Characteristics: Male students were also more likely to be CTE concentrators than
+          female students (40 percent of male students were CTE concentrators compared with 33 percent of female students). In
+          addition, White students were more likely to be CTE concentrators than Hispanic and Asian students (40 percent of White
+          students were CTE concentrators compared with 32 percent of Hispanic and 27 percent of Asian students). Notably, there
+          were no measurable differences in CTE concentration for students receiving special education services compared with
+          students who did not receive special education services and for English learner (EL) students compared with non-EL
+          students.
+        </blockquote>
+        <i class="fas fa-times md-close"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="md-modal md-effect-9" id="modal-8">
+    <div class="md-content">
+      <div>
+        <blockquote>
+          While nearly three-fourths of public school districts that offered CTE had provided students an opportunity to earn dual credit CTE courses, over one-fourth of districts did not. The percentage of public school districts that offered dual credit CTE courses was higher among districts with larger enrollments. For example, 90 percent of districts with 10,000 or more students enrolled offered dual credit CTE courses, compared with 63 to 81 percent of districts with smaller enrollments. In addition, the percentage of public school districts that offered dual credit CTE courses was higher for districts located in cities (91 percent) than for districts located in suburban areas (77 percent), towns (76 percent), or rural areas (67 percent).  
+        </blockquote>
+        <i class="fas fa-times md-close"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- the overlay element: must go after modal elements and be a sibling -->
+  <div class="md-overlay"></div>
+
+  <script>
+    document.getElementById("hero").classList.add('js-loading');
+
+    window.addEventListener("load", showPage);
+
+    function showPage() {
+      document.getElementById("hero").classList.remove('js-loading');
+    }
+  </script>
+
+  <!-- social share buttons -->
+  <script src="assets/js/social-share.js"></script>
+
+  <!-- tab switching -->
+  <script src="assets/js/tab-switcher.js"></script>
+
+  <script src="assets/js/scroll.js"></script>
+
+  <!-- classie.js by @desandro: https://github.com/desandro/classie -->
+  <script src="assets/js/modal-effect/classie.js"></script>
+  <script src="assets/js/modal-effect/modalEffects.js"></script>
+
+  <!-- for the blur effect -->
+  <!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
+  <script>
+    // this is important for IEs
+    var polyfilter_scriptpath = 'assets/js/modal-effect/';
+  </script>
+  <script src="assets/js/modal-effect/cssParser.js"></script>
+  <script src="assets/js/modal-effect/css-filters-polyfill.js"></script>
+
+  <!-- spinner -->
+  <script src="assets/js/spin.min.js"></script>
+</body>
+
+
+</html>

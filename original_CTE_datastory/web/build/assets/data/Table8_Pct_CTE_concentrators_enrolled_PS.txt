@@ -1,0 +1,3 @@
+year	percentageCTEconcentrators	percentageNonCTEconcentrators
+By two years after expected high school graduation	0.722	0.702
+By eight years after expected high school graduation	0.839	0.823

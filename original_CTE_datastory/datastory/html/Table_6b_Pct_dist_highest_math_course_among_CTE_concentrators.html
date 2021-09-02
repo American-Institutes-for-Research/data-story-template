@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Percentage distribution of high school CTE concentrators by highest math course taken in high school</title>
+    <h2>Percentage distribution of high school CTE concentrators by highest math course taken in high school</h2>
+    <style type="text/css">
+        /*load the fonts from the .ttf files*/
+        @font-face {
+            font-family: 'LibreFranklin-Bold';
+            src: url('../build/font/LibreFranklin-Bold.ttf');
+        }
+        @font-face {
+            font-family: 'LibreFranklin-SemiBold';
+            src: url('../build/font/LibreFranklin-SemiBold.ttf');
+        }
+        @font-face {
+            font-family: 'LibreFranklin-Regular';
+            src: url('../build/font/LibreFranklin-Regular.ttf');
+        }
+        body {
+            font: 10px sans-serif;
+        }
+        .pie {
+            padding: 0 12px 5px 12px;
+        }
+        svg {
+            padding: 0px 50px 20px 0px;
+
+        }
+        .legend {
+            vertical-align: top;
+        }
+        .pieTextTitle {
+            font-family: LibreFranklin-SemiBold;
+            font-size: 14px;
+            color: #474747;
+            text-anchor: middle;
+            line-height: 17px;
+            text-align: center;
+        }
+        .pieText {
+            font-family: LibreFranklin-Regular;
+            font-size: 12px;
+            color: #474747;
+            line-height: 15px;
+            text-anchor: middle;
+            position: absolute;
+            text-align: left;
+        }
+
+        /*Styling for the lines connecting the labels to the slices*/
+        polyline{
+            opacity: .3;
+            stroke: black;
+            stroke-width: 2px;
+            fill: none;
+        }
+    </style>
+
+<body style="width: 620px; height:235px; margin: 0;">
+<!-- minified production script -->
+<script src="//d3js.org/d3.v4.min.js"></script>
+
+<!-- for development, you could uncomment the following and comment out built script -->
+<!-- <script src="../ChartLibs/d3.v4.js"></script> -->
+
+<script>
+    //set the margin attributes
+    var margin = {
+            top: 30,
+            right: 0,
+            bottom: 20,
+            left: 30
+        },
+        width = 1200 - margin.left - margin.right,
+        height = 600 - margin.top - margin.bottom;
+
+    var svg = d3.select("body").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append('g')
+        .attr('align', 'center')
+        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+    var  radius = Math.min(width, height) / 2;
+
+
+    function mouseover() {
+        pathAnim(d3.select(this), 1);
+    }
+
+    function  mouseout() {
+        let thisPath = d3.select(this);
+        if (!thisPath.classed('clicked')) {
+            pathAnim(thisPath, 0);
+        }
+    }
+
+
+    function click() {
+        let thisPath = d3.select(this);
+        let clicked = thisPath.classed('clicked');
+        pathAnim(thisPath, ~~(!clicked));
+        thisPath.classed('clicked', !clicked);
+
+    }
+
+    let pathAnim = function(path, dir) {
+        switch(dir) {
+            case 0:
+                path.transition()
+                    .duration(500)
+                    .ease(d3.easeBounce)
+                    .attr('d', d3.arc()
+                        .innerRadius((0))
+                        .outerRadius(radius*0.8)
+                    );
+                break;
+
+            case 1:
+                path.transition()
+                    .attr('d', d3.arc()
+                        .innerRadius((0))
+                        .outerRadius(radius*0.90)
+                    );
+                break;
+        }
+    };
+
+    svg.append("g")
+        .attr("class", "slices");
+    svg.append("g")
+        .attr("class", "labels");
+    svg.append("g")
+        .attr("class", "lines");
+
+    var color = d3.scaleOrdinal()
+        .domain(['No math, basic math, or pre-algebra',
+            'Algebra I, geometry, or algebra II',
+            'Trigonometry, statistics, or pre-calculus',
+            'Calculus'])
+        .range(['#9DD9EA', '#74CAE2', '#5CA1B4', "#497E9F"]);
+
+    var pie = d3.pie().sort(null).value(function(d) {
+        return d.pctCTEdistribution;
+    });
+
+    var arc = d3.arc().innerRadius(0).outerRadius(radius*0.8);
+
+    var outerArc = d3.arc()
+        .innerRadius(radius * 0.9)
+        .outerRadius(radius * 0.9);
+
+    var innerArc = d3.arc()
+        .innerRadius(radius * 0.50)
+        .outerRadius(radius * 0.50);
+
+    var path = d3.arc()
+        .outerRadius(radius - 10)
+        .innerRadius(0);
+
+    var label = d3.arc()
+        .outerRadius(radius)
+        .innerRadius(radius - 80);
+
+    d3.csv("../assets/data/Table6b_Highest_math_course_CTE_concentrators.csv", function(error, data) {
+        if (error) {
+            throw error;
+        }
+        paths = svg.selectAll('path')
+            .data(pie(data));
+
+            paths.enter()
+            .append('path')
+            .attr('d', arc)
+            .attr("fill", function(d) {
+                return color(d.data.characteristic);
+            })
+            .style('stroke', '#FFFFFF')
+            .on('mouseover', mouseover) //show / hide the tip based on where the mouse is
+            .on('mouseout', mouseout)
+            .on('click', click);
+
+        paths.exit().remove();
+
+        svg.selectAll('slices')
+            .data(pie(data))
+            .enter()
+            .append('text')
+            .text(function(d) {
+                return d.data.pctCTEdistribution + "%";
+            })
+            .attr('transform', function(d) {
+                return "translate(" + arc.centroid(d) + ")";
+            })
+            .style('text-anchor', 'middle')
+            .style('font-size', 17);
+        svg.append('g').classed('labels', true);
+        svg.append('g').classed('lines', true);
+
+        var polyline = svg.select('.lines')
+            .selectAll('polyline')
+            .data(pie(data))
+            .enter().append('polyline')
+            .attr('points', function(d) {
+                var posA = innerArc.centroid(d);
+                var posB = outerArc.centroid(d);
+                var posC = outerArc.centroid(d);
+                posC[0] = radius * 0.95 * (midAngle(d) < Math.PI ? 1 : -1);
+                return [posA, posB, posC]
+            });
+
+
+
+        var label = svg.select('.labels').selectAll('text')
+            .data(pie(data))
+            .enter().append('text')
+            .attr('class', 'pieTextTitle')
+            .attr('dy', '.35em')
+            .html(function(d) {
+                return d.data.characteristic;
+            })
+            .attr('transform', function(d) {
+                var pos = outerArc.centroid(d);
+                pos[0] = radius * 0.95 * (midAngle(d) < Math.PI ? 1 : -1);
+                return 'translate(' + pos + ')';
+            })
+            .style('text-anchor', function(d) {
+                return (midAngle(d)) < Math.PI ? 'start' : 'end';
+            });
+    });
+
+    function midAngle(d) { return d.startAngle + (d.endAngle - d.startAngle) / 2; }
+</script>

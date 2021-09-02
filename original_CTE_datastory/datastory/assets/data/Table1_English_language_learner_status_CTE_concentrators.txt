@@ -1,0 +1,15 @@
+characteristic	percentageCTEconcentrators
+Total	0.366
+White	0.399
+Black	0.35
+Hispanic	0.321
+Asian	0.273
+Pacific Islander	"‡"
+American Indian/Alaska Native	0.452
+Two or more races	0.368
+Male	0.401
+Female	0.33
+Received special education services	0.347
+Did not receive special education services	0.366
+English as second language	0.273
+Not English as second language	0.369

@@ -1,0 +1,177 @@
+#body { margin:330; 
+	padding:10; }
+
+
+/* import fonts */
+@font-face {
+    font-family: 'Roboto Slab';
+    src: url('../font/RobotoSlab-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto Slab Light';
+    src: url('../font/RobotoSlab-Light.ttf');
+}
+@font-face {
+    font-family: 'Source Sans';
+    src: url('../font/SourceSansPro-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Source Sans Bold';
+    src: url('../font/SourceSansPro-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Source Sans SemiBold';
+    src: url('../font/SourceSansPro-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'Source Sans Light';
+    src: url('../font/SourceSansPro-Light.ttf');
+}
+
+/* global resets */
+body {
+    color: #474747;
+    font-family: 'Source Sans', sans-serif;
+    font-size: 17px;
+    line-height: 26.5px;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+    color: #2E2E2E;
+    font-family: 'Roboto Slab', serif;
+    font-size: 42px;
+    letter-spacing: -1.87px;
+    line-height: 62px;
+}
+
+h2 {
+    color: #2E2E2E;
+    font-family: 'Roboto Slab', serif;
+    font-size: 32px;
+    letter-spacing: -1.42px;
+    line-height: 47px;
+}
+
+h3 {
+    color: #2E2E2E;
+    font-family: 'Roboto Slab Light', sans-serif;
+    font-size: 26px;
+    line-height: 32px;
+}
+
+h4 {
+    color: #2E2E2E;
+    font-family: 'Source Sans Bold', sans-serif;
+    font-size: 17px;
+    line-height: 26.5px;
+}
+
+
+/*
+#map {
+  postion: relative;
+  height: 400px;
+  width: 800px;
+}
+
+#map2 {
+  postion: relative;
+  height: 400px;
+  width: 800px;
+}
+.first-menu {
+  position:relative;
+  top:10px;
+  right:10px;
+  }
+
+*/
+#map_counts {
+  postion: relative;
+  height: 800px;
+  width: 1500px;
+}
+
+.info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }
+
+
+#map2 {
+  postion: relative;
+  height: 800px;
+  width: 1500px;
+}
+
+.second-menu {
+  position:relative;
+  top:10px;
+  right:10px;
+  }
+
+
+ #graph2 div {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  font-size: 12px;
+  font-family: 'Source Sans Regular', sans-serif;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 5px;
+}
+
+.tooltip {
+    width: 150px;
+    padding: 4px 10px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    position: absolute;
+    background-color: white;
+    font-size: 14px;
+    pointer-events: none;
+    -webkit-transition: all 0.25s;
+    -moz-transition: all 0.25s;
+    -ms-transition: all 0.25s;
+    -o-transition: all 0.25s;
+    transition: all 0.25s;
+}
+
+.tooltip div {
+    margin: 3px 0;
+}
+
+.tooltip-date, .tooltip-schools {
+    font-weight: bold;
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+.focus circle {
+  fill: steelblue;
+  stroke: steelblue;
+}

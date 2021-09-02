@@ -1,0 +1,3 @@
+year	percentageCTEconcentrators	percentageNonCTEconcentrators
+By expected graduation year	0.943	0.86
+By three years after expected graduation year	0.981	0.915

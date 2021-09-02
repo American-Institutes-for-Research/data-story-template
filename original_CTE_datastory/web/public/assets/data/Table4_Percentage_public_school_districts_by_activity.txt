@@ -1,0 +1,7 @@
+characteristic	pctPublicSchoolDistricts
+"Offered on-the-job training, internships, practicums, clinical experiences, or cooperative education (co-op)"	0.768
+Offered CTE courses that earned both high school and postsecondary credits	0.73
+Offered mentoring by local employers	0.647
+Offered student-run enterprises or services	0.55
+Offered apprenticeships or pre-apprenticeship programs	0.308
+Offered other work-based learning	0.155

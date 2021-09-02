@@ -1,0 +1,15 @@
+characteristic	percentageCTEparticipants
+Total	0.769
+White	0.797
+Black	0.746
+Hispanic	0.737
+Asian	0.708
+Pacific Islander	0.587
+American Indian/Alaska Native	0.69
+Two or more races	0.767
+Male	0.804
+Female	0.732
+Received special education services	0.733
+Did not receive special education services	0.761
+English as second language	0.707
+Not English as second language	0.77

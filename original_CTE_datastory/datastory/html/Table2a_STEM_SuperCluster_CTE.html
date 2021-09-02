@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<style>
+
+    .state-borders :hover {
+        stroke: red;
+    }
+
+    .state-borders {
+        fill: none;
+        stroke: #fff;
+        stroke-width: 0.5px;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+        pointer-events: none;
+    }
+
+
+    .q0-9 { fill: #d9e0f2; }
+    .q1-9 { fill: #99b2dc; }
+    .q2-9 { fill: #5e8dc9; }
+    .q3-9 { fill: #2f5491; }
+    .q4-9 { fill: #0e2344; }
+
+
+    #qn { background-color: #ffffff; }
+    #q0-9 { background-color: #d9e0f2; }
+    #q1-9 { background-color: #99b2dc; }
+    #q2-9 { background-color: #5e8dc9; }
+    #q3-9 { background-color: #2f5491; }
+    #q4-9 { background-color: #0e2344; }
+
+    text.q4-9  { fill: #FF8C00; }
+    text.q3-9  { fill: #FFA500; }
+    text.q2-9  { fill: #FFD700; }
+    text.q1-9 { fill: #FF6347; }
+    text.q0-9 { fill: #FF7F50; }
+
+    div.tooltip {
+        position: absolute;
+        left: 75px;
+        text-align: center;
+        height: 70px;
+        padding: 8px;
+        font-size: 13px;
+        font-family: 'Proxima-Nova', sans-serif;
+        background: #FFFFFF;
+        border: 1px solid #989898;
+        pointer-events: none;
+        z-index: 10000;
+        width: 200px;
+    }
+
+    .block {
+        width:10%;
+        height: 15px;
+        display:inline-block;
+    }
+
+    .qn { fill: #ffffff; width:25%; }
+
+    ul {
+        width: 100%;
+        margin: auto;
+        margin-left: 220px;
+    }
+    .legendItem {
+        list-style-type: none;
+        font-family: LibreFranklin-Medium;
+        font-size: 10pt;
+    }
+
+
+    .legendItem li {
+        float: left;
+        width: 10.1%;
+        height: 10px;
+        position: relative;
+    }
+
+    #chooseChart{
+        border-color: #099ACC;
+        border-width: medium;
+    }
+
+</style>
+<script src="https://d3js.org/d3-selection.v1.min.js"></script>
+<script src="https://d3js.org/d3-array.v1.min.js"></script>
+<script src="https://d3js.org/d3-geo.v1.min.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://unpkg.com/topojson@3"></script>
+<script src="stem_supercluster/albers-usa-pr.js"></script>
+<script src="stem_supercluster/states.js"></script>
+<script src="stem_supercluster/Table2a_STEM_SuperCluster_CTE.js"></script>
+<!--<script src="stem.js"></script>-->
+<body style="margin: 50px" onload="makeChart()">
+
+<div align="center">
+    <h2 class="header">Percentage of high school CTE concentrations in the top three career clusters, by state: 2016-17</h2>
+    <br>
+    <br>
+    <h3 align="center">Choose a career cluster from the following dropdown menu:</h3>
+    <select id="chooseChart" align="center" onchange="makeChart()">
+        <option class = "lato" value="health">Health Science</option>
+        <option class = "lato" value="art">Arts, Audio-Visual Technology, and Communication</option>
+        <option class = "lato" value="business">Business Management and Administration</option>
+        <option class = "lato" value="agri">Agriculture, Food, and Natural Resources</option>
+    </select>
+</div>
+</select>
+<br>
+
+<div align="center" id="dropdownChart" onload="makeChart()"></div>
+<br>
+<br>
+<br>
+<br>
+<div class="legend">
+</div>
+<br>
+<br>
+<div id="stemChart">
+</div>
+</body>

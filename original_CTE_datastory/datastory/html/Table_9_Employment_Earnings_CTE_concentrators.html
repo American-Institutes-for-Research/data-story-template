@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Percentage distribution of high school CTE concentrators by employment earnings eight years after expected high school graduation</title>
+    <style type="text/css">
+        /*load the fonts from the .ttf files*/
+        @font-face {
+            font-family: 'LibreFranklin-Bold';
+            src: url('../build/font/LibreFranklin-Bold.ttf');
+        }
+        @font-face {
+            font-family: 'LibreFranklin-SemiBold';
+            src: url('../build/font/LibreFranklin-SemiBold.ttf');
+        }
+        @font-face {
+            font-family: 'LibreFranklin-Regular';
+            src: url('../build/font/LibreFranklin-Regular.ttf');
+        }
+        body {
+            font: 10px sans-serif;
+        }
+        .pie {
+            padding: 0 12px 5px 12px;
+        }
+        svg {
+            padding: 0px 50px 20px 0px;
+
+        }
+        .legend {
+            vertical-align: top;
+        }
+        .pieTextTitle {
+            font-family: LibreFranklin-SemiBold;
+            font-size: 14px;
+            color: #474747;
+            text-anchor: middle;
+            line-height: 17px;
+            text-align: center;
+        }
+        .pieText {
+            font-family: LibreFranklin-Regular;
+            font-size: 12px;
+            color: #474747;
+            line-height: 15px;
+            text-anchor: middle;
+            position: absolute;
+            text-align: left;
+        }
+
+        /*Styling for the lines connecting the labels to the slices*/
+        polyline{
+            opacity: .3;
+            stroke: black;
+            stroke-width: 2px;
+            fill: none;
+        }
+        #container{
+            width: 100%;
+            margin: auto;
+        }
+        #chart1{
+            float: left;
+        }
+
+        #chart2{
+            float: left;
+        }
+        #clear{
+            clear: both;
+        }
+    </style>
+
+<body>
+<!-- minified production script -->
+<script src="//d3js.org/d3.v4.min.js"></script>
+
+<!-- for development, you could uncomment the following and comment out built script -->
+<!-- <script src="../ChartLibs/d3.v4.js"></script> -->
+
+<script>
+    //set the margin attributes
+    let margin = {
+            top: 0,
+            right: 0,
+            bottom: 20,
+            left: 0
+        },
+        width = 1800 + margin.left + margin.right,
+        height = 800 + margin.bottom + margin.top;
+
+    let svg1 = d3.select("body").append("svg")
+        .attr("width", (width)/2)
+        .attr("height", (height + 100)/2)
+        .append('g')
+        .attr('align', 'center')
+        .attr("transform", "translate(" + (width + 120)/ 4 + "," + (height + 120)/ 4 + ")");
+
+    let  radius = Math.min(width/4, height/4);
+
+    function mouseover() {
+        pathAnim(d3.select(this), 1);
+    }
+
+    function  mouseout() {
+        let thisPath = d3.select(this);
+        if (!thisPath.classed('clicked')) {
+            pathAnim(thisPath, 0);
+        }
+    }
+
+
+    function click() {
+        let thisPath = d3.select(this);
+        let clicked = thisPath.classed('clicked');
+        pathAnim(thisPath, ~~(!clicked));
+        thisPath.classed('clicked', !clicked);
+
+    }
+
+    let pathAnim = function(path, dir) {
+        switch(dir) {
+            case 0:
+                path.transition()
+                    .duration(500)
+                    .ease(d3.easeBounce)
+                    .attr('d', d3.arc()
+                        .innerRadius((0))
+                        .outerRadius(radius*0.8)
+                    );
+                break;
+
+            case 1:
+                path.transition()
+                    .attr('d', d3.arc()
+                        .innerRadius((0))
+                        .outerRadius(radius*0.90)
+                    );
+                break;
+        }
+    };
+    
+    svg1.append("g")
+        .attr("class", "slices");
+    svg1.append("g")
+        .attr("class", "labels");
+    svg1.append("g")
+        .attr("class", "lines");
+
+    let color = d3.scaleOrdinal()
+        .domain(["Less than $20,000",
+            "$20,000 to $44,999",
+            "$45,000 and above"])
+        .range(['#D5ECF6','#74CAE2', '#278EBA']);
+
+    let pie1 = d3.pie().sort(null).value(function(d) {
+        return d.pctCTEdistribution;
+    });
+
+    let arc = d3.arc()
+        .innerRadius(0)
+        .outerRadius(function(){
+            return (d3.select(this).classed('clicked'))? radius
+                : (radius*0.8);
+        });
+
+    let outerArc = d3.arc()
+        .innerRadius(radius * 0.9)
+        .outerRadius(radius * 0.9);
+
+    let innerArc = d3.arc()
+        .innerRadius(radius * 0.45)
+        .outerRadius(radius * 0.45);
+
+    d3.csv("../assets/data/Table9_Employment_Earnings_CTE_concentrators.csv", function(error, data1) {
+        if (error) {
+            throw error;
+        }
+        let paths1 = svg1.selectAll('path')
+                         .data(pie1(data1))
+        paths1.enter()
+            .append('path')
+            .attr('d', arc)
+            .attr("fill", function (d) {
+                return color(d.data.characteristic);
+            })
+            .style('stroke', '#FFFFFF')
+            .on('mouseover', mouseover) //show / hide the tip based on where the mouse is
+            .on('mouseout', mouseout)
+            .on('click', click);
+
+        paths1.exit().remove();
+
+        svg1.selectAll('slices')
+            .data(pie1(data1))
+            .enter()
+            .append('text')
+            .text(function(d) {
+                return Math.round(d.data.pctCTEdistribution) + "%";
+            })
+            .attr('transform', function(d) {
+                    return "translate(" + innerArc.centroid(d) + ")";
+                })
+            .style('text-anchor', 'middle')
+            .style('font-size', 17);
+
+        svg1.append('g').classed('labels', true);
+        svg1.append('g').classed('lines', true);
+
+        svg1.append("text")
+            .attr("x", 0)
+            .attr("y", 0 - 9.8*margin.bottom - 20)
+            .attr("text-anchor", "middle")
+            .style("font-size", "24px")
+            .text("Percentage distribution of high school CTE concentrators by");
+
+        svg1.append("text")
+            .attr("x", 0)
+            .attr("y", 0 - 9.8*margin.bottom)
+            .attr("text-anchor", "middle")
+            .style("font-size", "24px")
+            .text("employment earnings eight years after expected high school graduation");
+
+
+        let polyline1 = svg1.select('.lines')
+            .selectAll('polyline')
+            .data(pie1(data1))
+            .enter().append('polyline')
+            .attr('points', function(d) {
+                let posA = innerArc.centroid(d);
+                let posB = outerArc.centroid(d);
+                let posC = outerArc.centroid(d);
+                posC[0] = radius * 0.84 * (midAngle(d) < Math.PI ? 1.2 : -1);
+                return [posA, posB, posC]
+            });
+
+
+
+        let label1 = svg1.select('.labels').selectAll('text')
+            .data(pie1(data1))
+            .enter().append('text')
+            .attr('class', 'pieTextTitle')
+            .attr('dy', '.35em')
+            .html(function(d) {
+                return d.data.characteristic;
+            })
+            .attr('transform', function(d) {
+                let pos = outerArc.centroid(d);
+                pos[0] = radius * 0.86 * (midAngle(d) < Math.PI ? 1.2 : -1);
+                return 'translate(' + pos + ')';
+            })
+            .style('text-anchor', function(d) {
+                return (midAngle(d)) < Math.PI ? 'start' : 'end';
+            });
+    });
+
+    function midAngle(d) { return d.startAngle + (d.endAngle - d.startAngle) / 2; }
+
+    let svg2 = d3.select("body").append("svg")
+        .attr("width", (width)/2)
+        .attr("height", (height + 100)/2)
+        .append('g')
+        .attr('align', 'center')
+        .attr("transform", "translate(" + (width + 120)/ 4 + "," + (height + 120)/ 4 + ")");
+
+    svg2.append("g")
+        .attr("class", "slices");
+    svg2.append("g")
+        .attr("class", "labels");
+    svg2.append("g")
+        .attr("class", "lines");
+
+    let pie2 = d3.pie().sort(null).value(function(d) {
+        return d.pctNonCTEdistribution;
+    });
+
+
+    d3.csv("../assets/data/Table9_Employment_Earnings_Non_CTE_concentrators.csv", function(error, data2) {
+        if (error) {
+            throw error;
+        }
+        let paths2 = svg2.selectAll('path')
+                         .data(pie2(data2));
+
+            paths2.enter()
+                    .append('path')
+                    .attr('d', arc)
+                    .attr("fill", function(d) {
+                        return color(d.data.characteristic1);
+                    })
+                .style('stroke', '#FFFFFF')
+                .on('mouseover', mouseover) //show / hide the tip based on where the mouse is
+                .on('mouseout', mouseout)
+                .on('click', click);
+
+            paths2.exit().remove();
+
+        svg2.selectAll('slices')
+            .data(pie2(data2))
+            .enter()
+            .append('text')
+            .text(function(d) {
+                return Math.round(d.data.pctNonCTEdistribution) + "%";
+            })
+            .attr('transform', function(d) {
+                return "translate(" + innerArc.centroid(d) + ")";
+            })
+            .style('text-anchor', 'middle')
+            .style('font-size', 17);
+
+        svg2.append('g').classed('labels', true);
+        svg2.append('g').classed('lines', true);
+
+        svg2.append("text")
+            .attr("x", 0)
+            .attr("y", 0 - 9.8*margin.bottom - 20)
+            .attr("text-anchor", "middle")
+            .style("font-size", "24px")
+            .text("Percentage distribution of high school non-CTE concentrators by");
+
+        svg2.append("text")
+            .attr("x", 0)
+            .attr("y", 0 - 9.8*margin.bottom)
+            .attr("text-anchor", "middle")
+            .style("font-size", "24px")
+            .text("employment earnings eight years after expected high school graduation");
+
+
+        let polyline2 = svg2.select('.lines')
+            .selectAll('polyline')
+            .data(pie2(data2))
+            .enter().append('polyline')
+            .attr('points', function(d) {
+                let posA = innerArc.centroid(d);
+                let posB = outerArc.centroid(d);
+                let posC = outerArc.centroid(d);
+                posC[0] = radius * 0.84 * (midAngle(d) < Math.PI ? 1.2 : -1);
+                return [posA, posB, posC]
+            });
+
+
+
+        let label2 = svg2.select('.labels').selectAll('text')
+            .data(pie2(data2))
+            .enter().append('text')
+            .attr('class', 'pieTextTitle')
+            .attr('dy', '.35em')
+            .html(function(d) {
+                return d.data.characteristic1;
+            })
+            .attr('transform', function(d) {
+                let pos = outerArc.centroid(d);
+                pos[0] = radius * 0.86 * (midAngle(d) < Math.PI ? 1.2 : -1);
+                return 'translate(' + pos + ')';
+            })
+            .style('text-anchor', function(d) {
+                return (midAngle(d)) < Math.PI ? 'start' : 'end';
+            });
+    });
+</script>

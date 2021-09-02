@@ -1,0 +1,7 @@
+location	percentagePublicSchoolDistricts
+Regular high school(s) in the same district	0.833
+CTE center - part time	0.429
+"2-year community or technical college, or a 4-year college or university"	0.348
+Online (including blended/hybrid courses)	0.301
+CTE-focused high school - full time	0.117
+Regular high school(s) in a different district	0.108
